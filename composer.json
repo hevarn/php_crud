@@ -1,0 +1,17 @@
+{
+    "name": "he-varne/projet-zero",
+    "authors": [
+        {
+            "name": "hevarn",
+            "email": "73584922+hevarn@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Router\\": "routes/",
+            "App\\": "App/",
+            "Database\\": "database/"
+        }
+    },
+    "require": {}
+}
