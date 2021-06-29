@@ -18,5 +18,11 @@ class Controller{
         require VIEWS.'layout.php';
 
         }
+    public function viewContent(string $path, array $params = null){
+        require VIEWS .$path.'.php';
+        $contentInside = ob_get_clean();
+        require VIEWS.'layout.php';
+
+        }
 
 }

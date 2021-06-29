@@ -1,29 +1,56 @@
 <div class="container-fluid">
-    <div class="container">
-        <h1> home page</h1>
+    <div class="container container-custom">
+        <div class="burger" id="header-toggle">
+            <span></span>
+        </div>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="navindex">
+                <div>
+                    <div class="nav_list">
+                        <a href="/projetZero/" class="nav_link">
+                            <i class='bx bx-grid-alt nav_icon'></i>
+                            <span class="nav_name">HOME</span> </a>
+                        <a href="/projetZero/user" class="nav_link">
+                            <i class='bx bx-user nav_icon'></i>
+                            <span class="nav_name">CONNECT</span> </a>
+                        <a href="/projetZero/posts" class="nav_link">
+                            <i class='bx bx-message-square-detail nav_icon'></i>
+                            <span class="nav_name">ARTICLE</span> </a>
+                        <!-- <a href="#" class="nav_link">
+                            <i class='bx bx-bookmark nav_icon'></i>
+                            <span class="nav_name">Bookmark</span> </a>
+                        <a href="#" class="nav_link">
+                            <i class='bx bx-folder nav_icon'></i>
+                            <span class="nav_name">Files</span> </a>
+                        <a href="#" class="nav_link">
+                            <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                            <span class="nav_name">Stats</span> </a> -->
+                    </div>
+                </div>
+                <a href="#" class="nav_link">
+                    <i class='bx bx-log-out nav_icon'></i>
+                    <span class="nav_name">SignOut</span>
+                </a>
+            </nav>
+        </div>
     </div>
-</div>
-<div class="container-fluid">
     <div class="container">
-        <h3> paragraphe 1</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias obcaecati assumenda, facere tenetur ex odio saepe et blanditiis omnis voluptate ullam libero praesentium dolores aspernatur natus unde ducimus corrupti distinctio optio labore consequuntur sint. Culpa nihil neque modi, temporibus ipsam magnam accusantium beatae placeat, cumque expedita dolor minus debitis eum aliquid dolorem quo molestias maxime labore alias impedit dignissimos. At modi perferendis corrupti non unde quae ipsa suscipit repellendus sapiente! Dolor harum, rem dolorem iste eos accusantium totam quas deserunt praesentium ullam porro hic libero reiciendis excepturi, veritatis error autem! Velit minus consectetur odio ab ipsam provident illum, ex, animi voluptates, assumenda itaque voluptatem. Deserunt accusamus aperiam, fuga eveniet eligendi itaque possimus impedit reprehenderit harum, sit dignissimos architecto laboriosam. Ea minima dolores debitis. Provident minima aliquam accusantium voluptatum nemo labore atque laborum quo iusto perspiciatis assumenda at repellat quae sit doloribus impedit, ipsa quia quam ab, asperiores adipisci illo facilis velit! Itaque aperiam tempore officia sequi cupiditate ad architecto nisi laboriosam provident, minus natus placeat soluta rerum fuga dicta veritatis ipsum nobis dignissimos, earum enim alias! Doloremque voluptates cupiditate dolorum commodi aspernatur? Explicabo error animi dolor sunt, officia aspernatur alias? Rerum sunt similique libero, temporibus nostrum doloribus! Quidem, non suscipit.</p>
-        <label for="name"> pour boir plus cliquez </label>
-        <input id="name" type="submit" value="ICI" href="/posts/:id">
-    </div>
-    <div class="container">
-        <h3> paragraphe 2</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias obcaecati assumenda, facere tenetur ex odio saepe et blanditiis omnis voluptate ullam libero praesentium dolores aspernatur natus unde ducimus corrupti distinctio optio labore consequuntur sint. Culpa nihil neque modi, temporibus ipsam magnam accusantium beatae placeat, cumque expedita dolor minus debitis eum aliquid dolorem quo molestias maxime labore alias impedit dignissimos. At modi perferendis corrupti non unde quae ipsa suscipit repellendus sapiente! Dolor harum, rem dolorem iste eos accusantium totam quas deserunt praesentium ullam porro hic libero reiciendis excepturi, veritatis error autem! Velit minus consectetur odio ab ipsam provident illum, ex, animi voluptates, assumenda itaque voluptatem. Deserunt accusamus aperiam, fuga eveniet eligendi itaque possimus impedit reprehenderit harum, sit dignissimos architecto laboriosam. Ea minima dolores debitis. Provident minima aliquam accusantium voluptatum nemo labore atque laborum quo iusto perspiciatis assumenda at repellat quae sit doloribus impedit, ipsa quia quam ab, asperiores adipisci illo facilis velit! Itaque aperiam tempore officia sequi cupiditate ad architecto nisi laboriosam provident, minus natus placeat soluta rerum fuga dicta veritatis ipsum nobis dignissimos, earum enim alias! Doloremque voluptates cupiditate dolorum commodi aspernatur? Explicabo error animi dolor sunt, officia aspernatur alias? Rerum sunt similique libero, temporibus nostrum doloribus! Quidem, non suscipit.</p>
-    </div>
-    <div class="container">
-        <h3> paragraphe 3</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias obcaecati assumenda, facere tenetur ex odio saepe et blanditiis omnis voluptate ullam libero praesentium dolores aspernatur natus unde ducimus corrupti distinctio optio labore consequuntur sint. Culpa nihil neque modi, temporibus ipsam magnam accusantium beatae placeat, cumque expedita dolor minus debitis eum aliquid dolorem quo molestias maxime labore alias impedit dignissimos. At modi perferendis corrupti non unde quae ipsa suscipit repellendus sapiente! Dolor harum, rem dolorem iste eos accusantium totam quas deserunt praesentium ullam porro hic libero reiciendis excepturi, veritatis error autem! Velit minus consectetur odio ab ipsam provident illum, ex, animi voluptates, assumenda itaque voluptatem. Deserunt accusamus aperiam, fuga eveniet eligendi itaque possimus impedit reprehenderit harum, sit dignissimos architecto laboriosam. Ea minima dolores debitis. Provident minima aliquam accusantium voluptatum nemo labore atque laborum quo iusto perspiciatis assumenda at repellat quae sit doloribus impedit, ipsa quia quam ab, asperiores adipisci illo facilis velit! Itaque aperiam tempore officia sequi cupiditate ad architecto nisi laboriosam provident, minus natus placeat soluta rerum fuga dicta veritatis ipsum nobis dignissimos, earum enim alias! Doloremque voluptates cupiditate dolorum commodi aspernatur? Explicabo error animi dolor sunt, officia aspernatur alias? Rerum sunt similique libero, temporibus nostrum doloribus! Quidem, non suscipit.</p>
-    </div>
-    <div class="container">
-        <h3> paragraphe 4</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias obcaecati assumenda, facere tenetur ex odio saepe et blanditiis omnis voluptate ullam libero praesentium dolores aspernatur natus unde ducimus corrupti distinctio optio labore consequuntur sint. Culpa nihil neque modi, temporibus ipsam magnam accusantium beatae placeat, cumque expedita dolor minus debitis eum aliquid dolorem quo molestias maxime labore alias impedit dignissimos. At modi perferendis corrupti non unde quae ipsa suscipit repellendus sapiente! Dolor harum, rem dolorem iste eos accusantium totam quas deserunt praesentium ullam porro hic libero reiciendis excepturi, veritatis error autem! Velit minus consectetur odio ab ipsam provident illum, ex, animi voluptates, assumenda itaque voluptatem. Deserunt accusamus aperiam, fuga eveniet eligendi itaque possimus impedit reprehenderit harum, sit dignissimos architecto laboriosam. Ea minima dolores debitis. Provident minima aliquam accusantium voluptatum nemo labore atque laborum quo iusto perspiciatis assumenda at repellat quae sit doloribus impedit, ipsa quia quam ab, asperiores adipisci illo facilis velit! Itaque aperiam tempore officia sequi cupiditate ad architecto nisi laboriosam provident, minus natus placeat soluta rerum fuga dicta veritatis ipsum nobis dignissimos, earum enim alias! Doloremque voluptates cupiditate dolorum commodi aspernatur? Explicabo error animi dolor sunt, officia aspernatur alias? Rerum sunt similique libero, temporibus nostrum doloribus! Quidem, non suscipit.</p>
-    </div>
-    <div class="container">
-        <h3> paragraphe 5</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias obcaecati assumenda, facere tenetur ex odio saepe et blanditiis omnis voluptate ullam libero praesentium dolores aspernatur natus unde ducimus corrupti distinctio optio labore consequuntur sint. Culpa nihil neque modi, temporibus ipsam magnam accusantium beatae placeat, cumque expedita dolor minus debitis eum aliquid dolorem quo molestias maxime labore alias impedit dignissimos. At modi perferendis corrupti non unde quae ipsa suscipit repellendus sapiente! Dolor harum, rem dolorem iste eos accusantium totam quas deserunt praesentium ullam porro hic libero reiciendis excepturi, veritatis error autem! Velit minus consectetur odio ab ipsam provident illum, ex, animi voluptates, assumenda itaque voluptatem. Deserunt accusamus aperiam, fuga eveniet eligendi itaque possimus impedit reprehenderit harum, sit dignissimos architecto laboriosam. Ea minima dolores debitis. Provident minima aliquam accusantium voluptatum nemo labore atque laborum quo iusto perspiciatis assumenda at repellat quae sit doloribus impedit, ipsa quia quam ab, asperiores adipisci illo facilis velit! Itaque aperiam tempore officia sequi cupiditate ad architecto nisi laboriosam provident, minus natus placeat soluta rerum fuga dicta veritatis ipsum nobis dignissimos, earum enim alias! Doloremque voluptates cupiditate dolorum commodi aspernatur? Explicabo error animi dolor sunt, officia aspernatur alias? Rerum sunt similique libero, temporibus nostrum doloribus! Quidem, non suscipit.</p>
+        <div class="row">
+            <?php foreach ($params['posts'] as $post) : ?>
+                <div class="col ">
+                    <div class="container margin">
+                        <div class="card mt-4" style="width: 18rem;">
+                            <img src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . $post->picture ?> " height="370px" class="card-img-top" alt="logo HTML CSS">
+                            <div class="card-body">
+                                <h5> <?= $post->name ?> </h5>
+                                <p> <?= $post->year ?></p>
+                                <p> <?= $post->grapes ?></p>
+                                <a href="/projetZero/posts/<?= $post->id ?>" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </div>
