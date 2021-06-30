@@ -13,7 +13,7 @@
             <ul id="menu-menu-principal" class="nav">
                 <li><a class="a_link" href="/projetZero/">home</a></li>
                 <li><a class="a_link" href="/projetZero/posts">articles</a></li>
-                <li><a class="a_link" href="#">Link 3</a></li>
+                <li><a class="a_link" href="">les couleurs</a></li>
                 <li><a class="a_link" href="#">Link 4</a></li>
             </ul>
         </div>
@@ -112,7 +112,7 @@
                     <div class="content">
                         <div class="title_custom title_histoire">
                             <div class="up">
-                                <h2 class="title_up">un peut</h2>
+                                <h2 class="title_up">un peu</h2>
                             </div>
                             <div class="down">
                                 <div class="side_left">

@@ -19,8 +19,10 @@
     <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'home_page.css' ?> ">
     <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'navbar.css' ?> ">
     <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'button.css' ?> ">
-    <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'custom.css' ?> ">
     <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'navbarindex.css' ?> ">
+    <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'adminPanel.css' ?> ">
+
+    <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'custom.css' ?> ">
 
 
 </head>
@@ -36,6 +38,7 @@
     <script src="<?= SCRIPTS . 'js' . DIRECTORY_SEPARATOR . 'scroll_home_page.js' ?>"></script>
     <script src="<?= SCRIPTS . 'js' . DIRECTORY_SEPARATOR . 'navbar.js' ?>"></script>
     <script src="<?= SCRIPTS . 'js' . DIRECTORY_SEPARATOR . 'navbarindex.js' ?>"></script>
+    <script src="<?= SCRIPTS . 'js' . DIRECTORY_SEPARATOR . 'adminPanel.js' ?>"></script>
 
 
 </body>

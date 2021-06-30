@@ -3,12 +3,13 @@ namespace App\Controller;
 
 use Database\DbConnection;
 
-class Controller{
+abstract class Controller{
     protected $db;
+    
     public function __construct(DbConnection $db) {
         $this->db= $db;
     }
-    public function view(string $path, array $params = null){
+    protected function view(string $path, array $params = null){
         ob_start();
         require VIEWS .$path.'.php';
         if($params){
@@ -17,12 +18,11 @@ class Controller{
         $content = ob_get_clean();
         require VIEWS.'layout.php';
 
-        }
-    public function viewContent(string $path, array $params = null){
-        require VIEWS .$path.'.php';
-        $contentInside = ob_get_clean();
-        require VIEWS.'layout.php';
+     }
 
-        }
+     protected function getDB(){
+        return $this->db;
+    }
+   
 
 }

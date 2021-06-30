@@ -33,3 +33,9 @@ body {
 .margin{
   margin-top: 10vh;
 }
+.badge-info{
+  background-color:#282828;
+}
+.ul-custom{
+  margin-right: 2vh;
+}

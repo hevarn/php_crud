@@ -2,7 +2,9 @@
 
 namespace Router;
 
+
 use Router\Route;
+use Exceptions\ExceptionForPageNotFound;
 
 class Router{
 
@@ -21,7 +23,9 @@ class Router{
                 $route->execute();
             }
         }
-        return header('HTTPS/1.0 404 Not found');
+        throw new ExceptionForPageNotFound();
+        
+        // return header('HTTP/1.0 404 Not Found');
     }
 
 }
