@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'button.css' ?> ">
     <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'navbarindex.css' ?> ">
     <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'adminPanel.css' ?> ">
+    <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'modifyPanel.css' ?> ">
+    <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'login.css' ?> ">
 
     <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'custom.css' ?> ">
 
@@ -28,7 +30,35 @@
 </head>
 
 <body>
-    <div class="container-custom">
+    <div class="container">
+        <div class="burger" id="header-toggle">
+            <span></span>
+        </div>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="navindex">
+                <div>
+                    <div class="nav_list">
+                        <a href="/projetZero/" class="nav_link">
+                            <i class='bx bx-grid-alt nav_icon'></i>
+                            <span class="nav_name">HOME</span> </a>
+                        <a href="/projetZero/admin/connect" class="nav_link">
+                            <i class='bx bx-user nav_icon'></i>
+                            <span class="nav_name">CONNEXION</span> </a>
+                        <a href="/projetZero/posts" class="nav_link">
+                            <i class='bx bx-message-square-detail nav_icon'></i>
+                            <span class="nav_name">ARTICLE</span> </a>
+
+                        <?php if (isset($_SESSION['auth'])) : ?>
+                            <a href="/projetZero/admin/logout" class="nav_link">
+                                <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                                <span class="nav_name">DECONNEXION</span> </a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container_custom">
         <?= $content ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -39,6 +69,7 @@
     <script src="<?= SCRIPTS . 'js' . DIRECTORY_SEPARATOR . 'navbar.js' ?>"></script>
     <script src="<?= SCRIPTS . 'js' . DIRECTORY_SEPARATOR . 'navbarindex.js' ?>"></script>
     <script src="<?= SCRIPTS . 'js' . DIRECTORY_SEPARATOR . 'adminPanel.js' ?>"></script>
+    <script src="<?= SCRIPTS . 'js' . DIRECTORY_SEPARATOR . 'login.js' ?>"></script>
 
 
 </body>

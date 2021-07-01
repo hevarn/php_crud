@@ -9,7 +9,7 @@ class Tags extends ModelSql{
         return $this->query("SELECT b.* FROM bottles b
                             INNER JOIN bottle_tag bt ON bt.bottle_id = b.id 
                             WHERE bt.tag_id = ?
-                            ", $this->id);
+                            ", [$this->id]);
     }
 
 }

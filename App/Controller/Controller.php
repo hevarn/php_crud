@@ -7,6 +7,9 @@ abstract class Controller{
     protected $db;
     
     public function __construct(DbConnection $db) {
+        if(session_status() === PHP_SESSION_NONE){
+            session_start();
+        }
         $this->db= $db;
     }
     protected function view(string $path, array $params = null){
@@ -22,6 +25,14 @@ abstract class Controller{
 
      protected function getDB(){
         return $this->db;
+    }
+
+    protected function isAdmin(){
+        if(isset($_SESSION['auth']) && $_SESSION['auth'] === 1){
+            return true;
+        }else{
+            return header('Location: /projetZero/admin/connect');
+          }
     }
    
 

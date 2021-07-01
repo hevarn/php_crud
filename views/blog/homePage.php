@@ -4,21 +4,6 @@
         overflow: hidden;
     }
 </style>
-<div class="container_nav">
-    <div id="burger">
-        <span></span>
-    </div>
-    <nav id="nav-main" class="nav-primary pull-right">
-        <div class="menu-menu-principal-container">
-            <ul id="menu-menu-principal" class="nav">
-                <li><a class="a_link" href="/projetZero/">home</a></li>
-                <li><a class="a_link" href="/projetZero/posts">articles</a></li>
-                <li><a class="a_link" href="">les couleurs</a></li>
-                <li><a class="a_link" href="#">Link 4</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
 <div class="container-row">
     <img class="arrow_up" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . 'right-arrow.svg' ?>" alt="fleche" id="button">
     <img class="arrow_down" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . 'right-arrow.svg' ?>" alt="fleche" id="button1">

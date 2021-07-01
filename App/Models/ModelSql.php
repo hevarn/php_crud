@@ -1,40 +1,80 @@
 <?php
 
 namespace App\Models;
+
 use PDO;
 use Database\DbConnection;
 
-abstract class ModelSql{
+abstract class ModelSql
+{
 
     protected $db;
     protected $table;
 
-    public function __construct(DbConnection $db){
+    public function __construct(DbConnection $db)
+    {
         $this->db = $db;
     }
 
-    public function all():array {
+    public function all(): array
+    {
         return $this->query("SELECT * FROM {$this->table}");
-       
     }
 
-    public function findById(int $id):ModelSql{
-        return $this->query("SELECT * FROM {$this->table} WHERE id = ?",$id,true);
+    public function findById(int $id): ModelSql
+    {
+        return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
     }
 
-    public function query(string $sql, int $param=null, bool $single=null){
+    public function destroy(int $id)
+    {
+        return $this->query("DELETE FROM {$this->table} WHERE id = ?", [$id]);
+    }
+
+    public function sendUpdate(int $id, array $data,?array $relations = null){
+        $sqlRequestPart = "";
+        $i = 1;
+        foreach($data as $key => $value){
+            $comma = $i === count($data)? "" : ', ';
+            $sqlRequestPart .= "{$key} = :{$key}{$comma}";
+            $i++;
+        }
+        $data['id'] = $id;
+        return $this->query("UPDATE {$this->table} SET {$sqlRequestPart} WHERE id = :id", $data);    
+    }
+
+    public function create(array $data,?array $relations = null){
+        $firstParenthesis = "";
+        $secondParenthesis = "";
+        $i = 1;
+        foreach($data as $key =>$value){
+            $comma = $i === count($data)? "" : ', ';
+            $firstParenthesis .= "{$key}{$comma}";
+            $secondParenthesis .= ":{$key}{$comma}";
+            $i++;
+        }
+        return $this->query("INSERT INTO {$this->table} ($firstParenthesis) VALUE ($secondParenthesis)",$data);
+    }
+
+    public function query(string $sql, array $param = null, bool $single = null)
+    {
         $method = is_null($param) ? 'query' : 'prepare';
+
+        if(strpos($sql, 'DELETE') === 0 
+        || strpos($sql, 'UPDATE') === 0 
+        || strpos($sql, 'INSERT') === 0) {
+            $stmt = $this->db->getPDO()->$method($sql);
+            $stmt->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
+            return $stmt->execute($param);
+        }
         $fetch = is_null($single) ? 'fetchAll' : 'fetch';
         $stmt = $this->db->getPDO()->$method($sql);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, get_class($this),[$this->db]);
-        if($method === 'query'){
+        $stmt->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
+        if ($method === 'query') {
             return $stmt->$fetch();
-        }else{
-            $stmt->execute([$param]);
+        } else {
+            $stmt->execute($param);
             return $stmt->$fetch();
         }
     }
-
-
-
 }
