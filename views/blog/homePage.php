@@ -5,8 +5,8 @@
     }
 </style>
 <div class="container-row">
-    <img class="arrow_up" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . 'right-arrow.svg' ?>" alt="fleche" id="button">
-    <img class="arrow_down" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . 'right-arrow.svg' ?>" alt="fleche" id="button1">
+
+
     <div class="main-pages" id="premier">
         <div class="page page-1 active">
             <div class="page__half left">
@@ -14,6 +14,13 @@
                     <div class="content"></div>
                 </div>
             </div>
+            <div class="arrow_up bounce">
+                <img class="arrow_up" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . 'right-arrow.svg' ?>" alt="fleche" id="button">
+            </div>
+            <div class="arrow_down bounce">
+                <img class="arrow_down" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . 'right-arrow.svg' ?>" alt="fleche" id="button1">
+            </div>
+
             <div class="page__half right">
                 <div class="page__skewed">
                     <div class="content">

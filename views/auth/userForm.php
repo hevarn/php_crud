@@ -1,15 +1,21 @@
-<div class="container">
+<div class="container_custom">
    <div class="container_login">
       <section id="formHolder">
          <div class="row">
             <!-- Brand Box -->
             <div class="col-sm-6 brand">
                <div class="heading">
-                  <h2>Ce connecter</h2>
-               </div>
-               <div class="success-msg">
-                  <p>Great! You are one of our members now</p>
-                  <a href="#" class="profile">Your Profile</a>
+                  <div class="content_text_anim">
+                     <img class="content__container__img" src="<?= SCRIPTS.'img'.DIRECTORY_SEPARATOR.'moi_emoji.png' ?>">
+                     <div class="content__container">
+                        <ul class="content__container__list">
+                           <li class="content__container__list__item">HELLO !</li>
+                           <li class="content__container__list__item">CIAO!</li>
+                           <li class="content__container__list__item">SALUT !</li>
+                           <li class="content__container__list__item">CHÀO !</li>
+                        </ul>
+                     </div>
+                  </div>
                </div>
             </div>
             <!-- Form Box -->
@@ -40,7 +46,7 @@
 
                      <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" name="username" id="name" >
+                        <input type="text" name="username" id="name">
                         <span class="error"></span>
                      </div>
 

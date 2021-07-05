@@ -3,6 +3,57 @@ font-family: 'Bebas Neue', cursive;
 font-family: 'Big Shoulders Display', cursive;
 font-family: 'Dela Gothic One', cursive; */
 
+/* arrow */
+.arrow_up {
+  text-align: center;
+  margin: 8% 0;
+  position: absolute;
+  left: 50%;
+  z-index: 1;
+}
+.arrow_down {
+  text-align: center;
+  margin: 8% 0;
+  position: absolute;
+  left: 50%;
+  z-index: 1;
+  height:35vh;
+}
+.bounce {
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+@-webkit-keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
 .main-pages {
   overflow: hidden;
   position: relative;

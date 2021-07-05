@@ -339,3 +339,6 @@
 .admin_btn{
   margin-bottom: 2vh;
 }
+.ligne{
+  display: flex;
+}

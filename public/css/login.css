@@ -1,33 +1,25 @@
-body {
+/* body {
   font-family: "Montserrat", sans-serif;
   background: #f7edd5;
-}
-.container-custom{
-    margin-top: 10vh;
+} */
+.container_custom {
+  width: 100%;
+  height: 100vh;
+  margin-top: 15vh;
 }
 .container_login {
   max-width: 900px;
   margin: 0 auto;
 }
-input {
-  outline: none !important;
-}
-
-section#formHolder {
-  padding: 50px 0;
-}
-
+/* float panel */
 .brand {
-  padding: 20px;
-  background: url(https://goo.gl/A0ynht);
-  background-size: cover;
   background-position: center center;
   color: #fff;
   min-height: 540px;
   position: relative;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.6s cubic-bezier(1, -0.375, 0.285, 0.995);
-  z-index: 9999;
+  z-index: 1;
 }
 .brand.active {
   width: 100%;
@@ -40,82 +32,94 @@ section#formHolder {
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(63, 63, 63, 0.563);
+  backdrop-filter: blur(3px);
   z-index: -1;
 }
-.brand a.logo {
-  color: #f95959;
-  font-size: 20px;
-  font-weight: 700;
-  text-decoration: none;
-  line-height: 1em;
-}
-.brand a.logo span {
-  font-size: 30px;
-  color: #fff;
-  transform: translateX(-5px);
-  display: inline-block;
-}
-.brand .heading {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  transition: all 0.6s;
-}
+/* position float panel  */
+
 .brand .heading.active {
   top: 100px;
   left: 100px;
   transform: translate(0);
 }
-.brand .heading h2 {
-  font-size: 70px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 0;
-}
-.brand .heading p {
-  font-size: 15px;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  white-space: 4px;
-  font-family: "Raleway", sans-serif;
-}
-.brand .success-msg {
-  width: 100%;
-  text-align: center;
+/* text animation float panel */
+.content_text_anim {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 60%;
   transform: translate(-50%, -50%);
-  margin-top: 60px;
+  font-size: 35px;
+  line-height: 40px;
+  color: #ecf0f1;
 }
-.brand .success-msg p {
-  font-size: 25px;
-  font-weight: 400;
-  font-family: "Raleway", sans-serif;
+.content__container {
+  font-weight: 600;
+  overflow: hidden;
+  height: 40px;
 }
-.brand .success-msg a {
-  font-size: 12px;
-  text-transform: uppercase;
-  padding: 8px 30px;
-  background: #f95959;
-  text-decoration: none;
-  color: #fff;
-  border-radius: 30px;
+.content__container__img {
+  position: absolute;
+  top: -30%;
+  left: -20%;
+  transform: translate(-50%, -50%);
+  width: 12vh;
 }
-.brand .success-msg p,
-.brand .success-msg a {
-  transition: all 0.9s;
-  transform: translateY(20px);
-  opacity: 0;
+.content__container__list {
+  margin-top: 0;
+  list-style: none;
+  -webkit-animation-name: change;
+  -webkit-animation-duration: 10s;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: change;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
 }
-.brand .success-msg p.active,
-.brand .success-msg a.active {
-  transform: translateY(0);
-  opacity: 1;
+.content__container__list__item {
+  line-height: 40px;
+  margin: 0;
+  margin-bottom: .5vh;
+}
+ul :nth-child(1){
+  background-color:#f95959af;
+  width: 16vh;
+}
+ul :nth-child(2){
+  background-color:#f9d459ad;
+  width: 12vh;
+}
+ul :nth-child(3){
+  background-color:#78baf8ab;
+  width: 16vh;
+}
+ul :nth-child(4){
+  background-color:#bc8aee93;
+  width: 16vh;
+}
+
+
+@-webkit-keyframes change {
+  0%, 12.66%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  16.66%, 29.32% {
+    transform: translate3d(0, -26%, 0);
+  }
+  33.32%, 45.98% {
+    transform: translate3d(0, -50%, 0);
+  }
+  49.98%, 62.64% {
+    /* purple */
+    transform: translate3d(0, -79%, 0);
+  }
+  66.64%, 79.3% {
+    /* blue */
+    transform: translate3d(0, -54%, 0);
+  }
+  83.3%, 95.96% {
+    /* yellow */
+    transform: translate3d(0, -25%, 0);
+  }
 }
 
 .form {
