@@ -1,86 +1,64 @@
-<div class="container_custom">
-   <div class="container_login">
-      <section id="formHolder">
-         <div class="row">
-            <!-- Brand Box -->
-            <div class="col-sm-6 brand">
-               <div class="heading">
-                  <div class="content_text_anim">
-                     <img class="content__container__img" src="<?= SCRIPTS.'img'.DIRECTORY_SEPARATOR.'moi_emoji.png' ?>">
-                     <div class="content__container">
-                        <ul class="content__container__list">
-                           <li class="content__container__list__item">HELLO !</li>
-                           <li class="content__container__list__item">CIAO!</li>
-                           <li class="content__container__list__item">SALUT !</li>
-                           <li class="content__container__list__item">CHÀO !</li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
+<main class="main-formLogin">
+      <div class="home-img-formLogin">
+        <img
+          class="move"
+          src="assets/img-form-login/1.png"
+          alt="img-background-home"
+          data-speed="-5"
+        />
+        <img
+          class="move"
+          id="bottle"
+          src="/projetZero/assets/img-form-login/2.png"
+          alt="img-background-home"
+          data-speed="7"
+        />
+        <img
+          class="move"
+          src="/projetZero/assets/img-form-login/3.png"
+          alt="img-background-home"
+          data-speed="10"
+        />
+        <img
+          class="move"
+          src="/projetZero/assets/img-form-login/4.png"
+          alt="img-background-home"
+          data-speed="-2"
+        />
+        <img
+          class="move"
+          src="/projetZero/assets/img-form-login/5.png"
+          alt="img-background-home"
+          data-speed="-6"
+        />
+        <img
+          class="move"
+          src="/projetZero/assets/img-form-login/6.png"
+          alt="img-background-home"
+          data-speed="3"
+        />
+      </div>
+      <div class="form-structor">
+        <div class="signup">
+          <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+          <div class="form-holder">
+            <input type="text" class="input" placeholder="Name" />
+            <input type="email" class="input" placeholder="Email" />
+            <input type="password" class="input" placeholder="Password" />
+          </div>
+          <button class="submit-btn">Sign up</button>
+        </div>
+        <div class="login slide-up">
+          <div class="center">
+            <h2 class="form-title" id="login"><span>or</span>Log in</h2>
+            <div class="form-holder">
+              <input type="email" class="input" placeholder="Email" />
+              <input type="password" class="input" placeholder="Password" />
             </div>
-            <!-- Form Box -->
-            <div class="col-sm-6 form">
-               <!-- Login Form -->
-               <div class="login form-peice switched">
-                  <form class="login-form" action="/projetZero/admin/valid" method="POST">
-                     <div class="form-group">
-                        <label for="username">Nom d'utilisateur</label>
-                        <input type="text" name="username" id="username" required>
-                     </div>
-                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" required>
-                     </div>
-
-                     <div class="CTA">
-                        <input type="submit" value="Login">
-                        <a href="#" class="switch">I'm New</a>
-                     </div>
-                  </form>
-               </div><!-- End Login Form -->
-
-
-               <!-- Signup Form -->
-               <div class="signup form-peice">
-                  <form class="signup-form" action="/projetZero/User/valid" method="POST">
-
-                     <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" name="username" id="name">
-                        <span class="error"></span>
-                     </div>
-
-                     <div class="form-group">
-                        <label for="email">Email Adderss</label>
-                        <input type="email" name="emailAdress" id="email" class="email">
-                        <span class="error"></span>
-                     </div>
-
-                     <div class="form-group">
-                        <label for="phone">Phone Number - <small>Optional</small></label>
-                        <input type="text" name="phone" id="phone">
-                     </div>
-
-                     <div class="form-group">
-                        <label for="passwordFirst">Password</label>
-                        <input type="password" name="password" id="passwordFirst" class="pass">
-                        <span class="error"></span>
-                     </div>
-
-                     <div class="form-group">
-                        <label for="passwordCon">Confirm Password</label>
-                        <input type="password" name="passwordCon" id="passwordCon" class="passConfirm">
-                        <span class="error"></span>
-                     </div>
-
-                     <div class="CTA">
-                        <input type="submit" value="Signup Now" id="submit">
-                        <a href="#" class="switch">I have an account</a>
-                     </div>
-                  </form>
-               </div><!-- End Signup Form -->
-            </div>
-         </div>
-      </section>
-   </div>
-</div>
+            <button class="submit-btn">Log in</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--MAIN
+    ==========================-->

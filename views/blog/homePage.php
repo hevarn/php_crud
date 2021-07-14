@@ -1,145 +1,39 @@
-<style type="text/css">
-    html,
-    body {
-        overflow: hidden;
-    }
-</style>
-<div class="container-row">
-
-
-    <div class="main-pages" id="premier">
-        <div class="page page-1 active">
-            <div class="page__half left">
-                <div class="page__skewed">
-                    <div class="content"></div>
-                </div>
-            </div>
-            <div class="arrow_up bounce">
-                <img class="arrow_up" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . 'right-arrow.svg' ?>" alt="fleche" id="button">
-            </div>
-            <div class="arrow_down bounce">
-                <img class="arrow_down" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . 'right-arrow.svg' ?>" alt="fleche" id="button1">
-            </div>
-
-            <div class="page__half right">
-                <div class="page__skewed">
-                    <div class="content">
-                        <div class="title_custom">
-                            <div class="up">
-                                <h2 class="title_up">bienvenue</h2>
-                            </div>
-                            <div class="down">
-                                <div class="side_left">
-                                    <h2 class="title_mid">a</h2>
-                                    <h2 class="title_mid">la</h2>
-                                </div>
-                                <div class="side_right">
-                                    <h2 class="title_down">vigne</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="description">Just scroll down</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="page page-2">
-            <div class="page__half left">
-                <div class="page__skewed">
-                    <div class="content">
-                        <div class="title_custom title_cave">
-                            <div class="up">
-                                <h2 class="title_up">voici</h2>
-                            </div>
-                            <div class="down">
-                                <div class="side_left">
-                                    <h2 class="title_mid">la</h2>
-                                </div>
-                                <div class="side_right">
-                                    <h2 class="title_down">cave</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="description">Nothing to do here, continue scrolling.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="page__half right">
-                <div class="page__skewed">
-                    <div class="content"></div>
-                </div>
-            </div>
-        </div>
-        <div class="page page-3">
-            <div class="page__half left">
-                <div class="page__skewed">
-                    <div class="content"></div>
-                </div>
-            </div>
-            <div class="page__half right">
-                <div class="page__skewed">
-                    <div class="content">
-                        <div class="title_custom title_viticulteurs">
-                            <div class="up">
-                                <h2 class="title_up">je vous</h2>
-                            </div>
-                            <div class="down">
-                                <div class="side_left">
-                                    <h2 class="title_mid title_mid_chai">presente</h2>
-                                    <h2 class="title_mid">le</h2>
-                                </div>
-                                <div class="side_right">
-                                    <h2 class="title_down">chai</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="description">The end is near, I promise!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="page page-4">
-            <div class="page__half left">
-                <div class="page__skewed">
-                    <div class="content">
-                        <div class="title_custom title_histoire">
-                            <div class="up">
-                                <h2 class="title_up">un peu</h2>
-                            </div>
-                            <div class="down">
-                                <div class="side_left">
-                                    <h2 class="title_mid">d'</h2>
-                                </div>
-                                <div class="side_right">
-                                    <h2 class="title_down">histoire</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="description">Ok, ok, just one more scroll!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="page__half right">
-                <div class="page__skewed">
-                    <div class="content"></div>
-                </div>
-            </div>
-        </div>
-        <div class="page page-5">
-            <div class="page__half left">
-                <div class="page__skewed">
-                    <div class="content"></div>
-                </div>
-            </div>
-            <div class="page__half right">
-                <div class="page__skewed">
-                    <div class="content">
-                        <h2 class="page__heading">Epic finale</h2>
-                        <p id="dernier" class="description">
-                        </p>
-                    </div>
-                </div>
-            </div>
+<section class="general-section">
+    <!-- OVERLAY
+    =============================== -->
+    <div class="overlay first"></div>
+    <div class="overlay second">
+        <div class="container-loading-img">
+            <img src="assets/img/snake.gif" alt="icon-gif">
+            <span class="loader-59">
         </div>
     </div>
-</div>
+    <div class="overlay third"></div>
+    <!-- MAIN 
+    =============================== -->
+    <main class="l-main">
+        <section class="home page-1">
+            <div class="home-container bd-grid">
+                <div class="home-img">
+                    <img class="move" src="/projetZero/assets/img/biscuit.png" alt="img-background-home" data-speed="-2" />
+                    <img class="move" src="/projetZero/assets/img/bouteille.png" alt="img-background-home" data-speed="2" />
+                    <img class="move" src="/projetZero/assets/img/fromage.png" alt="img-background-home" data-speed="2" />
+                    <img class="move" src="/projetZero/assets/img/plateau.png" alt="img-background-home" data-speed="-2" />
+                    <img class="move" src="/projetZero/assets/img/verre.png" alt="img-background-home" data-speed="-4" />
+                    <img class="move" src="/projetZero/assets/img/tireBouchon.png" alt="img-background-home" data-speed="2" />
+                </div>
+                <div class="home-data">
+                    <h2 class="home-title-up">Welcome</h2>
+                    <h3 class="home-title-mid">to</h3>
+                    <h1 class="home-title">My Cave</h1>
+                    <p class="home-paragraphe">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br />
+                        Reprehenderit possimus at temporibus officia culpa.
+                    </p>
+                    <a href="/projetZero/posts" class="home-button goCave">Enter</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- SECTION
+    =============================== -->

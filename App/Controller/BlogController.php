@@ -12,9 +12,9 @@ class BlogController extends Controller
 
     public function homePage()
     {
-
         return $this->view('blog/homePage');
     }
+
     public function indexArticle(){
 
         $req = new BottleSql($this->getDB());
