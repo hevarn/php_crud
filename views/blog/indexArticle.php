@@ -1,12 +1,17 @@
 <section class="card-container page-2" id="cave">
     <!-- OVERLAY
           =============================== -->
+    <div class="overlay second-th">
+        <div class="container-loading-img">
+            <span class="loader-59">
+        </div>
+    </div>
 
     <!--CARDS
             ============================= -->
     <?php foreach ($params['reqs'] as $req) : ?>
         <div class="card">
-            <img src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . $req->picture ?>">
+            <img class="imag-card-wine" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . $req->picture ?>">
             <?php foreach ($req->ToRecoverTheBottleTags() as $tag) : ?>
                 <div class="container-btn-cardWine" id="colorWine">
                     <a href="/projetZero/tags/<?= $tag->id ?>"><?= $tag->name ?></a>

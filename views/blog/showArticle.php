@@ -1,7 +1,14 @@
 <div class="container-cardWine-focus">
-  <div class="card" id="card-custom">
-    <img id="img-cardWine" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . $params['req']->picture ?> " class="card-img-top" alt="<?= $params['req']->picture ?>">
-  
+  <!-- OVERLAY
+          =============================== -->
+  <div class="overlay third">
+    <div class="container-loading-img">
+      <span class="loader-59">
+    </div>
+  </div>
+  <div class="card-cardWine-focus">
+    <img class="img-cardWine"id="img-cardWine" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . $params['req']->picture ?> " class="card-img-top" alt="<?= $params['req']->picture ?>">
+
     <div class="body-card" id="body-card-custom">
       <h5 class="card-title"><?= $params['req']->name ?></h5>
       <p class="card-text"><?= $params['req']->year ?></p>

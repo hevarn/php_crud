@@ -25,8 +25,8 @@
   --h2-color: rgb(173, 84, 84);
   --hover-navbar: #953737b0;
   --loading-color: #d57b7b;
-  --background-login-form:#fffefe2c;
-  --background-sign-up-form:#fffdfd99;
+  --background-login-form: #fffefe2c;
+  --background-sign-up-form: #fffdfd99;
 
   /* -- FONTS -- 
     =============================== */
@@ -35,7 +35,7 @@
   --normal-font-size: 0.938rem;
   --little-font-size: 1.8rem;
   --logo-font-size: 1.5rem;
-  --font-a-cardWine:.690rem;
+  --font-a-cardWine: 0.69rem;
 
   /* -- Z_INDEX --  
     =============================== */
@@ -67,27 +67,13 @@
 }
 
 .first,
-.fourth,
-.seventh {
-  background: var(--loading-color);
-}
-
-.second,
-.fifth,
-.eighth {
+.second-th,
+.third {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: 6vh;
-  background: var(--loading-color);
-  left: 33.3%;
-}
-
-.third,
-.sixth,
-.ninth {
-  background: var(--loading-color);
-  left: 66.6%;
+  background: #a8a7a73b;
+  backdrop-filter: blur(4px);
 }
 
 .container-loading-img {
@@ -185,11 +171,521 @@
   }
 }
 
-/* -- MEDIA QUERY -- 
+/* -- MEDIA QUERY  300+ -- 
   ===========================*/
 @media screen and (min-width: 300px) {
-  /* -- GENERAL CONTAINER -- 
-  ===========================*/
+  /* -- BASE --  
+   =================================================== 
+   ///////////////////////////////////////////////////
+  ////////////////////////////////////////////////////
+   =================================================== */
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: var(--header-height) 0 0 0;
+    padding: 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-weight: 500;
+  }
+  h1,
+  h2,
+  h3,
+  p,
+  ul,
+  a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+  }
+  a {
+    color: var(--wite-color);
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    opacity: 0.87;
+  }
+  .glass {
+    top: 0px;
+  }
+  .l-main {
+    overflow: hidden;
+    height: 100vh;
+  }
+  /* -- SCROLL EFFECT --  
+   ========================= */
+  .active {
+    transform: translate3d(0, 0, 0);
+  }
+  .inactive {
+    opacity: 0.5;
+    transform: skewX(18deg) scale(0.95);
+  }
+  /* -- HEADER --  
+   ========================= */
+  .bd-grid {
+    max-width: 1024px;
+    display: grid;
+    grid-template-columns: auto;
+    column-gap: 2rem;
+    width: calc(100% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .l-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-index);
+    background-color: var(--first-color);
+    box-shadow: 6px 6px 14px #794444bd;
+  }
+  /* -- NAVBAR --  
+   ========================= */
+  .nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .home-title-mid {
+    font-size: var(--little-font-size);
+    position: absolute;
+    top: 18%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* -- SECTION-CARD -- INDEX-ARTICLE CARDWINE --
+   ===================================================
+   ///////////////////////////////////////////////////
+  //////////////////////////////////////////////////// 
+   =================================================== */
+  /* focus card in showArticle */
+  .container-cardWine-focus {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--first-color);
+  }
+  .card-container {
+    padding-top: 10rem;
+    position: relative;
+    background-color: var(--first-color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow: scroll;
+    height: 100vh;
+  }
+  .card {
+    padding: 1rem;
+    background: var(--card-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 20px 25px 60px #562e2ea8, -20px -20px 60px #cf7878;
+    margin: 3vw;
+    transition: 0.5s;
+    transform: scale(1);
+  }
+  /* focus card in showArticle */
+  .card-cardWine-focus {
+    padding: 1rem;
+    background: var(--card-color);
+    display: flex;
+    flex-direction: row;
+    width: 93%;
+    margin: 0;
+    border-radius: 12px;
+    box-shadow: 20px 25px 60px #562e2ea8, -20px -20px 60px #cf7878;
+  }
+
+  /* hover imgCardWine effect in indexArticle*/
+  .card img {
+    transition: transform 0.5s, filter 1.1s ease-in-out;
+    transform-origin: center center;
+    filter: brightness(50%);
+    border-radius: 12px;
+    max-height: 44vh;
+    box-shadow: 2px 2px 5px #08080898, -2px -2px 7px #c47d7d;
+  }
+  .card:hover img {
+    filter: brightness(100%);
+    transform: scale(1.3);
+  }
+
+  /* focus card in showArticle */
+  #img-cardWine {
+    max-width: 40%;
+    max-height: 77vh;
+    border-radius: 20px;
+  }
+  .body-card {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    text-align: center;
+  }
+  /* focus card in showArticle */
+  #body-card-custom {
+    padding: 2.5rem;
+    width: 30vw;
+    text-align: left;
+    background-color: #ebb6b6a3;
+    border-radius: 60px;
+    box-shadow: 8px 8px 13px #562e2ea8, -10px -10px 12px #c6737396;
+  }
+  #colorWine {
+    margin-top: 2rem;
+    padding: 0.5vh;
+    border-radius: 10px;
+  }
+
+  .card-title {
+    font-size: 20px;
+    border-bottom: 1px solid rgb(88, 22, 22);
+  }
+  .card-text {
+    font-size: 12px;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid rgb(88, 22, 22);
+  }
+
+  /* link in cardWine in indexArticle */
+  .container-btn-cardWine {
+    padding: 2vh;
+  }
+  .container-btn-cardWine a {
+    padding: 2vh;
+    border-radius: 20px;
+    background-color: var(--first-color-dark);
+    box-shadow: 3px 3px 6px #562e2e45, -1px -1px 4px #b16666eb;
+    font-size: var(--font-a-cardWine);
+    transition: 0.5s;
+  }
+  .container-btn-cardWine a:hover {
+    transition: 0.5s;
+    border-radius: 20px;
+    background-color: var(--first-color-darken);
+  }
+
+  /* links cardWine in showArticle */
+  .container-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 12rem;
+  }
+  
+
+  /*--- CARDWINE IN SHOWTAG ---
+  ==================================================
+  /////////////////////////////////////////////////
+  /////////////////////////////////////////////////
+  ================================================= */
+  .container-cardWine-showTag{
+    display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  margin-top:5rem;
+
+  }
+  .card-cardWine-showTag img{
+    position: relative;
+    border-radius:20px;
+  }
+  /*--- FORM ---
+  ==================================================
+  /////////////////////////////////////////////////
+  /////////////////////////////////////////////////
+  ================================================= */
+
+  .main-formLogin {
+    height: 100vh;
+    background-color: var(--first-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .home-img-formLogin {
+    position: relative;
+    justify-self: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .home-img-formLogin img {
+    position: absolute;
+    top: 20%;
+    left: 0;
+  }
+  .form-structor {
+    border-radius: 30px;
+    height: 550px;
+    width: 350px;
+    position: absolute;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    background-color: var(--background-login-form);
+    box-shadow: 4px 3px 17px #562e2ea8, -2px -3px 12px #df8e8ecc;
+  }
+  .form-structor::after {
+    content: "";
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 500px;
+  }
+  .form-structor .signup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    z-index: 5;
+    transition: all 0.3s ease;
+  }
+  .form-structor .signup.slide-up {
+    top: 5%;
+    transform: translate(-50%, 0%);
+    transition: all 0.3s ease;
+  }
+  .form-structor .signup.slide-up .form-holder,
+  .form-structor .signup.slide-up .submit-btn {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .form-structor .signup.slide-up .form-title {
+    font-size: 1em;
+    cursor: pointer;
+  }
+  .form-structor .signup.slide-up .form-title span {
+    margin-right: 5px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+  }
+
+  /* -- PART SIGN UP--
+    ==================================================
+  /////////////////////////////////////////////////
+  /////////////////////////////////////////////////
+  ================================================= */
+  .form-structor .signup .form-holder {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 50px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 7px #562e2ea8, -1px -1px 20px #d29090;
+  }
+  .form-structor .signup .form-holder .input {
+    border: 0;
+    outline: none;
+    box-shadow: none;
+    display: block;
+    height: 55px;
+    line-height: 30px;
+    padding: 8px 15px;
+    border-bottom: 1px solid var(--card-color);
+    background-color: transparent;
+    width: 100%;
+    font-size: 12px;
+  }
+  /* --  SIGN UP TITLE--
+  ======================== */
+  .form-structor .signup .form-title {
+    color: #fff;
+    font-size: 2.7em;
+    text-align: center;
+    text-shadow: 5px 5px 12px #562e2ea8, -6px -5px 20px #cf7878;
+  }
+  .form-structor .signup .form-title span {
+    color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  ::placeholder {
+    color: var(--h1-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+  }
+
+  /* -- SIGN UP BUTTON--
+  =================== */
+  .form-structor .signup .submit-btn {
+    background-color: rgba(0, 0, 0, 0.253);
+    color: rgba(255, 255, 255, 0.7);
+    border: 0;
+    border-radius: 15px;
+    display: block;
+    margin: 15px auto;
+    padding: 15px 45px;
+    width: 100%;
+    font-size: 13px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  .form-structor .signup .submit-btn:hover {
+    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  /* -- PART DOWN CLICK "or login"--
+  ============================= */
+  .form-structor .login {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    transition: all 0.3s ease;
+  }
+  .form-structor .login::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    transform: translate(-50%, 0);
+    background-color: var(--background-sign-up-form);
+    width: 200%;
+    height: 70vh;
+    border-radius: 50%;
+    z-index: 4;
+    transition: all 0.3s ease;
+  }
+
+  /* -TEXT DOWN "or login"--
+  ========================== */
+  .form-structor .login .center {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: calc(50% - 10%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    z-index: 5;
+    transition: all 0.3s ease;
+  }
+  .form-structor .login .center .form-title {
+    color: #000;
+    font-size: 2.7em;
+    text-align: center;
+    margin-right: 1rem;
+    text-shadow: 3px 3px 4px #4d4a4a8a, -4px -2px 2px #807f7f45;
+  }
+  .form-structor .login .center .form-title span {
+    color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  /* -- PART LOGIN--
+  =========================== */
+  .form-structor .login .center .form-holder {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 50px;
+    box-shadow: 2px 2px 7px #43424280, -2px -2px 7px #cecaca3d;
+    transition: all 0.3s ease;
+  }
+  .form-structor .login .center .form-holder .input {
+    border: 0;
+    outline: none;
+    box-shadow: none;
+    display: block;
+    height: 50px;
+    line-height: 30px;
+    padding: 8px 15px;
+    background-color: transparent;
+    border-bottom: 1px solid #828080;
+    width: 100%;
+    font-size: 18px;
+  }
+
+  /* -- LOGIN BUTTON--
+  =========================== */
+  .form-structor .login .center .submit-btn {
+    background-color: #76848b;
+    color: rgba(212, 212, 212, 0.856);
+    box-shadow: 2px 2px 7px #43424280, -2px -2px 7px #cecaca3d;
+    border: 0;
+    border-radius: 15px;
+    display: block;
+    margin: 15px auto;
+    padding: 15px 45px;
+    width: 100%;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+  }
+  .form-structor .login .center .submit-btn:hover {
+    transition: all 0.3s ease;
+    box-shadow: inset 4px 5px 10px #2b2020a8, inset -2px -2px 12px #b08f8f;
+  }
+  .form-structor .login.slide-up {
+    top: 90%;
+    transition: all 0.3s ease;
+  }
+  .form-structor .login.slide-up .center {
+    top: 10%;
+    transform: translate(-50%, 0%);
+    transition: all 0.3s ease;
+  }
+  .form-structor .login.slide-up .form-holder,
+  .form-structor .login.slide-up .submit-btn {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  .form-structor .login.slide-up .form-title {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .form-structor .login.slide-up .form-title span {
+    margin-right: 5px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+  }
+
+  /* -- ADMIN IN ADMINFORM -- 
+    ==================================================
+  /////////////////////////////////////////////////
+  /////////////////////////////////////////////////
+  ================================================= */
   .container-general {
     padding: 2vh;
     display: flex;
@@ -218,7 +714,7 @@
   }
 
   /* -- SIDE -- 
-  ===========================*/
+  ===============*/
   .front,
   .back {
     width: 100%;
@@ -441,476 +937,15 @@
     --normal-font-size: 1rem;
   }
 }
-/* -- BASE --  
-    =============================== */
-*,
-::before,
-::after {
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: var(--header-height) 0 0 0;
-  padding: 0;
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-  font-weight: 500;
-}
-h1,
-h2,
-h3,
-p,
-ul,
-a {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-decoration: none;
-}
-a {
-  color: var(--wite-color);
-}
-img {
-  max-width: 100%;
-  height: auto;
-  opacity: 0.87;
-}
-.glass {
-  top: 0px;
-}
-.l-main {
-  overflow: hidden;
-  height: 100vh;
-}
-/* -- SCROLL EFFECT --  
-    =============================== */
-.active {
-  transform: translate3d(0, 0, 0);
-}
-.inactive {
-  opacity: 0.5;
-  transform: skewX(18deg) scale(0.95);
-}
-/* -- HEADER --  
-    =============================== */
-.bd-grid {
-  max-width: 1024px;
-  display: grid;
-  grid-template-columns: auto;
-  column-gap: 2rem;
-  width: calc(100% - 2rem);
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-.l-header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: var(--z-index);
-  background-color: var(--first-color);
-  box-shadow: 6px 6px 14px #794444bd;
-}
-/* -- NAVBAR --  
-    =============================== */
-.nav {
-  height: var(--header-height);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.home-title-mid {
-  font-size: var(--little-font-size);
-  position: absolute;
-  top: 18%;
-  left: 15%;
-  transform: translate(-50%, -50%);
-}
-
-/* -- SECTION-CARD --  
-    =============================== */
-    /* focus card in showArticle */
-.container-cardWine-focus{
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  align-items:center;
-  justify-content: center;
-  background-color: var(--first-color);
-}
-.card-container {
-  padding-top: 10rem;
-  position: relative;
-  background-color: var(--first-color);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  overflow: scroll;
-  height: 100vh;
-}
-.card {
-  padding: 1rem;
-  background: var(--card-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 350px;
-  margin-bottom: 2rem;
-  border-radius: 12px;
-  box-shadow: 20px 25px 60px #562e2ea8, -20px -20px 60px #cf7878;
-  margin: 3vw;
-  transition: .5s;
-  transform: scale(1);
-}
-/* focus card in showArticle */
-#card-custom{
-  flex-direction: row;
-  width: 80%;
-  height:80%;
-  margin: 0;
-  box-shadow: 20px 25px 60px #562e2ea8, -20px -20px 60px #cf7878;
-}
-.card:hover{
-  transition: .5s;
-  transform: scale(1.1);
-}
-/* focus card in showArticle */
-#card-custom:hover{
-  transform: scale(1);
-}
-.card img {
-  border-radius: 12px;
-  max-height: 44vh;
-  box-shadow: 2px 2px 5px #08080898, -2px -2px 7px #c47d7d;
-}
-/* focus card in showArticle */
-#img-cardWine{
-  max-width:40%;
-  max-height: 77vh;
-}
-.body-card {
-  display: flex;
-  flex-direction: column;
-  margin: 2rem;
-  text-align: center;
-}
-/* focus card in showArticle */
-#body-card-custom{
-  padding:4.5rem;
-  text-align: left;
-  background-color: #ebb6b6a3;
-  border-radius: 60px;
-  box-shadow: 8px 8px 13px #562e2ea8, -10px -10px 12px #c6737396;
-}
-.card-title{
-  font-size:20px;
-  border-bottom: 1px solid rgb(88, 22, 22);
-}
-.card-text{
-  margin-top:.5rem;
-  padding: .5rem;
-  border-bottom: 1px solid rgb(88, 22, 22);
-}
-/* links cardWine in showArticle */
-.container-links{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 12rem;
-}
-.container-btn-cardWine{
-  padding: 2vh;
-  border-radius: 20px;
-  background-color: var(--first-color-dark);
-  box-shadow: 3px 3px 6px #562e2e45, -1px -1px 4px #b16666eb;
-  font-size:var(--font-a-cardWine);
-  transition: .5s;
-}
-.container-btn-cardWine:hover{
-  transition: .5s;
-  border-radius: 20px;
-  background-color: var(--first-color-darken);
-}
-/* focus card in showArticle */
-#colorWine{
-  margin-top:2rem;
-  padding: .5vh;
-  border-radius: 10px;
-}
-
-/*--- FORM ---
-  =====================================
-  =====================================
-  =====================================*/
-
-.main-formLogin {
-  height: 100vh;
-  background-color: var(--first-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.home-img-formLogin {
-  position: relative;
-  justify-self: center;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-.home-img-formLogin img {
-  position: absolute;
-  top: 20%;
-  left: 0;
-}
-
-.form-structor {
-  border-radius: 30px;
-  height: 550px;
-  width: 350px;
-  position: absolute;
-  overflow: hidden;
-  backdrop-filter: blur(6px);
-  background-color: var(--background-login-form);
-  box-shadow: 4px 3px 17px #562e2ea8, -2px -3px 12px #df8e8ecc;
-}
-.form-structor::after {
-  content: "";
-  opacity: 0.8;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-repeat: no-repeat;
-  background-position: left bottom;
-  background-size: 500px;
-}
-.form-structor .signup {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 65%;
-  z-index: 5;
-  transition: all 0.3s ease;
-}
-.form-structor .signup.slide-up {
-  top: 5%;
-  transform: translate(-50%, 0%);
-  transition: all 0.3s ease;
-}
-.form-structor .signup.slide-up .form-holder,
-.form-structor .signup.slide-up .submit-btn {
-  opacity: 0;
-  visibility: hidden;
-}
-.form-structor .signup.slide-up .form-title {
-  font-size: 1em;
-  cursor: pointer;
-}
-.form-structor .signup.slide-up .form-title span {
-  margin-right: 5px;
-  opacity: 1;
-  visibility: visible;
-  transition: all 0.3s ease;
-}
-
-/* --  SIGN UP TITLE--
-  ======================================================= */
-.form-structor .signup .form-title {
-  color: #fff;
-  font-size: 2.7em;
-  text-align: center;
-  text-shadow: 5px 5px 12px #562e2ea8, -6px -5px 20px #cf7878;
-}
-.form-structor .signup .form-title span {
-  color: rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-::placeholder {
-  color: var(--h1-color);
-  font-family: var(--body-font);
-  font-size:var(--normal-font-size);
-}
-/* -- PART SIGN UP--
-  ======================================================= */
-.form-structor .signup .form-holder {
-  border-radius: 15px;
-  overflow: hidden;
-  margin-top: 50px;
-  opacity: 1;
-  visibility: visible;
-  transition: all 0.3s ease;
-  box-shadow: 3px 3px 7px #562e2ea8, -1px -1px 20px #d29090;
-}
-.form-structor .signup .form-holder .input {
-  border: 0;
-  outline: none;
-  box-shadow: none;
-  display: block;
-  height: 55px;
-  line-height: 30px;
-  padding: 8px 15px;
-  border-bottom: 1px solid var(--card-color);
-  background-color: transparent;
-  width: 100%;
-  font-size: 12px;
-}
-
-/* -- SIGN UP BUTTON--
-  ======================================================= */
-.form-structor .signup .submit-btn {
-  background-color: rgba(0, 0, 0, 0.253);
-  color: rgba(255, 255, 255, 0.7);
-  border: 0;
-  border-radius: 15px;
-  display: block;
-  margin: 15px auto;
-  padding: 15px 45px;
-  width: 100%;
-  font-size: 13px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-.form-structor .signup .submit-btn:hover {
-  transition: all 0.3s ease;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* -- PART DOWN CLICK "or login"--
-  ======================================================= */
-.form-structor .login {
-  position: absolute;
-  top: 20%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 5;
-  transition: all 0.3s ease;
-}
-.form-structor .login::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -20px;
-  transform: translate(-50%, 0);
-  background-color: var(--background-sign-up-form);
-  width: 200%;
-  height: 70vh;
-  border-radius: 50%;
-  z-index: 4;
-  transition: all 0.3s ease;
-}
-
-/* -TEXT DOWN "or login"--
-  ======================================================= */
-.form-structor .login .center {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  top: calc(50% - 10%);
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 65%;
-  z-index: 5;
-  transition: all 0.3s ease;
-}
-.form-structor .login .center .form-title {
-  color: #000;
-  font-size: 2.7em;
-  text-align: center;
-  margin-right: 1rem;
-  text-shadow: 3px 3px 4px #4d4a4a8a, -4px -2px 2px #807f7f45;
-}
-.form-structor .login .center .form-title span {
-  color: rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-/* -- PART LOGIN--
-  ======================================================= */
-.form-structor .login .center .form-holder {
-  border-radius: 15px;
-  overflow: hidden;
-  margin-top: 50px;
-  box-shadow: 2px 2px 7px #43424280, -2px -2px 7px #cecaca3d;
-  transition: all 0.3s ease;
-}
-.form-structor .login .center .form-holder .input {
-  border: 0;
-  outline: none;
-  box-shadow: none;
-  display: block;
-  height: 50px;
-  line-height: 30px;
-  padding: 8px 15px;
-  background-color: transparent;
-  border-bottom: 1px solid #828080;
-  width: 100%;
-  font-size: 18px;
-}
-
-/* -- LOGIN BUTTON--
-  ======================================================= */
-.form-structor .login .center .submit-btn {
-  background-color: #76848b;
-  color: rgba(212, 212, 212, 0.856);
-  box-shadow: 2px 2px 7px #43424280, -2px -2px 7px #cecaca3d;
-  border: 0;
-  border-radius: 15px;
-  display: block;
-  margin: 15px auto;
-  padding: 15px 45px;
-  width: 100%;
-  font-size: 13px;
-  font-weight: bold;
-  cursor: pointer;
-  opacity: 1;
-  visibility: visible;
-  transition: all 0.3s ease;
-}
-.form-structor .login .center .submit-btn:hover {
-  transition: all 0.3s ease;
-  box-shadow: inset 4px 5px 10px #2b2020a8, inset -2px -2px 12px #b08f8f;
-}
-.form-structor .login.slide-up {
-  top: 90%;
-  transition: all 0.3s ease;
-}
-.form-structor .login.slide-up .center {
-  top: 10%;
-  transform: translate(-50%, 0%);
-  transition: all 0.3s ease;
-}
-.form-structor .login.slide-up .form-holder,
-.form-structor .login.slide-up .submit-btn {
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-.form-structor .login.slide-up .form-title {
-  font-size: 1em;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.form-structor .login.slide-up .form-title span {
-  margin-right: 5px;
-  opacity: 1;
-  visibility: visible;
-  transition: all 0.3s ease;
-}
 
 /* -- MEDIA QUERY  - 900 
     =============================== */
 @media screen and (max-width: 905px) {
+  /* NAVBAR ---
+  ==================================================
+  /////////////////////////////////////////////////
+  /////////////////////////////////////////////////
+  ================================================= */
   .nav-menu {
     position: fixed;
     top: 0;
@@ -1084,6 +1119,7 @@ img {
   box-shadow: inset 4px 4px 7px #834242, inset -3px -3px 6px #ba6f6f;
   transition: 0.5s;
 }
+
 /* -- MEDIA QUERY  900 +
     =============================== */
 @media screen and (min-width: 905px) {
@@ -1125,7 +1161,7 @@ img {
   /* background login form */
   .home-img-formLogin img {
     top: 0%;
-    left:3%;
+    left: 3%;
     transition: 0.5s;
   }
 }
@@ -1156,7 +1192,7 @@ img {
   }
   .home-img-formLogin img {
     top: -60%;
-    left:-12%;
+    left: -12%;
     transition: 0.5s;
   }
   .form-structor {

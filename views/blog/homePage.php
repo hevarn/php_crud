@@ -1,14 +1,11 @@
 <section class="general-section">
     <!-- OVERLAY
     =============================== -->
-    <div class="overlay first"></div>
-    <div class="overlay second">
+    <div class="overlay first">
         <div class="container-loading-img">
-            <img src="assets/img/snake.gif" alt="icon-gif">
             <span class="loader-59">
         </div>
     </div>
-    <div class="overlay third"></div>
     <!-- MAIN 
     =============================== -->
     <main class="l-main">

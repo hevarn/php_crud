@@ -39,19 +39,17 @@ function move(e){
 /*===== LOADING ANIMATION HOME PAGE =====*/ 
 //OVERLAY
 TweenMax.to(".first", 1.5, {
-  delay: 1,
+  delay: 2.2,
   top: "-100%",
   ease: Expo.easeInOut
 });
-
-TweenMax.to(".second", 1.5, {
-  delay: 1.1,
+TweenMax.to(".second-th", 1.5, {
+  delay: 2.2,
   top: "-100%",
   ease: Expo.easeInOut
 });
-
 TweenMax.to(".third", 1.5, {
-  delay:1.2,
+  delay: 2.2,
   top: "-100%",
   ease: Expo.easeInOut
 });
@@ -91,33 +89,17 @@ gsap.from('.home-paragraphe', {opacity: 0, duration: 1, delay:1.5, y: 30})
 gsap.from('.home-button', {opacity: 0, duration: 1, delay:1.6, y: 30})
 gsap.from('.home-img', {opacity: 0, duration: 1, delay:1.4, y: 30})
 
+/*===== GSAP ANIMATION INDEXARTICLE PAGE =====*/
 
+gsap.from('.card', {opacity: 0, duration: 1, delay:1.5, y: 30})
+gsap.from('.body-card', {opacity: 0, duration: 1, delay:1.6, y: 30})
+gsap.from('.imag-card-wine', {opacity: 0, duration: 1, delay:1.4, y: 30})
 
-
+/*===== GSAP ANIMATION SHOWARTICLE PAGE =====*/
+gsap.from('.img-cardWine', {opacity: 0, duration: 1, delay:1.2, x: -50})
 
 /*===== FORM LOGIN  =====*/ 
 /*===== ==========  =====*/ 
-
-/*===== LOADING LOGIN FORM =====*/ 
-//OVERLAY
-TweenMax.to(".seventh", 1.5, {
-  delay: 1,
-  top: "-100%",
-  ease: Expo.easeInOut
-});
-
-TweenMax.to(".eighth", 1.5, {
-  delay: 1.1,
-  top: "-100%",
-  ease: Expo.easeInOut
-});
-
-TweenMax.to(".ninth", 1.5, {
-  delay:1.2,
-  top: "-100%",
-  ease: Expo.easeInOut
-});
-
 // MOUSSMOVE
 document.addEventListener('mousemove', move);
 function move(e){
@@ -162,7 +144,7 @@ signupBtn.addEventListener('click', (e) => {
 });
 
 
-/* ====== CARD USER ANIMATION =======*/
+/* ====== CARD USER ADMIN ANIMATION =======*/
 /*========= =========== ============*/
 $(document).ready(function () {
   // Flip card to the back side
