@@ -12,8 +12,6 @@ class UserController extends Controller {
     }
     public function sendDataUserConnect(){
         $user = (new UserSql($this->getDB()))->getByUsername($_POST['username']);
-        
-
        if(password_verify($_POST["password"],$user->password)){
            $_SESSION['auth'] = (int)$user->admin;
            return header("Location: /projetZero/admin/panel?success=true");
