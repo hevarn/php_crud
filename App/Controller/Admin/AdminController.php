@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 use App\Models\BottleSql;
 use App\Controller\Controller;
 use App\Models\Tags;
+use App\Models\UploadFiles;
 
 class AdminController extends Controller {
     
@@ -38,10 +39,16 @@ class AdminController extends Controller {
         $this->isAdmin();
         $req = new BottleSql($this->getDB());
         $tags = array_pop($_POST);
-        $result = $req->sendUpdate($id, $_POST, $tags);
+        $picture = new UploadFiles($this->getDB());
+        $result = $req->sendUpdate($id, $picture, $_POST, $tags);
+
         if($result){
             return header("Location: /projetZero/admin/panel");
         }
+       
+
+
+
     }
     
     public function destroy(int $id) {
@@ -53,5 +60,6 @@ class AdminController extends Controller {
             return header("Location: /projetZero/admin/panel");
         }
     }
+
 
 }

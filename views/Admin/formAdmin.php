@@ -1,11 +1,15 @@
-<div class="container">
-    <h1 class="title_up"><?= isset($params['req'])? "modifier": "Bienvenue pour" ?></h1>
-    <h2 class="title_mid"><?= $params['req']->name ?? 'Créer une nouvelle boutielle' ?></h2>
-    <form action="<?= isset($params['req']) ? "/projetZero/admin/panel/modify/{$params['req']->id}" : "/projetZero/admin/panel/valid"?>" method="POST">
+<div class="container-form-admin">
+    <div class="container-form-admin-title">
+        <h1 class="home-title-up" id="title-up"><?= isset($params['req']) ? "modifier" : "Bienvenue pour" ?></h1>
+        <div class="title-admin-bottle-id">
+            <h2 class="home-title" id="title-down"><?= $params['req']->name ?? 'Créer une nouvelle boutielle' ?></h2>
+        </div>
+    </div>
+    <form action="<?= isset($params['req']) ? "/projetZero/admin/panel/modify/{$params['req']->id}" : "/projetZero/admin/panel/valid" ?>" method="POST">
         <section id="contact">
             <div class="content">
                 <div id="form">
-                    <form action="" id="contactForm" method="post">
+                    <form class="admin-from-bottle" action="" id="contactForm" method="post">
                         <label class="font_span name">Name</label>
                         <input type="text" name="name" class="name" placeholder="<?= $params['req']->name ?? '' ?>" tabindex=1 />
                         <label class="font_span">year</label>
@@ -17,17 +21,17 @@
                         <label class="font_span">region</label>
                         <input type="text" name="region" placeholder="<?= $params['req']->region ?? '' ?>" tabindex=1 />
                         <label class="font_span">description</label>
-                        <textarea class="message" name="description" placeholder="<?= $params['req']->description ?? '' ?>" tabindex=6></textarea>
+                        <textarea class="message" name="description" placeholder="<?= $params['req']->description ?? '' ?>" tabindex=10></textarea>
                         <label class="font_span">picture</label>
-                        <input type="file" name="picture" placeholder="<?= $params['req']->picture ?? '' ?>" tabindex=1 />
+                        <input type="file" id="picture" name="picture" placeholder="<?= $params['req']->picture ?? '' ?>" tabindex=1 />
                         <label class="font_span">tag </label>
-                        <select class="form-select form-select-sm tags " aria-label=".form-select-sm example" name="tags[]">
+                        <select class="form-select" name="tags[]">
                             <?php foreach ($params['tags'] as $tag) : ?>
                                 <option class="option" value="<?= $tag->id ?>"><?= $tag->name ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <button type="submit" class="btn btn-primary btn_custom" tabindex=5><?= isset($params['req'])? "Enregistrer les modificaton": "Créer la bouteille" ?></button>
-                        <a href="/projetZero/admin/panel"class="btn btn-primary">retour</a>
+                        <button type="submit" class="btn" tabindex=5><?= isset($params['req']) ? "Enregistrer les modificaton" : "Créer la bouteille" ?></button>
+                        <a href="/projetZero/admin/panel" class="btn">retour</a>
                     </form>
                 </div>
         </section>

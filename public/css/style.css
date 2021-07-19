@@ -69,7 +69,8 @@
 .first,
 .second-th,
 .third,
-.fourth {
+.fourth,
+.fifth {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -479,7 +480,7 @@
     border-radius: 12px;
     box-shadow: 20px 25px 60px #562e2ea8, -20px -20px 60px #cf7878;
     margin: 3vw;
-    transition: 0.5s;
+    transition: 0.3s;
     transform: scale(1);
   }
   /* focus card in showArticle */
@@ -496,7 +497,7 @@
 
   /* hover imgCardWine effect in indexArticle*/
   .card img {
-    transition: transform 0.5s, filter 1.1s ease-in-out;
+    transition: transform 0.3s, filter 1.1s ease-in-out;
     transform-origin: center center;
     filter: brightness(70%);
     border-radius: 12px;
@@ -579,14 +580,37 @@
   ================================================= */
   .container-cardWine-showTag {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--first-color);
     flex-direction: column;
     padding: 3rem;
-    margin-top: 5rem;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+  }
+  .card-cardWine-showTag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 2rem;
   }
   .card-cardWine-showTag img {
-    position: relative;
     border-radius: 20px;
+    box-shadow: 20px 25px 60px #562e2ea8, -20px -20px 60px #cf7878;
   }
+  .card-cardWine-showTag a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--big-font-size);
+    cursor: pointer;
+    text-shadow: -5px 5px 0px #d57b7b, -10px 10px 0px #b64f4f,
+      -15px 15px 0px #953737;
+  }
+
   /*--- FORM ---
   ==================================================
   /////////////////////////////////////////////////
@@ -867,13 +891,20 @@
     flex-direction: column;
     align-items: center;
     background-color: var(--first-color);
-    width: 115%;
+    width: 100%;
+  }
+  .container-card-admin {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   #container {
     perspective: 800px;
     position: relative;
     margin: 2rem;
-    width: 100vw;
+    width: 325px;
     height: 500px;
     transform-style: preserve-3d;
     transition: transform 5s;
@@ -949,7 +980,7 @@
     transition: all 200ms ease-out;
   }
 
-  #details {
+  #details-card {
     position: absolute;
     top: 112px;
     left: 50%;
@@ -966,7 +997,7 @@
     transition: all 200ms ease-out;
   }
 
-  .card-admin:hover #details {
+  .card-admin:hover #details-card {
     background: #fff;
     color: #c83f3fd5;
     cursor: pointer;
@@ -1083,8 +1114,9 @@
   .container-card-info {
     display: flex;
     flex-direction: column;
-    margin-top: 3vh;
-    padding: 6vh;
+    align-items: center;
+    margin-top: 15vh;
+    padding: 2vh;
     width: 100%;
     border-radius: 20px;
   }
@@ -1093,6 +1125,7 @@
     background-color: var(--first-color);
     width: 100%;
     height: 40vh;
+    padding: 1rem;
     font-size: 12px;
     margin-bottom: 2rem;
     border-radius: 12px;
@@ -1100,11 +1133,13 @@
   }
   #card-info {
     width: 100%;
+    margin: 0;
   }
   /* card info button */
   .container-back-info-indexAdmin {
     margin-top: 2rem;
     width: 100%;
+    margin-bottom: 1rem;
   }
   .from {
     display: flex;
@@ -1117,8 +1152,9 @@
   .btn-cancel,
   .btn-modify,
   .btn-create {
-    padding: 2vh;
-    border-radius: 20px;
+    padding: 0.5rem;
+    border-radius: 7px;
+    color: black;
     background-color: var(--first-color-dark);
     box-shadow: 3px 3px 6px #562e2e45, -1px -1px 4px #b16666eb;
     font-size: var(--font-a-cardWine);
@@ -1132,16 +1168,85 @@
     border-radius: 20px;
     background-color: var(--first-color-darken);
   }
+
+  /* -- FORM IN ADMIN-FORM -- 
+    ==================================================
+  /////////////////////////////////////////////////
+  /////////////////////////////////////////////////
+  ================================================= */
+  .container-form-admin {
+    background-color: var(--first-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+  /* title container title admin form  */
+  .container-form-admin-title {
+    padding: 1rem;
+  }
+  #title-up {
+    margin-bottom: 1rem;
+  }
+  .title-admin-bottle-id {
+    background-color: var(--loading-color);
+    border-radius: 12px;
+    box-shadow: -4px 4px 6px #562e2e45, 2px -2px 4px #b16666eb;
+    text-align: center;
+    padding: 1rem;
+  }
+  #title-down {
+    margin-top: 0;
+  }
+  /* div-from admin bottle */
+  #form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+  /*inputs*/
+  .font_span {
+    font-size: 12px;
+    text-align: left;
+    margin-left: .450rem;
+    margin-bottom: .250rem;
+  }
+  #form input,
+  #form textarea,
+  #form select,
+  #form button,
+  #form a{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2c3e50;
+    font-size: 13px;
+  }
+  #form .message{
+    height:10rem;
+  }
+  #form .form-select,
+  #form .btn{
+    font-size: 12px;
+    font-family: var(--body-font);
+    margin-bottom: 1rem;
+  }
+  #form .btn:hover{
+    background-color:var(--card-color);
+  }
+
 }
 @media screen and (min-width: 450px) {
-  #container {
-    width: 45vh;
-  }
-  .container-card-info {
-    align-items: center;
-  }
   .card-info-admin {
     width: 70%;
+  }
+  /* cardShowTag */
+  .container-cardWine-showTag {
+    padding: 6rem;
   }
 }
 /* -- MEDIA QUERY   -- 
@@ -1183,18 +1288,26 @@
   .container-general {
     align-items: flex-start;
     flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
   }
-  #container {
-    width: 100vw;
+  .container-card-admin {
+    width: 30%;
+    margin-left: 5rem;
   }
   .container-card-info {
     padding: 1rem 0;
     overflow: scroll;
     height: 100vh;
+    width: 70%;
   }
   .card-info-admin {
     width: 70%;
     flex-wrap: wrap;
+  }
+  /* form admin input */
+  #form input, #form textarea, #form select, #form button, #form a {
+    width: 50vh;
   }
 }
 
@@ -1253,38 +1366,80 @@
     left: 3%;
     transition: 0.5s;
   }
-}
+  .container-cardWine-showTag {
+    padding: 12rem;
+  }
 
-/* MEDIA QUERY  1000+ 
+  /* MEDIA QUERY  1000+ 
     =============================== */
-@media screen and (min-width: 1024px) {
-  .bd-grid {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .home-container {
-    column-gap: 4.5rem;
-  }
-  .home-img {
-    width: 604px;
-    height: 766px;
-  }
-  .home-img img {
-    width: 604px;
-  }
+  @media screen and (min-width: 1024px) {
+    .bd-grid {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .home-container {
+      column-gap: 4.5rem;
+    }
+    .home-img {
+      width: 604px;
+      height: 766px;
+    }
+    .home-img img {
+      width: 604px;
+    }
 
-  /* img background login form */
-  #bottle {
-    top: -57%;
-    left: 4%;
+    /* img background login form */
+    #bottle {
+      top: -57%;
+      left: 4%;
+    }
+    .home-img-formLogin img {
+      top: -60%;
+      left: -12%;
+      transition: 0.5s;
+    }
+    .form-structor {
+      height: 650px;
+      width: 400px;
+    }
+    /* admin page */
+    #container {
+      max-width: 325px;
+    }
+    .card-info-admin {
+      max-width: 424px;
+    }
+    /* adminShowTag */
+    .container-cardWine-showTag {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      padding: 6vh 0;
+    }
+    .card-cardWine-showTag {
+      width: 25vw;
+      margin: 3rem;
+      filter: brightness(70%);
+      transition: 0.3s;
+      margin-bottom: 0;
+    }
+    .card-cardWine-showTag img {
+      max-height: 70vh;
+    }
+    .card-cardWine-showTag:hover {
+      filter: brightness(100%);
+      transition: 0.3s;
+    }
+    .card-cardWine-showTag a {
+      font-size: 50px;
+    }
   }
-  .home-img-formLogin img {
-    top: -60%;
-    left: -12%;
-    transition: 0.5s;
-  }
-  .form-structor {
-    height: 650px;
-    width: 400px;
+  @media screen and (min-width: 1534px) {
+    .card-cardWine-showTag img {
+      min-height: 70vh;
+    }
+    .card-cardWine-showTag a {
+      font-size: 70px;
+    }
   }
 }

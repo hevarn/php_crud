@@ -8,31 +8,33 @@
  <!-- CARD USER
 =============================== -->
  <div class="container-general">
-     <div id="container">
-         <div class="card-admin">
-             <div class="front">
-                 <div class="image_overlay"></div>
-                 <div id="details">
-                     <p>details</p>
-                 </div>
-                 <div class="text-container">
-                     <p class="title">jean paule</p>
-                     <p class="p">jaiPasleTemps</p>
-                 </div>
-             </div>
-             <div class="back">
-                 <div class="input-container">
-                     <div class="form">
-                         <form class="register-form">
-                             <input class="a" type="text" placeholder="name" />
-                             <input class="b" type="password" placeholder="password" />
-                             <input class="c" type="text" placeholder="email address" />
-                             <button class="d">create</button>
-                         </form>
+     <div class="container-card-admin">
+         <div id="container">
+             <div class="card-admin">
+                 <div class="front">
+                     <div class="image_overlay"></div>
+                     <div id="details-card">
+                         <p>details</p>
                      </div>
-                     <div id="flip-back">
-                         <div id="cy"></div>
-                         <div id="cx"></div>
+                     <div class="text-container">
+                         <p class="title">jean paule</p>
+                         <p class="p">jaiPasleTemps</p>
+                     </div>
+                 </div>
+                 <div class="back">
+                     <div class="input-container">
+                         <div class="form">
+                             <form class="register-form">
+                                 <input class="a" type="text" placeholder="name" />
+                                 <input class="b" type="password" placeholder="password" />
+                                 <input class="c" type="text" placeholder="email address" />
+                                 <button class="d">create</button>
+                             </form>
+                         </div>
+                         <div id="flip-back">
+                             <div id="cy"></div>
+                             <div id="cx"></div>
+                         </div>
                      </div>
                  </div>
              </div>
