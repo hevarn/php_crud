@@ -1,4 +1,4 @@
-<section class="card-container page-2" id="cave">
+<section class="card-container-indexArticle page-2" id="cave">
     <!-- OVERLAY
           =============================== -->
     <div class="overlay second-th">
@@ -9,6 +9,7 @@
 
     <!--CARDS
             ============================= -->
+
     <?php foreach ($params['reqs'] as $req) : ?>
         <div class="card">
             <img class="imag-card-wine" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . $req->picture ?>">

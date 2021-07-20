@@ -20,8 +20,17 @@ class UserController extends Controller {
         }
 
     }
+    public function CreateUser(){
+        $user = (new UserSql($this->getDB()))->create($_POST);
+        if($user){
+            return header("Location: /projetZero/");
+        }else{
+            return header('Location: /projetZero/admin/connect');
+         }
+    }
+
     public function destroySession(){
         session_destroy();
-        return header('Location: /projectZero/admin/connect');
+        return header('Location: /projetZero/');
     }
 }   

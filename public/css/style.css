@@ -35,7 +35,7 @@
   --normal-font-size: 0.938rem;
   --little-font-size: 1.8rem;
   --logo-font-size: 1.5rem;
-  --font-a-cardWine: 0.69rem;
+  --font-a-cardWine: .68rem;
 
   /* -- Z_INDEX --  
     =============================== */
@@ -58,10 +58,10 @@
 /* OVERLAY
   ===========================  */
 .overlay,
-.card-container .overlay1 {
+.card-container-indexArticle .overlay1 {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 170%;
   top: 0%;
   z-index: 200;
 }
@@ -313,6 +313,9 @@
     transition-delay: 0.8s;
     transition: 0.5s;
   }
+  #logout-custom:hover{
+    font-size: 21px;
+  }
   .d1,
   .d2 {
     position: absolute;
@@ -381,7 +384,7 @@
     justify-content: center;
   }
   .home-container {
-    height: calc(100vh - var(--header-height));
+    height: calc(110vh - var(--header-height));
     grid-template-rows: repeat(2, max-content);
     row-gap: 1.5rem;
   }
@@ -445,22 +448,14 @@
     transition: 0.5s;
   }
 
-  /* -- SECTION-CARD -- INDEX-ARTICLE CARDWINE --
+  /* -- INDEX-ARTICLE CARDWINE and SHOWARTICLE --
    ===================================================
    ///////////////////////////////////////////////////
   //////////////////////////////////////////////////// 
    =================================================== */
-  /* focus card in showArticle */
-  .container-cardWine-focus {
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--first-color);
-  }
-  .card-container {
-    padding-top: 10rem;
+   /* indexArticle and  */
+   .card-container-indexArticle {
+    padding-top: 3rem;
     position: relative;
     background-color: var(--first-color);
     display: flex;
@@ -484,12 +479,23 @@
     transform: scale(1);
   }
   /* focus card in showArticle */
-  .card-cardWine-focus {
-    padding: 1rem;
-    background: var(--card-color);
+  .container-cardWine-focus {
+    background-color: var(--first-color);
     display: flex;
-    flex-direction: row;
-    width: 93%;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  /* focus card in showArticle */
+  .card-cardWine-focus {
+    background: var(--card-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
     margin: 0;
     border-radius: 12px;
     box-shadow: 20px 25px 60px #562e2ea8, -20px -20px 60px #cf7878;
@@ -511,7 +517,7 @@
 
   /* focus card in showArticle */
   #img-cardWine {
-    max-width: 40%;
+    max-width: 90%;
     max-height: 77vh;
     border-radius: 20px;
   }
@@ -524,7 +530,7 @@
   /* focus card in showArticle */
   #body-card-custom {
     padding: 2.5rem;
-    width: 30vw;
+    width: 90%;
     text-align: left;
     background-color: #ebb6b6a3;
     border-radius: 60px;
@@ -569,6 +575,7 @@
   .container-links {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-around;
     height: 12rem;
   }
@@ -921,6 +928,9 @@
     border-radius: 30px;
     box-shadow: 4px 4px 15px #6e3c3c, -4px -4px 15px #ce8181;
   }
+  /* .btn-indexAdmin-custom{
+    font-size:1.2rem;
+  } */
 
   /* -- SIDE -- 
   ===============*/
@@ -1157,9 +1167,12 @@
     color: black;
     background-color: var(--first-color-dark);
     box-shadow: 3px 3px 6px #562e2e45, -1px -1px 4px #b16666eb;
-    font-size: var(--font-a-cardWine);
+    font-size: 1.2rem;
     transition: 0.5s;
     border: none;
+  }
+  #btn-create-custom{
+    margin-bottom: 1rem;
   }
   .btn-cancel:hover,
   .btn-modify:hover,
@@ -1208,14 +1221,14 @@
   .font_span {
     font-size: 12px;
     text-align: left;
-    margin-left: .450rem;
-    margin-bottom: .250rem;
+    margin-left: 0.45rem;
+    margin-bottom: 0.25rem;
   }
   #form input,
   #form textarea,
   #form select,
   #form button,
-  #form a{
+  #form a {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -1226,19 +1239,18 @@
     color: #2c3e50;
     font-size: 13px;
   }
-  #form .message{
-    height:10rem;
+  #form .message {
+    height: 10rem;
   }
   #form .form-select,
-  #form .btn{
+  #form .btn {
     font-size: 12px;
     font-family: var(--body-font);
     margin-bottom: 1rem;
   }
-  #form .btn:hover{
-    background-color:var(--card-color);
+  #form .btn:hover {
+    background-color: var(--card-color);
   }
-
 }
 @media screen and (min-width: 450px) {
   .card-info-admin {
@@ -1287,26 +1299,30 @@
   /* card info admin */
   .container-general {
     align-items: flex-start;
+    justify-content: center;
     flex-direction: row;
     height: 100vh;
     overflow: hidden;
   }
   .container-card-admin {
-    width: 30%;
-    margin-left: 5rem;
+    width: 50%;
   }
   .container-card-info {
     padding: 1rem 0;
     overflow: scroll;
     height: 100vh;
-    width: 70%;
+    width: 40%;
   }
   .card-info-admin {
-    width: 70%;
+    width: 80%;
     flex-wrap: wrap;
   }
   /* form admin input */
-  #form input, #form textarea, #form select, #form button, #form a {
+  #form input,
+  #form textarea,
+  #form select,
+  #form button,
+  #form a {
     width: 50vh;
   }
 }
@@ -1366,80 +1382,102 @@
     left: 3%;
     transition: 0.5s;
   }
+  #img-cardWine {
+    max-width: 30%;
+  }
+  #body-card-custom {
+    width: 45%;
+  }
+  /* indexArticle */
+  .card-cardWine-focus {
+    margin-top:4rem;
+    flex-direction: row;
+  }
+  /* showTag */
   .container-cardWine-showTag {
     padding: 12rem;
   }
-
-  /* MEDIA QUERY  1000+ 
-    =============================== */
-  @media screen and (min-width: 1024px) {
-    .bd-grid {
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .home-container {
-      column-gap: 4.5rem;
-    }
-    .home-img {
-      width: 604px;
-      height: 766px;
-    }
-    .home-img img {
-      width: 604px;
-    }
-
-    /* img background login form */
-    #bottle {
-      top: -57%;
-      left: 4%;
-    }
-    .home-img-formLogin img {
-      top: -60%;
-      left: -12%;
-      transition: 0.5s;
-    }
-    .form-structor {
-      height: 650px;
-      width: 400px;
-    }
-    /* admin page */
-    #container {
-      max-width: 325px;
-    }
-    .card-info-admin {
-      max-width: 424px;
-    }
-    /* adminShowTag */
-    .container-cardWine-showTag {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-      padding: 6vh 0;
-    }
-    .card-cardWine-showTag {
-      width: 25vw;
-      margin: 3rem;
-      filter: brightness(70%);
-      transition: 0.3s;
-      margin-bottom: 0;
-    }
-    .card-cardWine-showTag img {
-      max-height: 70vh;
-    }
-    .card-cardWine-showTag:hover {
-      filter: brightness(100%);
-      transition: 0.3s;
-    }
-    .card-cardWine-showTag a {
-      font-size: 50px;
-    }
+  /* container in formAdmin */
+  .container-form-admin-title {
+    margin-top: 3rem;
   }
-  @media screen and (min-width: 1534px) {
-    .card-cardWine-showTag img {
-      min-height: 70vh;
-    }
-    .card-cardWine-showTag a {
-      font-size: 70px;
-    }
+}
+/* MEDIA QUERY  1000+ 
+    =============================== */
+@media screen and (min-width: 1024px) {
+  .bd-grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .home-container {
+    column-gap: 4.5rem;
+  }
+  .home-img {
+    width: 604px;
+    height: 766px;
+  }
+  .home-img img {
+    width: 604px;
+  }
+
+  /* img background login form */
+  #bottle {
+    top: -57%;
+    left: 4%;
+  }
+  .home-img-formLogin img {
+    top: -60%;
+    left: -12%;
+    transition: 0.5s;
+  }
+  .form-structor {
+    height: 650px;
+    width: 400px;
+  }
+  /* admin page */
+  #container {
+    max-width: 325px;
+  }
+  .card-info-admin {
+    max-width: 424px;
+  }
+  /* adminShowTag */
+  .container-cardWine-showTag {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 6vh 0;
+  }
+  .card-cardWine-showTag {
+    width: 25vw;
+    margin: 3rem;
+    filter: brightness(70%);
+    transition: 0.3s;
+    margin-bottom: 0;
+  }
+  .card-cardWine-showTag img {
+    max-height: 70vh;
+  }
+  .card-cardWine-showTag:hover {
+    filter: brightness(100%);
+    transition: 0.3s;
+  }
+  .card-cardWine-showTag a {
+    font-size: 50px;
+  }
+}
+@media screen and (min-width: 1534px) {
+  .card-cardWine-showTag img {
+    min-height: 70vh;
+  }
+  .card-cardWine-showTag a {
+    font-size: 70px;
+  }
+  /* showArticle */
+  #img-cardWine {
+    margin-left: 12rem;
+  }
+  #body-card-custom {
+    width: 40%;
   }
 }

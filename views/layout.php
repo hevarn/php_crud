@@ -59,7 +59,7 @@
                         <div class="d3"></div>
                         <div class="d4"></div>
                     </li>
-                    <li class="nav-item center nav-link">
+                    <li class="nav-item center nav-link" >
                         <a href="/projetZero/admin/connect">LOGIN</a>
                         <div class="d1"></div>
                         <div class="d2"></div>
@@ -67,8 +67,8 @@
                         <div class="d4"></div>
                     </li>
                     <?php if (isset($_SESSION['auth'])) :?>
-                        <li class="nav-item center nav-link">
-                            <a href="/projetZero/">LOG-OUT</a>
+                        <li class="nav-item center nav-link" id="logout-custom">
+                            <a href="/projetZero/admin/logout">LOG-OUT</a>
                             <div class="d1"></div>
                             <div class="d2"></div>
                             <div class="d3"></div>

@@ -40,29 +40,32 @@
              </div>
          </div>
      </div>
-     <!-- =====================================-->
-         <div class="container-card-info">
-             <?php foreach ($params['reqs'] as $req) : ?>
-                 <div class="card-info-admin">
-                     <div class="card" id="card-info">
-                         <div class="row"><?= $req->id ?></div>
-                         <div class="row"><?= $req->name ?></div>
-                         <div class="row"><?= $req->year ?></div>
-                         <div class="row"><?= $req->grapes ?></div>
-                         <div class="row"><?= $req->region ?></div>
-                         <div class="row"><?= $req->country ?></div>
-                         <div class="row"><?= $req->picture ?></div>
-                         <div id="details-row">
-                             <p>details</p>
-                         </div>
-                     </div>
-                     <div class="container-back-info-indexAdmin">
-                         <form class="from" action="/projetZero/admin/panel/delete/<?= $req->id ?>" method="POST" class="d-inline">
-                             <button type="submit" class="btn-cancel"> effacer</button>
-                             <a href="/projetZero/admin/panel/modify/<?= $req->id ?>" class="btn-modify"> modifier</a>
-                             <a href="/projetZero/admin/panel/create" class="btn-create">Céer une bouteille</a>
-                         </form>
+
+
+     <!-- CARD FOREACH 
+     =====================================-->
+     <div class="container-card-info">
+         <a href="/projetZero/admin/panel/create" class="btn-create" id="btn-create-custom">Céer une bouteille</a>
+         <?php foreach ($params['reqs'] as $req) : ?>
+             <div class="card-info-admin">
+                 <div class="card" id="card-info">
+                     <div class="row"><?= $req->id ?></div>
+                     <div class="row"><?= $req->name ?></div>
+                     <div class="row"><?= $req->year ?></div>
+                     <div class="row"><?= $req->grapes ?></div>
+                     <div class="row"><?= $req->region ?></div>
+                     <div class="row"><?= $req->country ?></div>
+                     <div class="row"><?= $req->picture ?></div>
+                     <div id="details-row">
+                         <p>details</p>
                      </div>
                  </div>
-             <?php endforeach; ?>
-         </div>
+                 <div class="container-back-info-indexAdmin">
+                     <form class="from" action="/projetZero/admin/panel/delete/<?= $req->id ?>" method="POST" class="d-inline">
+                         <button type="submit" class="btn-cancel"> effacer</button>
+                         <a href="/projetZero/admin/panel/modify/<?= $req->id ?>" class="btn-modify"> modifier</a>
+                     </form>
+                 </div>
+             </div>
+         <?php endforeach; ?>
+     </div>

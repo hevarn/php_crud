@@ -28,8 +28,11 @@ $router->get('/admin/panel/modify/:id', 'App\Controller\Admin\AdminController@ge
 $router->post('/admin/panel/modify/:id', 'App\Controller\Admin\AdminController@sendDataForUpdate');
 
 $router->get('/admin/connect', 'App\Controller\Users\UserController@connectUser');
+$router->post('/admin/connect/create','App\Controller\Users\UserController@CreateUser');
+
 $router->post('/admin/valid', 'App\Controller\Users\UserController@sendDataUserConnect');
 $router->get('/admin/logout', 'App\Controller\Users\UserController@destroySession');
+
 
 try {
     $router->run();

@@ -39,16 +39,12 @@ class AdminController extends Controller {
         $this->isAdmin();
         $req = new BottleSql($this->getDB());
         $tags = array_pop($_POST);
-        $picture = new UploadFiles($this->getDB());
-        $result = $req->sendUpdate($id, $picture, $_POST, $tags);
-
+        // $picture = array_pop($_FILES);
+        // $pictures = new UploadFiles($picture);
+        $result = $req->sendUpdate($id, $_POST, $tags);
         if($result){
             return header("Location: /projetZero/admin/panel");
         }
-       
-
-
-
     }
     
     public function destroy(int $id) {

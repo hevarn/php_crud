@@ -37,27 +37,27 @@ function move(e) {
 //OVERLAY
 TweenMax.to(".first", 1.5, {
   delay: 2.2,
-  top: "-100%",
+  top: "-170%",
   ease: Expo.easeInOut,
 });
 TweenMax.to(".second-th", 1.5, {
   delay: 2.2,
-  top: "-100%",
+  top: "-170%",
   ease: Expo.easeInOut,
 });
 TweenMax.to(".third", 1.5, {
   delay: 2.2,
-  top: "-100%",
+  top: "-170%",
   ease: Expo.easeInOut,
 });
 TweenMax.to(".fourth", 1.5, {
   delay: 2.2,
-  top: "-100%",
+  top: "-170%",
   ease: Expo.easeInOut,
 });
 TweenMax.to(".fifth", 1.5, {
   delay: 2.2,
-  top: "-100%",
+  top: "-170%",
   ease: Expo.easeInOut,
 });
 
