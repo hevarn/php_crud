@@ -4,33 +4,30 @@ namespace App\Models;
 
 class UploadFiles
 {
+    private $picture_name;
+    private $img_folder;
+    private $dir;
+    // uniqid() . '_' .$picture['name']
 
-    public function upload(array $picture)
+    public function __construct($picture_name)
     {
-        $picture = $_FILES['picture'];
-        $ext = array('jpg', 'jpeg', 'gif', 'png');
-
-
-        if (empty($picture) && isset($picture)) {
-            $msg_error = header('Error: /projetZero/formAdmin/?error=true');
-        } elseif ($picture['size'] > 4194304) {
-            $msg_error = "fichier trop grand";
-        } elseif (!in_array(strtolower(pathinfo($picture['name'], PATHINFO_EXTENSION)), $ext)) {
-            $msg_error = "le fichier n'est pas une image";
-        } else {
-            $picture_name  = uniqid() . '_' . $picture['name'];
-            $img_folder = (ASSETS . 'assets' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . $picture_name);
-            @mkdir($img_folder, 0777);
-            $dir = $img_folder . $picture_name;
-            if (file_exists($img_folder)) {
-                $move_file = @move_uploaded_file($picture_name, $dir);
+        $this->picture_name  = $picture_name;
+        $this->img_folder = (ASSETS . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . $this->picture_name);
+        @mkdir($this->img_folder, 0777);
+        $this->dir = $this->img_folder . $this->picture_name;
+    }
+    public function upload(UploadedPicture $uploadedPicture)
+    {
+        if ($uploadedPicture->isValid()) {
+            if (file_exists($this->img_folder)) {
+                $move_file = @move_uploaded_file($this->picture_name, $this->dir);
                 if (!$move_file) {
-                    $msg_error = "probleme de Transfer à la base de donnée ";
+                    $uploadedPicture->setMessageError("probleme de Transfer à la base de donnée ");
                 }
             }
         }
-        if (isset($msg_error)) {
-            header("Location: /projetZero/formAdmin/?success=true");
-        }
+        // if (isset($msg_error)) {
+        //     header("Location: /projetZero/formAdmin/?success=true");
+        // }
     }
 }

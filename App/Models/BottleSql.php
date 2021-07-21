@@ -35,6 +35,7 @@ class BottleSql extends ModelSql
     public function sendDataForUpdate(int $id, array $data,?array $relations = null){
 
         parent::sendUpdate($id, $data);
+        var_dump($data);
         $stmt = $this->db->getPDO()->prepare("DELETE FROM bottle_tag WHERE bottle_id = ?");
         $result = $stmt->execute([$id]);
         foreach($relations as $tagId){

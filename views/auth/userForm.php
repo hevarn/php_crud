@@ -24,7 +24,8 @@
                 <div class="form-holder">
                     <input type="text" name="username" class="input" placeholder="Name" />
                     <input type="email" name="email" class="input" placeholder="Email" />
-                    <input type="password" name="password" class="input" placeholder="Password" />
+                    <input type="password" name="password" class="input" placeholder="mot de passe " />
+                    <input type="password" name="confirmPassword" class="input" placeholder="confirmez votre mot de passe" />
                 </div>
                 <button class="submit-btn">Sign up</button>
             </form>
