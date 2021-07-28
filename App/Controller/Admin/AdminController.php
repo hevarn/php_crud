@@ -5,6 +5,7 @@ use App\Models\Tags;
 use App\Models\BottleSql;
 use App\Models\UploadFiles;
 use App\Controller\Controller;
+use App\Manager\PictureManager;
 use App\Models\UploadedPicture;
 
 class AdminController extends Controller {
@@ -38,19 +39,11 @@ class AdminController extends Controller {
   
     public function sendDataForUpdate(int $id) {
         $this->isAdmin();
-        $req = new BottleSql($this->getDB());
-        $tags = array_pop($_POST);
-        $uploadedPicture = new UploadedPicture($_POST['picture']);
-        $uploadFiles = new UploadFiles($uploadedPicture->getName());
-        if($uploadFiles->upload($uploadedPicture)){
-            $result = $req->sendUpdate($id, $_POST, $tags);
-            var_dump($result);die;
-            if($result){
-                return header("Location: /projetZero/admin/panel");
-            }
+        $pictureManager =new PictureManager();
+        if($pictureManager->manage($id, $this->getDB())){
             return header("Location: /projetZero/admin/panel");
-        }
-       
+        };
+        return header("Location: /projetZero/admin/panel");
     }
     
     public function destroy(int $id) {

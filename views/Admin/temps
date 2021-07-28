@@ -1,13 +1,4 @@
-<div class="container-form-admin">
-    <div class="container-form-admin-title">
-        <h1 class="home-title-up" id="title-up"><?= isset($params['req']) ? "modifier" : "Bienvenue pour" ?></h1>
-        <div class="title-admin-bottle-id">
-            <h2 class="home-title" id="title-down"><?= $params['req']->name ?? 'Créer une nouvelle boutielle' ?></h2>
-        </div>
-    </div>
-    <form action="<?= isset($params['req']) ? "/projetZero/admin/panel/modify/{$params['req']->id}" : "/projetZero/admin/panel/valid" ?>" method="POST" enctype="multipart/form-data">
-        <section id="contact">
-            <div class="content">
+<div class="content">
                 <div id="form">
                     <label class="font_span name">Name</label>
                     <input type="text" name="name" class="name" placeholder="<?= $params['req']->name ?? '' ?>" tabindex=1 />
@@ -32,6 +23,3 @@
                     <button type="submit" class="btn" tabindex=5><?= isset($params['req']) ? "Enregistrer les modificatons" : "Créer la bouteille" ?></button>
                     <a href="/projetZero/admin/panel" class="btn">retour</a>
                 </div>
-        </section>
-    </form>
-</div>

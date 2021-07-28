@@ -1,6 +1,7 @@
 <?php
 
 use Router\Router;
+use App\Manager\PictureManager;
 
 
 require '../vendor/autoload.php';

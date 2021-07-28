@@ -28,7 +28,9 @@ class Route{
         $params = explode('@',$this->action);
         $controller = new $params[0](new DBConnection(db_name,db_host,db_user,db_pwd));
         $method = $params[1];
+        return isset($this->matches[1])?
+        $controller->$method($this->matches[1]):
+        $controller->$method();
         
-        return isset($this->matches[1])?$controller->$method($this->matches[1]):$controller->$method();
     }
 }
