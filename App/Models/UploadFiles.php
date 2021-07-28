@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class UploadFiles
+class UploadFiles extends UploadFiles
 {
     private $picture_name;
     private $img_folder;
@@ -21,9 +21,9 @@ class UploadFiles
         if ($uploadedPicture->isValid()) {
             if (file_exists($this->img_folder)) {
                 $move_file = @move_uploaded_file($this->picture_name, $this->dir);
-                if (!$move_file) {
-                    $uploadedPicture->setMessageError("probleme de Transfer à la base de donnée ");
-                }
+                // if (!$move_file) {
+                //     $uploadedPicture->setMessageError("probleme de Transfer à la base de donnée ");
+                // }
             }
         }
         // if (isset($msg_error)) {

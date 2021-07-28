@@ -42,7 +42,6 @@ class AdminController extends Controller {
         $tags = array_pop($_POST);
         $uploadedPicture = new UploadedPicture($_POST['picture']);
         $uploadFiles = new UploadFiles($uploadedPicture->getName());
-        var_dump($uploadFiles); die;
         if($uploadFiles->upload($uploadedPicture)){
             $result = $req->sendUpdate($id, $_POST, $tags);
             var_dump($result);die;

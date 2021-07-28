@@ -5,7 +5,7 @@
             <h2 class="home-title" id="title-down"><?= $params['req']->name ?? 'Créer une nouvelle boutielle' ?></h2>
         </div>
     </div>
-    <form action="<?= isset($params['req']) ? "/projetZero/admin/panel/modify/{$params['req']->id}" : "/projetZero/admin/panel/valid" ?>" method="POST">
+    <form action="<?= isset($params['req']) ? "/projetZero/admin/panel/modify/{$params['req']->id}" : "/projetZero/admin/panel/valid"?>" method="POST" enctype="multipart/form-data >
         <section id="contact">
             <div class="content">
                 <div id="form">
