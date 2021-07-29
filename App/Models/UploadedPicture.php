@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-class UploadedPicture
+use Exception;
+
+class UploadedPicture extends Exception
 {
     const EXT = array('jpg', 'jpeg', 'gif', 'png');
     private $picture;
@@ -33,7 +35,7 @@ class UploadedPicture
 
     public function isValid(): bool
     {
-        if (empty($this->picture) && isset($this->picture)) {
+        if (empty($this->picture)) {
             $this->setMessageError("champs requis");
             return false;
         }
@@ -47,7 +49,6 @@ class UploadedPicture
             $this->setMessageError("le fichier n'est pas une image");
             return false;
         }
-
         return true;
     }
 }
