@@ -41,9 +41,9 @@ class AdminController extends Controller {
         $this->isAdmin();
         $pictureManager =new PictureManager();
         if($pictureManager->manage($id, $this->getDB())){
-            return header("Location: /projetZero/admin/panel");
+            return header("Location: /projetZero/admin/panel?=success");
         };
-        return header("Location: /projetZero/admin/panel");
+        return header("Location: /projetZero/admin/panel/modify/$id");
     }
     
     public function destroy(int $id) {

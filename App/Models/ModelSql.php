@@ -31,16 +31,17 @@ abstract class ModelSql
         return $this->query("DELETE FROM {$this->table} WHERE id = ?", [$id]);
     }
 
-    public function sendUpdate(int $id, array $data,?array $relations = null){
+    public function sendUpdate(int $id, array $data,?array $relations = null,$picture = null){
+        
         $sqlRequestPart = "";
-        $i = 1;
+        $i = 2;
         foreach($data as $key => $value){
             $comma = $i === count($data)? "" : ', ';
             $sqlRequestPart .= "{$key} = :{$key}{$comma}";
             $i++;
         }
         $data['id'] = $id;
-        return $this->query("UPDATE {$this->table} SET {$sqlRequestPart} WHERE id = :id", $data);    
+        return $this->query("UPDATE {$this->table} SET {$sqlRequestPart} WHERE id = :id",$data);    
     }
 
     public function create(array $data,?array $relations = null){
