@@ -5,7 +5,7 @@ namespace App\Models;
 class UserSql extends ModelSql
 {
 
-    protected $table = "users";
+    protected $table = "user";
     private $name;
     private $email;
     private $password;
