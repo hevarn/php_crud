@@ -13,15 +13,15 @@ class PictureManager
     {
         $req = new BottleSql($db);
         $tags = array_pop($_POST);
-        $picture = $_FILES['picture']['name'];
-        $uploadedPicture = new UploadedPicture($_FILES['picture']);
+        $picture = $_FILES['picture'];
+        $uploadedPicture = new UploadedPicture($picture);
         if (!$uploadedPicture->isValid()) {
-            throw new Exception($uploadedPicture->getMessageError()) ;
+            die(" la verification à echoué") ;
         }
-        $uploadFiles = new UploadFiles($uploadedPicture->getName(),$uploadedPicture->getPicture()['tmp_name']);
+        $uploadFiles = new UploadFiles($picture);
         $result = $req->sendUpdate($id, $_POST, $tags,$uploadFiles->uniqid());
         if ($result) {
-            $uploadFiles->upload();
+            $uploadFiles->uploadInDatabase();
         }else{
             throw new Exception($uploadFiles->getMessageError());
         }

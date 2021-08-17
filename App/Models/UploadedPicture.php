@@ -13,14 +13,20 @@ class UploadedPicture extends Exception
     public function __construct(array $picture){
         $this->picture =$picture;
     }
-    public function getName()
-    {
-        return $this->picture['name'];
-    }
-    public function getPicture()
-    {
-        return $this->picture;
-    }
+    
+    // public function getName()
+    // {
+    //     return $this->picture['name'];
+    // }
+    // public function getSize()
+    // {
+    //     return $this->picture['size'];
+    // }
+    // public function getError(){
+        
+    //     return $this->picture['error'];
+    // }
+    // message error
     public function setMessageError(string $MsgError){
         $this->MsgError = $MsgError;
     }
@@ -28,24 +34,27 @@ class UploadedPicture extends Exception
     {
         return $this->MsgError;
     }
-    public function getSize()
-    {
-        return $this->picture['size'];
-    }
 
     public function isValid(): bool
     {
-        if (empty($this->picture)) {
+        if (!empty($_POST['upload']) && !empty($this->picture) && $this->picture['error'] == 0){
+            $verifyImg = getimagesize($this->image['tmp_name']);
+            $pattern = "#^(image/)[^\s\n<]+$#i";
+            if(!preg_match($pattern, $verifyImg['mine'])){
+                die("merci de telecharger un fichier de type image");
+            }
+            return true;
+        }else{
             $this->setMessageError("champs requis");
-            return false;
         }
 
-        if ($this->getSize() > 4194304) {
+        if ($this->picture['size'] > 4194304) {
             $this->setMessageError("fichier trop grand");
             return false;
         }
+        return true;
 
-        if (!in_array(strtolower(pathinfo($this->getName(), PATHINFO_EXTENSION)), self::EXT)) {
+        if (!in_array(strtolower(pathinfo($this->picture['name'], PATHINFO_EXTENSION)), self::EXT)) {
             $this->setMessageError("le fichier n'est pas une image");
             return false;
         }
