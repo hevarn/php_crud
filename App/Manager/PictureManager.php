@@ -19,11 +19,14 @@ class PictureManager
             die(" la verification à echoué") ;
         }
         $uploadFiles = new UploadFiles($picture);
-        $result = $req->sendUpdate($id, $_POST, $tags,$uploadFiles->uniqid());
-        if ($result) {
-            $uploadFiles->uploadInDatabase();
-        }else{
-            throw new Exception($uploadFiles->getMessageError());
+        if($uploadFiles){
+
+            $result = $req->sendUpdate($id, $_POST, $tags);
+            if ($result) {
+                $uploadFiles->uploadInDatabase();
+            }else{
+                throw new Exception($uploadFiles->getMessageError());
+            }
         }
         return false;
     }
