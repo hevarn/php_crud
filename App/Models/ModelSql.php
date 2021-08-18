@@ -31,10 +31,9 @@ abstract class ModelSql
         return $this->query("DELETE FROM {$this->table} WHERE id = ?", [$id]);
     }
 
-    public function sendUpdate(int $id, array $data,?array $relations = null,$picture = null){
-        
+    public function sendUpdate(int $id, array $data,?array $relations = null){
         $sqlRequestPart = "";
-        $i = 2;
+        $i = 1;
         foreach($data as $key => $value){
             $comma = $i === count($data)? "" : ', ';
             $sqlRequestPart .= "{$key} = :{$key}{$comma}";

@@ -2,32 +2,35 @@
 
 namespace App\Manager;
 
-use Exception;
-use App\Models\BottleSql;
+use Database\DBtrait;
+use App\Models\ImageSql;
 use App\Models\UploadFiles;
 use App\Models\UploadedPicture;
 
 class PictureManager
 {
-    public function manage($id, $db)
+    use DBtrait;
+    public function __construct($picture)
     {
-        $req = new BottleSql($db);
-        $tags = array_pop($_POST);
-        $picture = $_FILES['picture'];
-        $uploadedPicture = new UploadedPicture($picture);
+        $this->picture = $picture;
+        return $this->picture;
+    }
+    public function manage($id):bool
+    {
+        $this->picture = $_FILES['picture'];
+        $uploadedPicture = new UploadedPicture($this->picture);
         if (!$uploadedPicture->isValid()) {
-            die(" la verification à echoué") ;
+            return false;
         }
-        $uploadFiles = new UploadFiles($picture);
-        if($uploadFiles){
-
-            $result = $req->sendUpdate($id, $_POST, $tags);
-            if ($result) {
-                $uploadFiles->uploadInDatabase();
-            }else{
-                throw new Exception($uploadFiles->getMessageError());
-            }
+        $uploadFiles = new UploadFiles($this->picture);
+        $uploadFiles->uploadInFolder($this->picture);
+        $req = (new ImageSql($this->getDB()));
+        $result = $req->sendUpdate($id,$this->picture);
+        if(!$result){
+            return false;
         }
-        return false;
+        var_dump("prout");c
+        var_dump($req);die();
+        return true;
     }
 }

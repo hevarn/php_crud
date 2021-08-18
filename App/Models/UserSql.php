@@ -29,7 +29,7 @@ class UserSql extends ModelSql
     // }
     // public function setPassword($password){
     //     $password = $_POST['password'];
-    //     $this->password= $password;
+    //     $this->password= $password; 
     //     return $this;
     // }
     // public function getPassword(){
