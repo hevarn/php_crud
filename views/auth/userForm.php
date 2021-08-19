@@ -1,3 +1,15 @@
+<?php if (isset($_SESSION['errors'])):?>
+    <?php foreach ($_SESSION['errors'] as $errorsArray):?>
+        <?php foreach ($errorsArray as $error):?>
+            <div class="error">
+                <?php foreach ($error as $error):?>
+                    <li><?= $error?></li>
+                <?php endforeach; ?>
+            </div>
+        <?php endforeach;?>
+    <?php endforeach;?>
+<?php endif; ?>
+<?php session_destroy(); ?>
 <!--MAIN
     ==========================-->
 <main class="main-formLogin">

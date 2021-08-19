@@ -2,11 +2,10 @@
 namespace App\Controller\Admin;
 
 use App\Models\Tags;
+use App\Models\ImageSql;
 use App\Models\BottleSql;
-use App\Models\UploadFiles;
 use App\Controller\Controller;
 use App\Manager\PictureManager;
-use App\Models\UploadedPicture;
 
 class AdminController extends Controller {
     
@@ -23,11 +22,23 @@ class AdminController extends Controller {
     }
     public function sendDataForCreate(){
         $this->isAdmin();
-        $req = new BottleSql($this->getDB());
-        $tags = array_pop($_POST);
-        $result = $req->create($_POST, $tags);
-        if($result){
-            return header("Location: /projetZero/admin/panel");
+        $pictureManager = new PictureManager($_FILES['picture']);
+        $resultCheckImage = $pictureManager->manage();
+        if($resultCheckImage){
+            $imageSend = new ImageSql($this->getDB());
+            $resultImageSend = $imageSend->CreateImageInToDatabase($_FILES['picture']);
+            if($resultImageSend){
+                $req = new BottleSql($this->getDB());
+                $tags = array_pop($_POST);
+                $result = $req->create($_POST, $tags);
+                if($result){
+                    return header("Location: /projetZero/admin/panel");
+                }
+            }else {
+                return header("Location: /projetZero/admin/panel/valid");
+            }
+        }else {
+            return header("Location: /projetZero/admin/panel/valid");
         }
     }
     public function generateTemplateForModify(int $id) {
@@ -39,17 +50,22 @@ class AdminController extends Controller {
   
     public function sendDataForUpdate(int $id) {
         $this->isAdmin();
-        $pictureManager = new PictureManager($_FILES['picture']);
-        $pictureManager->manage($id);
-        if($pictureManager->manage($id) == true){
-            $req = new BottleSql($this->getDB());
-            $tags = array_pop($_POST);
-            $result = $req->sendUpdate($id, $_POST, $tags);
-            if($result){
-                return header("Location: /projetZero/admin/panel?=success");
-            };
-            return header("Location: /projetZero/admin/panel/modify/$id");
-        }
+        // $pictureManager = new PictureManager($_FILES);
+        // $resultCheckImage = $pictureManager->manage($id);
+        // if($resultCheckImage){
+          
+        // }else{
+            
+        //     return header("Location: /projetZero/admin/panel/modify/$id");
+        // }
+        $req = new BottleSql($this->getDB());
+        $tags = array_pop($_POST);
+        $result = $req->sendUpdate($id, $_POST, $tags);
+        if($result){
+            return header("Location: /projetZero/admin/panel?=success");
+        };
+        return header("Location: /projetZero/admin/panel/modify/$id");
+        
     }
     
     public function destroy(int $id) {

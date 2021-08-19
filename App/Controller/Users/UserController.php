@@ -2,8 +2,9 @@
 
 namespace App\Controller\Users;
 
-use App\Controller\Controller;
 use App\Models\UserSql;
+use App\Validation\Validator;
+use App\Controller\Controller;
 
 class UserController extends Controller {
     public function connectUser() {
@@ -11,6 +12,16 @@ class UserController extends Controller {
         return $this->view('auth/userForm');
     }
     public function sendDataUserConnect(){
+        $validator = new Validator($_POST);
+        $errors = $validator->validate([
+            'username' => 'required','min:3',
+            'password' => 'required',
+        ]);
+        if ($errors) {
+            $_SESSION['errors'] = $errors;
+            header('Location: /projetZero/admin/connect');
+            exit();
+        }
         $user = (new UserSql($this->getDB()))->getByUsername($_POST['username']);
        if(password_verify($_POST["password"],$user->password)){
            $_SESSION['auth'] = (int)$user->admin;

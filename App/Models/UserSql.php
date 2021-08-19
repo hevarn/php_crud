@@ -56,10 +56,10 @@ class UserSql extends ModelSql
     //     }
     //}
     public function CreateUser(array $data)
-    {
+    { 
         parent::Create($data);
         $stmt = $this->db->getPDO()->lastInsertId();
-        $stmt = $this->db->getPDO()->prepare("INSERT INTO users (username, email, password) VALUE (?, ?, ?)");
+        $stmt = $this->db->getPDO()->prepare("INSERT INTO {$this->table} (username, email, password) VALUE (?, ?, ?)");
         $stmt->execute();
     }
 }

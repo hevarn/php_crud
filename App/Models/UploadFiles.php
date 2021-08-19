@@ -11,14 +11,17 @@ class UploadFiles extends UploadedPicture
     private $picture;
     private $img_folder;
     private $dir;
-    private $tmp;    
-    public function uploadInFolder(array $picture)
-    {
+    private $tmp;   
+    
+    public function __construct($picture){
+        $this->picture = $picture;
+        return $this->picture;
         
-        $this->picture  = $picture;
+    } 
+    public function uploadInFolder()
+    {
         $tmp = $this->picture['tmp_name'];
         $this->tmp = $tmp;
-    
         $this->img_folder = (ASSETS . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR);
         @mkdir($this->img_folder, 0777);
 

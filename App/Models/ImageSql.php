@@ -6,12 +6,18 @@ class ImageSql extends ModelSql{
 
     protected $table = "picture";
 
-    public function CreateImageInToDatabase(array $stmt){
-
-        $stmt = $this->db->getPDO()->lastInsertId();
-        $stmt = $this->db->getPDO()->prepare("INSERT INTO picture (name, taille, type, bin) VALUE ({$_FILES['image']['name']}, {$_FILES['image']['size']}, {$_FILES['image']['type']}, {file_get_contents($_FILES['image']['tmp_name']})");
-        $stmt->execute();
-        var_dump($stmt);die();
-        
+    public function  CreateImageInToDatabase(array $picture){
+    
+        $picName = $picture['name'];
+        $picType = $picture['type'];
+        $picTmp = $picture['tmp_name'];
+        $picError = $picture['error'];
+        $picSize = $picture['size'];
+    
+        $stmt = $this->db->getPDO()->prepare("INSERT INTO {$this->table} (name, type, tmp_name, error, size) VALUE (?,?,?,?,?)");
+        $resultStmt = $stmt->execute(array($picName,$picType,$picTmp,$picError,$picSize));    
+        if ($resultStmt){
+            return true;
+        }
     }
 }

@@ -13,38 +13,43 @@ class UploadedPicture extends Exception
     // construct
     public function __construct(array $picture){
         $this->picture =$picture;
+        return $this->picture;
     }
     //gestion des erreur
-    public function getMessageError(string $MsgError)
-    { 
-        $this->MsgError = $MsgError;
-        return $this->MsgError;
-    }
     //verification
     public function isValid(): bool
     {
-        if (!empty($_POST['upload']) && !empty($this->picture) && $this->picture['error'] == 0){
+        if (!empty($_FILES['upload']) && !empty($this->picture) && $this->picture['error'] == 0){
             $verifyImg = getimagesize($this->image['tmp_name']);
             $pattern = "#^(image/)[^\s\n<]+$#i";
             if(!preg_match($pattern, $verifyImg['mine'])){
-                $this->getMessageError("merci de telecharger un fichier de type image");
+                $this->MsgError = "merci de telecharger un fichier de type image";
+                $_SESSION['error'] = $this->MsgError;
             }
             return true;
         }else{
-            $this->getMessageError("champs requis");
+            $this->MsgError = "champs requis";
+            $_SESSION['error'] = $this->MsgError;
         }
         return true;
         
         if ($this->picture['size'] > 4194304) {
-            $this->getMessageError("fichier trop grand");
+            $this->MsgError = "fichier trop grand";
+            $_SESSION['error'] = $this->MsgError;
             return false;
         }
         return true;
-
+        
         if (!in_array(strtolower(pathinfo($this->picture['name'], PATHINFO_EXTENSION)), self::EXT)) {
-            $this->getMessageError("le fichier n'est pas une image");
+            $this->MsgError = "le fichier n'est pas une image";
+            $_SESSION['error'] = $this->MsgError;
             return false;
         }
         return true;
+    }
+
+    public function getMessageError():string
+    { 
+        return $this->MsgError;
     }
 }
