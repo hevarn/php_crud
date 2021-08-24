@@ -1,3 +1,9 @@
+<?php if(isset($_GET['error'])):?>
+    <div class="banner-error">
+        <p> <?= $_GET['error']?></p>
+    </div>
+<?php endif; ?>
+
 <div class="container-form-admin">
     <div class="container-form-admin-title">
         <h1 class="home-title-up" id="title-up"><?= isset($params['req']) ? "modifier" : "Bienvenue pour" ?></h1>

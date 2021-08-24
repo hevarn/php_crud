@@ -1,10 +1,12 @@
 <?php
 
 use Router\Router;
+use App\Errors\CustomError;
 use App\Manager\PictureManager;
 
 
 require '../vendor/autoload.php';
+
 define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
 define('ASSETS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR);
 define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) . DIRECTORY_SEPARATOR);
@@ -37,6 +39,6 @@ $router->get('/admin/logout', 'App\Controller\Users\UserController@destroySessio
 
 try {
     $router->run();
-} catch (Exception $e) {
-    echo $e->getMessage();
+} catch (CustomError  $e) {
+    $e->PageError404();
 }

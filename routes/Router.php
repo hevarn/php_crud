@@ -2,9 +2,8 @@
 
 namespace Router;
 
-
-use Exception;
 use Router\Route;
+use App\Errors\CustomError;
 
 class Router{
 
@@ -26,7 +25,7 @@ class Router{
                 $route->execute();
             }
         }
-        throw new Exception();
+        throw new CustomError('page pas trouver');
         
         // return header('HTTP/1.0 404 Not Found');
     }

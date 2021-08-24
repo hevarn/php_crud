@@ -17,7 +17,9 @@
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <!-- CSS
     =============================== -->
+
     <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'style.css' ?>" />
+    
 </head>
 
 <body>
@@ -59,14 +61,14 @@
                         <div class="d3"></div>
                         <div class="d4"></div>
                     </li>
-                    <li class="nav-item center nav-link" >
+                    <li class="nav-item center nav-link">
                         <a href="/projetZero/admin/connect">LOGIN</a>
                         <div class="d1"></div>
                         <div class="d2"></div>
                         <div class="d3"></div>
                         <div class="d4"></div>
                     </li>
-                    <?php if (isset($_SESSION['auth'])) :?>
+                    <?php if (isset($_SESSION['auth'])) : ?>
                         <li class="nav-item center nav-link" id="logout-custom">
                             <a href="/projetZero/admin/logout">LOG-OUT</a>
                             <div class="d1"></div>
@@ -102,11 +104,11 @@
     =============================== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script>
-    
+
     <!-- SCRIPT JS
     =============================== -->
-    <?php if (isset($_GET['url'])==='/projetZero/posts') : ?>
-        <?= var_dump('proput');?> 
+    <?php if (isset($_GET['/projetZero/posts'])) : ?>
+        <?= var_dump('proput'); ?>
     <?php else : ?>
         <script src="<?= SCRIPTS . 'js' . DIRECTORY_SEPARATOR . 'main.js' ?>"></script>
     <?php endif; ?>

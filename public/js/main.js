@@ -33,6 +33,7 @@ function move(e) {
   });
 }
 
+
 /*===== LOADING ANIMATION HOME PAGE =====*/
 //OVERLAY
 TweenMax.to(".first", 1.5, {
@@ -87,18 +88,7 @@ gsap.from(".img-cardWine", { opacity: 0, duration: 1, delay: 1.2, x: -50 });
 
 /*===== FORM LOGIN  =====*/
 /*===== ==========  =====*/
-// MOUSSMOVE
-document.addEventListener("mousemove", move);
-function move(e) {
-  this.querySelectorAll(".move").forEach((layer) => {
-    const speed = layer.getAttribute("data-speed");
 
-    const x = (window.innerWidth - e.pageX * speed) / 120;
-    const y = (window.innerHeight - e.pageY * speed) / 120;
-
-    layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
-  });
-}
 
 // FORM
 console.clear();
@@ -132,33 +122,38 @@ signupBtn.addEventListener("click", (e) => {
 
 /* ====== CARD USER ADMIN ANIMATION =======*/
 /*========= =========== ============*/
-  // Flip card to the back side
+// Flip card to the back side
 
-  const btnDetails = document.getElementById('#details-card'),
-        cardAdmin = document.querySelector('.card-admin'),
-        backCard = document.querySelector('.back');
+const btnDetails = document.getElementById('#details-card'),
+  cardAdmin = document.querySelector('.card-admin'),
+  backCard = document.querySelector('.back');
 
-  btnDetails.addEventListener("click",()=> {
-    cardAdmin.classList.toggle("rotate");
-    backCard.show();
-    gsap.from(".a", { opacity: 0, duration: 1, delay: 0.7, y: 30 });
-    gsap.from(".b", { opacity: 0, duration: 1, delay: 0.8, y: 30 });
-    gsap.from(".c", { opacity: 0, duration: 1, delay: 0.9, y: 30 });
-    gsap.from(".d", { opacity: 0, duration: 1, delay: 1, y: 30 });
-  });
+btnDetails.addEventListener("click", () => {
+  cardAdmin.classList.toggle("rotate");
+  backCard.show();
+  gsap.from(".a", { opacity: 0, duration: 1, delay: 0.7, y: 30 });
+  gsap.from(".b", { opacity: 0, duration: 1, delay: 0.8, y: 30 });
+  gsap.from(".c", { opacity: 0, duration: 1, delay: 0.9, y: 30 });
+  gsap.from(".d", { opacity: 0, duration: 1, delay: 1, y: 30 });
+});
 
-  // Flip card back to the front side
-  // $("#flip-back").click(function () {
-  //   $(".card-admin").removeClass("rotate");
+// Flip card back to the front side
+$("#flip-back").click(function () {
+  $(".card-admin").removeClass("rotate");
 
-  //   setTimeout(function () {
-  //     $(".back").hide();
-  //     setTimeout(function () {
-  //       $(".front").show();
-  //     }, 400);
-  //   }, 400);
+  setTimeout(function () {
+    $(".back").hide();
+    setTimeout(function () {
+      $(".front").show();
+    }, 400);
+  }, 400);
 
-  //   gsap.from("#details", { opacity: 0, duration: 1, delay: 0.7, y: 30 });
-  //   gsap.from(".title", { opacity: 0, duration: 1, delay: 1, y: 30 });
-  //   gsap.from(".p", { opacity: 0, duration: 1, delay: 1.1, y: 30 });
-  // });
+  gsap.from("#details", { opacity: 0, duration: 1, delay: 0.7, y: 30 });
+  gsap.from(".title", { opacity: 0, duration: 1, delay: 1, y: 30 });
+  gsap.from(".p", { opacity: 0, duration: 1, delay: 1.1, y: 30 });
+});
+
+
+/* ====== ANIMATION 404 PAGE =======*/
+/*========= =========== ============*/
+

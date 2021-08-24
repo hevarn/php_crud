@@ -22,15 +22,16 @@ class AdminController extends Controller {
     }
     public function sendDataForCreate(){
         $this->isAdmin();
+        
         $pictureManager = new PictureManager($_FILES['picture']);
-        $resultCheckImage = $pictureManager->manage();
+        list($resultCheckImage,$uploadFiles) = $pictureManager->manage();
         if($resultCheckImage){
             $imageSend = new ImageSql($this->getDB());
             $resultImageSend = $imageSend->CreateImageInToDatabase($_FILES['picture']);
             if($resultImageSend){
                 $req = new BottleSql($this->getDB());
                 $tags = array_pop($_POST);
-                $result = $req->create($_POST, $tags);
+                $result = $req->create($_POST,$tags);
                 if($result){
                     return header("Location: /projetZero/admin/panel");
                 }
@@ -50,21 +51,28 @@ class AdminController extends Controller {
   
     public function sendDataForUpdate(int $id) {
         $this->isAdmin();
-        // $pictureManager = new PictureManager($_FILES);
-        // $resultCheckImage = $pictureManager->manage($id);
-        // if($resultCheckImage){
-          
-        // }else{
-            
-        //     return header("Location: /projetZero/admin/panel/modify/$id");
-        // }
-        $req = new BottleSql($this->getDB());
-        $tags = array_pop($_POST);
-        $result = $req->sendUpdate($id, $_POST, $tags);
-        if($result){
-            return header("Location: /projetZero/admin/panel?=success");
-        };
-        return header("Location: /projetZero/admin/panel/modify/$id");
+        $pictureManager = new PictureManager($_FILES['picture']);
+        list($resultCheckImage,$uploadFiles) = $pictureManager->manage();
+        if($resultCheckImage){
+            $imageSend = new ImageSql($this->getDB());
+            $resultImageSend = $imageSend->CreateImageInToDatabase($_FILES['picture']);
+            if($resultImageSend){
+
+                $req = new BottleSql($this->getDB());
+                $tags = array_pop($_POST);
+                $pUniq = $uploadFiles->getPictureUniqId();
+                $result = $req->sendUpdate($id, $_POST,$pUniq, $tags);
+                if($result){
+                    return header("Location: /projetZero/admin/panel?=success");
+                }else{
+                    return header("Location: /projetZero/admin/panel/modify/$id");
+                }
+            }else{
+                return header("Location: /projetZero/admin/panel/modify/$id");
+            }
+        }else{
+            return header("Location: /projetZero/admin/panel/modify/$id");
+        }
         
     }
     

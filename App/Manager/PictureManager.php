@@ -12,21 +12,21 @@ class PictureManager
         $this->picture = $picture;
         return $this->picture;
     }
-    public function manage():bool
+    public function manage():array
     {
         $uploadedPicture = new UploadedPicture($this->picture);
         $resultValid = $uploadedPicture->isValid();
         if ($resultValid) {
             $uploadFiles = new UploadFiles($this->picture);
             $resultIsUpload = $uploadFiles->uploadInFolder();
+
             if ($resultIsUpload){
-                return true;
+                return [true, $uploadFiles];
             }else {
-                return false;
+                return [false,null];
             }
         }else{
-            return false;
+            return [false,null];
         }
     }
-
 }

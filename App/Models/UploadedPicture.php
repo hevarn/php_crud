@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Exception;
 
-class UploadedPicture extends Exception
+class UploadedPicture
 {
     const EXT = array('jpg', 'jpeg', 'gif', 'png');
     private $picture;
@@ -23,26 +23,27 @@ class UploadedPicture extends Exception
             $verifyImg = getimagesize($this->image['tmp_name']);
             $pattern = "#^(image/)[^\s\n<]+$#i";
             if(!preg_match($pattern, $verifyImg['mine'])){
-                $this->MsgError = "merci de telecharger un fichier de type image";
-                $_SESSION['error'] = $this->MsgError;
+                $errors = "merci de telecharger un fichier de type image";
+                header("Location: /projetZero/Admin/formAdmin?error=$errors");
             }
             return true;
         }else{
-            $this->MsgError = "champs requis";
-            $_SESSION['error'] = $this->MsgError;
+            $errors = "champs requis";
+            header("Location: /projetZero/Admin/formAdmin?error=$errors");
         }
         return true;
         
         if ($this->picture['size'] > 4194304) {
-            $this->MsgError = "fichier trop grand";
-            $_SESSION['error'] = $this->MsgError;
+
+            $errors = "fichier trop grand";
+            header("Location: /projetZero/Admin/formAdmin?error=$errors");
             return false;
         }
         return true;
         
         if (!in_array(strtolower(pathinfo($this->picture['name'], PATHINFO_EXTENSION)), self::EXT)) {
-            $this->MsgError = "le fichier n'est pas une image";
-            $_SESSION['error'] = $this->MsgError;
+            $errors = "le fichier n'est pas une image";
+            header("Location: index.php?error=$errors");
             return false;
         }
         return true;
