@@ -39,6 +39,6 @@ $router->get('/admin/logout', 'App\Controller\Users\UserController@destroySessio
 
 try {
     $router->run();
-} catch (CustomError  $e) {
-    $e->PageError404();
+} catch (\Exception $e) {
+    $e->getMessage();
 }

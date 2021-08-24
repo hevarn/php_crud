@@ -12,7 +12,9 @@
 
     <?php foreach ($params['reqs'] as $req) : ?>
         <div class="card">
-            <img class="imag-card-wine" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . $req->picture ?>">
+            <?php foreach ($req->ToRecoverTheBottleImage() as $image) : ?>
+                <img class="imag-card-wine" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . $image->name ?>">
+            <?php endforeach; ?>
             <?php foreach ($req->ToRecoverTheBottleTags() as $tag) : ?>
                 <div class="container-btn-cardWine" id="colorWine">
                     <a href="/projetZero/tags/<?= $tag->id ?>"><?= $tag->name ?></a>

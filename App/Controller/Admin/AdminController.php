@@ -26,8 +26,10 @@ class AdminController extends Controller {
         $pictureManager = new PictureManager($_FILES['picture']);
         list($resultCheckImage,$uploadFiles) = $pictureManager->manage();
         if($resultCheckImage){
+            $pictureNameInDatabase = $uploadFiles->newPictureName;
             $imageSend = new ImageSql($this->getDB());
-            $resultImageSend = $imageSend->CreateImageInToDatabase($_FILES['picture']);
+            $resultImageSend = $imageSend->CreateImageInToDatabase($pictureNameInDatabase);
+            var_dump($resultImageSend);die();
             if($resultImageSend){
                 $req = new BottleSql($this->getDB());
                 $tags = array_pop($_POST);

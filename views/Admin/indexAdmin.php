@@ -1,20 +1,20 @@
  <style>
-     .flash{
+     .flash {
          position: absolute;
          z-index: 10000;
-         background-color:green;
-         border-radius:12px;
+         background-color: green;
+         border-radius: 12px;
          padding: 1rem;
          font-size: 19px;
      }
  </style>
- 
- <?php 
- $success = "upload it's ok";
- if(isset($_GET['success'])){
-      vprintf("<p class='flash %s'>%s</p>", [$success]);
-      unset($success);
- } ?>
+
+ <?php
+    $success = "upload it's ok";
+    if (isset($_GET['success'])) {
+        vprintf("<p class='flash %s'>%s</p>", [$success]);
+        unset($success);
+    } ?>
  <!-- OVERLAY
     =============================== -->
  <div class="overlay fourth">
@@ -64,25 +64,23 @@
      <div class="container-card-info">
          <a href="/projetZero/admin/panel/create" class="btn-create" id="btn-create-custom">Céer une bouteille</a>
          <?php foreach ($params['reqs'] as $req) : ?>
-             <div class="card-info-admin">
-                 <div class="card" id="card-info">
-                     <div class="row"><?= $req->id ?></div>
-                     <div class="row"><?= $req->name ?></div>
-                     <div class="row"><?= $req->year ?></div>
-                     <div class="row"><?= $req->grapes ?></div>
-                     <div class="row"><?= $req->region ?></div>
-                     <div class="row"><?= $req->country ?></div>
-                     <div class="row"><?= $req->picture ?></div>
-                     <div id="details-row">
-                         <p>details</p>
-                     </div>
-                 </div>
-                 <div class="container-back-info-indexAdmin">
-                     <form class="from" action="/projetZero/admin/panel/delete/<?= $req->id ?>" method="POST" class="d-inline">
-                         <button type="submit" class="btn-cancel"> effacer</button>
-                         <a href="/projetZero/admin/panel/modify/<?= $req->id ?>" class="btn-modify"> modifier</a>
-                     </form>
-                 </div>
-             </div>
+            <?php $req->ToRecoverTheBottleImage($image)?>
+                <div class="card-info-admin">
+                    <img class="imag-card-wine" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . $image->name ?>">
+                    <div class="card" id="card-info">
+                        <div class="row"><?= $req->id ?></div>
+                        <div class="row"><?= $req->name ?></div>
+                        <div class="row"><?= $req->year ?></div>
+                        <div class="row"><?= $req->grapes ?></div>
+                        <div class="row"><?= $req->region ?></div>
+                        <div class="row"><?= $req->country ?></div>
+                    </div>
+                    <div class="container-back-info-indexAdmin">
+                        <form class="from" action="/projetZero/admin/panel/delete/<?= $req->id ?>" method="POST" class="d-inline">
+                        <button type="submit" class="btn-cancel"> effacer</button>
+                        <a href="/projetZero/admin/panel/modify/<?= $req->id ?>" class="btn-modify"> modifier</a>
+                    </form>
+                </div>
+            </div>
          <?php endforeach; ?>
      </div>

@@ -12,12 +12,14 @@
         <section class="home page-1">
             <div class="home-container bd-grid">
                 <div class="home-img">
-                    <img class="move" src="/projetZero/assets/img/biscuit.png" alt="img-background-home" data-speed="-2" />
-                    <img class="move" src="/projetZero/assets/img/bouteille.png" alt="img-background-home" data-speed="2" />
-                    <img class="move" src="/projetZero/assets/img/fromage.png" alt="img-background-home" data-speed="2" />
-                    <img class="move" src="/projetZero/assets/img/plateau.png" alt="img-background-home" data-speed="-2" />
-                    <img class="move" src="/projetZero/assets/img/verre.png" alt="img-background-home" data-speed="-4" />
-                    <img class="move" src="/projetZero/assets/img/tireBouchon.png" alt="img-background-home" data-speed="2" />
+                    <img class="move" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR.'img_homepage'.DIRECTORY_SEPARATOR.'ombre_bouteille.png'?>" alt="img-background-home" data-speed="-6" />
+                    <img class="move" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR.'img_homepage'.DIRECTORY_SEPARATOR.'bouteille.png'?>" alt="img-background-home" data-speed="-1" />
+                    <img class="move" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR.'img_homepage'.DIRECTORY_SEPARATOR.'corte.png'?>" alt="img-background-home" data-speed="2" />
+                    <img class="move" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR.'img_homepage'.DIRECTORY_SEPARATOR.'chianti.png'?>" alt="img-background-home" data-speed="1" />
+                    <img class="move" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR.'img_homepage'.DIRECTORY_SEPARATOR.'logo.png'?>" alt="img-background-home" data-speed="3" />
+                    <img class="move" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR.'img_homepage'.DIRECTORY_SEPARATOR.'etiquette.png'?>" alt="img-background-home" data-speed="0.5" />
+                    <img class="move" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR.'img_homepage'.DIRECTORY_SEPARATOR.'tampon.png'?>" alt="img-background-home" data-speed="2" />
+                    <img class="move" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR.'img_homepage'.DIRECTORY_SEPARATOR.'italia.png'?>" alt="img-background-home" data-speed="1" />
                 </div>
                 <div class="home-data">
                     <h2 class="home-title-up">Welcome</h2>

@@ -25,7 +25,7 @@ class BottleSql extends ModelSql
     }
     public function ToRecoverTheBottleImage()
     {
-        return $this->query("SELECT p* FROM picture p
+        return $this->query("SELECT p.* FROM picture p
          INNER JOIN bottle_image bi ON bi.picture_id = p.id 
          WHERE bi.bottle_id = ?", [$this->id]);
     }

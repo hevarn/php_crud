@@ -23,27 +23,27 @@ class UploadedPicture
             $verifyImg = getimagesize($this->image['tmp_name']);
             $pattern = "#^(image/)[^\s\n<]+$#i";
             if(!preg_match($pattern, $verifyImg['mine'])){
-                $errors = "merci de telecharger un fichier de type image";
-                header("Location: /projetZero/Admin/formAdmin?error=$errors");
+                // $errors = "merci de telecharger un fichier de type image";
+                // header("Location: /projetZero/Admin/formAdmin?error=$errors");
             }
             return true;
         }else{
-            $errors = "champs requis";
-            header("Location: /projetZero/Admin/formAdmin?error=$errors");
+            // $errors = "champs requis";
+            // header("Location: /projetZero/Admin/formAdmin?error=$errors");
         }
         return true;
         
         if ($this->picture['size'] > 4194304) {
 
-            $errors = "fichier trop grand";
-            header("Location: /projetZero/Admin/formAdmin?error=$errors");
+            // $errors = "fichier trop grand";
+            // header("Location: /projetZero/Admin/formAdmin?error=$errors");
             return false;
         }
         return true;
         
         if (!in_array(strtolower(pathinfo($this->picture['name'], PATHINFO_EXTENSION)), self::EXT)) {
-            $errors = "le fichier n'est pas une image";
-            header("Location: index.php?error=$errors");
+            // $errors = "le fichier n'est pas une image";
+            // header("Location: index.php?error=$errors");
             return false;
         }
         return true;

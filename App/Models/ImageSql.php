@@ -6,16 +6,22 @@ class ImageSql extends ModelSql{
 
     protected $table = "picture";
 
-    public function  CreateImageInToDatabase(array $picture){
+    public function  CreateImageInToDatabase($picture){
     
-        $picName = $picture['name'];
-        $picType = $picture['type'];
-        $picTmp = $picture['tmp_name'];
-        $picError = $picture['error'];
-        $picSize = $picture['size'];
+        $picName = $picture;
+
+        $stmt = $this->db->getPDO()->prepare("INSERT INTO {$this->table} (name) VALUE (?)");
+        $resultStmt = $stmt->execute(array($picName));    
+        if ($resultStmt){
+            return true;
+        }
+    }
+    public function  UpdateImageInToDatabase($picture){
     
-        $stmt = $this->db->getPDO()->prepare("INSERT INTO {$this->table} (name, type, tmp_name, error, size) VALUE (?,?,?,?,?)");
-        $resultStmt = $stmt->execute(array($picName,$picType,$picTmp,$picError,$picSize));    
+        $picName = $picture;
+        $stmt = $this->db->getPDO()->prepare("DELETE FROM {$this->table} WHERE id = ?");
+        $stmt = $this->db->getPDO()->prepare("INSERT INTO {$this->table} (name) VALUE (?)");
+        $resultStmt = $stmt->execute(array($picName));    
         if ($resultStmt){
             return true;
         }
