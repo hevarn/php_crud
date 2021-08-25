@@ -16,8 +16,8 @@
                 <img class="imag-card-wine" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . $image->name ?>">
             <?php endforeach; ?>
             <?php foreach ($req->ToRecoverTheBottleTags() as $tag) : ?>
-                <div class="container-btn-cardWine" id="colorWine">
-                    <a href="/projetZero/tags/<?= $tag->id ?>"><?= $tag->name ?></a>
+                <div id="tag" class="container-btn-cardWine" id="colorWine">
+                    <a href="/projetZero/tags/<?= $tag->id ?>">Voir tout les <?= $tag->name ?><img class="arrow"src="https://image.flaticon.com/icons/png/512/892/892662.png"/></a>
                 </div>
             <?php endforeach; ?>
             <div class="body-card">
@@ -26,7 +26,7 @@
                 <p> <?= $req->grapes ?></p>
             </div>
             <div class="container-btn-cardWine">
-                <a href="/projetZero/posts/<?= $req->id ?>" class="button">Voir la bouteille <?= $req->name ?></a>
+                <a href="/projetZero/posts/<?= $req->id ?>" class="button">Voir la bouteille <?= $req->name ?><img class="arrow"src="https://image.flaticon.com/icons/png/512/892/892662.png"/></a>
             </div>
         </div>
     <?php endforeach; ?>
