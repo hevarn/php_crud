@@ -187,15 +187,19 @@
     0% {
         transform: translate(0, 0) rotateX(0) rotateY(0);
     }
+
     25% {
         transform: translate(100%, 0) rotateX(0) rotateY(180deg);
     }
+
     50% {
         transform: translate(100%, 100%) rotateX(-180deg) rotateY(180deg);
     }
+
     75% {
         transform: translate(0, 100%) rotateX(-180deg) rotateY(360deg);
     }
+
     100% {
         transform: translate(0, 0) rotateX(0) rotateY(360deg);
     }
@@ -205,27 +209,35 @@
     0% {
         box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px rgba(255, 255, 255, 0), 24px 48px rgba(255, 255, 255, 0), 0px 48px rgba(255, 255, 255, 0);
     }
+
     12% {
         box-shadow: 0 24px white, 24px 24px rgba(255, 255, 255, 0), 24px 48px rgba(255, 255, 255, 0), 0px 48px rgba(255, 255, 255, 0);
     }
+
     25% {
         box-shadow: 0 24px white, 24px 24px white, 24px 48px rgba(255, 255, 255, 0), 0px 48px rgba(255, 255, 255, 0);
     }
+
     37% {
         box-shadow: 0 24px white, 24px 24px white, 24px 48px white, 0px 48px rgba(255, 255, 255, 0);
     }
+
     50% {
         box-shadow: 0 24px white, 24px 24px white, 24px 48px white, 0px 48px white;
     }
+
     62% {
         box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px white, 24px 48px white, 0px 48px white;
     }
+
     75% {
         box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px rgba(255, 255, 255, 0), 24px 48px white, 0px 48px white;
     }
+
     87% {
         box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px rgba(255, 255, 255, 0), 24px 48px rgba(255, 255, 255, 0), 0px 48px white;
     }
+
     100% {
         box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px rgba(255, 255, 255, 0), 24px 48px rgba(255, 255, 255, 0), 0px 48px rgba(255, 255, 255, 0);
     }
@@ -236,19 +248,22 @@
   ===========================*/
 
 @media screen and (min-width: 300px) {
+
     /* -- BASE --  
    =================================================== 
    ///////////////////////////////////////////////////
   ////////////////////////////////////////////////////
    =================================================== */
     *,
-     ::before,
-     ::after {
+    ::before,
+    ::after {
         box-sizing: border-box;
     }
+
     html {
         scroll-behavior: smooth;
     }
+
     body {
         margin: var(--header-height) 0 0 0;
         padding: 0;
@@ -256,6 +271,7 @@
         font-size: var(--normal-font-size);
         font-weight: 500;
     }
+
     h1,
     h2,
     h3,
@@ -267,30 +283,37 @@
         list-style: none;
         text-decoration: none;
     }
+
     a {
         color: var(--wite-color);
     }
+
     img {
         max-width: 100%;
         height: auto;
         opacity: 0.87;
     }
+
     .glass {
         top: 0px;
     }
+
     .l-main {
         overflow: hidden;
         height: 100vh;
     }
+
     /* -- SCROLL EFFECT --  
    ========================= */
     .active {
         transform: translate3d(0, 0, 0);
     }
+
     .inactive {
         opacity: 0.5;
         transform: skewX(18deg) scale(0.95);
     }
+
     /* -- HEADER --  
    ========================= */
     .bd-grid {
@@ -301,6 +324,7 @@
         margin-left: 1rem;
         margin-right: 1rem;
     }
+
     .l-header {
         width: 100%;
         position: fixed;
@@ -310,6 +334,7 @@
         background-color: var(--first-color);
         box-shadow: 6px 6px 14px #794444bd;
     }
+
     /* -- NAVBAR --
 ==================================================
 /////////////////////////////////////////////////
@@ -321,6 +346,7 @@
         justify-content: space-between;
         align-items: center;
     }
+
     .nav-menu {
         position: fixed;
         top: 0;
@@ -332,11 +358,13 @@
         backdrop-filter: blur(10px);
         transition: 0.5s;
     }
+
     .home-img img {
         top: -25%;
         transition: 0.5s;
         max-width: 200%;
     }
+
     .nav-close {
         position: absolute;
         top: 0;
@@ -344,12 +372,14 @@
         font-size: var(--logo-font-size);
         cursor: pointer;
     }
+
     .nav-close,
     .nav-link,
     .nav-logo,
     .nav-toggle {
         color: var(--wite-color);
     }
+
     /* -- LINK EFFECT HOVER --  
     =============================== */
     .nav-link {
@@ -359,19 +389,23 @@
         position: relative;
         cursor: pointer;
     }
+
     .center {
         display: flex;
         align-items: center;
         justify-content: center;
     }
+
     .nav-link:hover {
         font-size: var(--little-font-size);
         transition-delay: 0.8s;
         transition: 0.5s;
     }
+
     #logout-custom:hover {
         font-size: 21px;
     }
+
     .d1,
     .d2 {
         position: absolute;
@@ -382,20 +416,24 @@
         transition: all 0.4s;
         transition-delay: 0.4s;
     }
+
     .d1 {
         top: 0;
         transform-origin: left;
     }
+
     .d2 {
         bottom: 0;
         transform-origin: right;
     }
+
     .nav-link:hover .d1,
     .nav-link:hover .d2 {
         transform: scaleX(1);
         transition-delay: 0s;
         transition: 0.5s;
     }
+
     .d3,
     .d4 {
         width: 2px;
@@ -406,28 +444,34 @@
         transform: scaleY(0);
         transition: all 0.4s;
     }
+
     .d3 {
         left: 0;
         transform-origin: bottom;
     }
+
     .d4 {
         right: 0;
         transform-origin: top;
     }
+
     .nav-link:hover .d3,
     .nav-link:hover .d4 {
         transform: scaleY(1);
         transition-delay: 0.4s;
     }
+
     .nav-toggle {
         font-size: var(--logo-font-size);
         cursor: pointer;
     }
+
     /* -- SHOW NAVBAR--  
     =============================== */
     .show {
         right: 0;
     }
+
     /* -- MAIN PAGE --  
     =============================== */
     .home {
@@ -436,26 +480,31 @@
         display: flex;
         justify-content: center;
     }
+
     .home-container {
         height: calc(110vh - var(--header-height));
         grid-template-rows: repeat(2, max-content);
         row-gap: 1.5rem;
     }
+
     .home-img {
         position: relative;
         justify-self: center;
         width: 302px;
         height: 360px;
     }
+
     .home-img img {
         position: absolute;
         top: 0;
         left: -19%;
     }
+
     .home-data {
         color: var(--wite-color);
         position: relative;
     }
+
     /* -- TITLE MODIFICATION -- 
     =============================== */
     .home-title-up {
@@ -463,6 +512,7 @@
         color: var(--h1-color);
         text-shadow: -5px 5px 0px #d57b7b, -10px 10px 0px #b64f4f, -15px 15px 0px #953737;
     }
+
     .home-title-mid {
         font-size: var(--little-font-size);
         position: absolute;
@@ -470,6 +520,7 @@
         left: 15%;
         transform: translate(-50%, -50%);
     }
+
     .home-title {
         font-size: var(--big-font-size);
         margin-top: -2rem;
@@ -477,11 +528,13 @@
         text-shadow: -5px 5px 0px #d57b7b, -10px 10px 0px #b64f4f, -15px 15px 0px #953737;
         margin-bottom: 1rem;
     }
+
     .home-paragraphe {
         margin-top: 1rem;
         margin-bottom: 2.5rem;
         font-size: var(--normal-font-size);
     }
+
     .home-button {
         display: inline-block;
         background-color: var(--first-color-dark);
@@ -491,11 +544,13 @@
         box-shadow: 2px 4px 5px #562e2ea8, -1px -1px 5px #cf7878;
         transition: 0.5s;
     }
+
     .home-button:hover {
         transform: scale(1.2);
         box-shadow: inset 4px 4px 7px #834242, inset -3px -3px 6px #ba6f6f;
         transition: 0.5s;
     }
+
     /* -- INDEX-ARTICLE CARDWINE and SHOWARTICLE --
    ===================================================
    ///////////////////////////////////////////////////
@@ -508,10 +563,27 @@
         position: relative;
         background-color: var(--first-color);
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+        flex-direction: column;
         overflow: scroll;
         height: 100vh;
+    }
+
+    .container-card {
+        display: flex;
+        padding: 3rem;
+        width: 100%;
+        height: auto;
+    }
+    .juste-for-border{
+        padding:2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        border: 1px solid rgba(240, 239, 237, 0.384);
+        border-radius: 7px;
+        
     }
     .card {
         position: relative;
@@ -525,13 +597,17 @@
         transition: 0.3s;
         transform: scale(1);
     }
+
     .container-cardWine-focus {
         background-color: var(--first-color);
         display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         height: 100vh;
         overflow: hidden;
     }
+
     /* -- focus card in showArticle-- 
    ===============================  */
     .card-cardWine-focus {
@@ -540,27 +616,25 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 100%;
-        height: 100vh;
+        width: 90%;
+        height: 90vh;
         overflow: scroll;
         margin: 0;
         border-radius: 12px;
         box-shadow: 20px 25px 60px #562e2ea8, -20px -20px 60px #cf7878;
     }
+   
     /* -- hover imgCardWine effect in indexArticle -- 
    =============================== */
     .card img {
         transition: transform 0.3s, filter 0.8s ease-in-out;
         transform-origin: center center;
-        filter: brightness(70%);
         border-radius: 12px;
         max-height: 44vh;
         box-shadow: 11px 12px 21px #94545494, -12px -12px 20px #b5636375;
     }
-    .card:hover img {
-        filter: brightness(100%);
-        transform: scale(1.3);
-    }
+
+
     /* -- image card in showArticle --
    =============================== */
     #img-cardWine {
@@ -568,87 +642,145 @@
         max-height: 77vh;
         border-radius: 20px;
     }
+
     .body-card {
-        position: absolute;
-        top: 73%;
-        backdrop-filter: blur(7px);
-        background-color: rgba(218, 218, 218, 0.233);
+        background-color:transparent;
         flex-direction: column;
         padding: 1rem;
         border-radius: 10px;
         margin: 2rem;
         text-align: center;
     }
+    .body-card img{
+        width: 3vh;
+        
+    }
+    .info-bottle{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+        padding: 6rem;
+        background-image: url(../img/background-showcardewine.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+    .info-bottle img{
+        position: absolute;
+        top: 26%;
+        left: 14%;
+        width: 11vh;
+        height: 11vh;
+        border-radius: 50px;
+    }
+    .info-bottle .carte{
+        height: 20vh;
+        position: absolute;
+        top: -10%;
+        left: 60%;
+        width: 20vh;
+    }
+    .info-bottle a {
+        position:absolute;
+        top: 59%;
+        left: 23%;
+        display: flex;
+        align-items: center;
+        padding: .8rem;
+        border-radius: 7px;
+        background-color: #485c71;
+        font-size: var(--font-a-cardWine);
+        transition: 0.5s;
+    }
+    .info-bottle a:hover{
+        transition: 0.5s;
+        border-radius: 20px;
+        background-color: var(--first-color-darken);
+    }
+
     #body-card-custom {
         padding: 2.5rem;
-        width: 90%;
+        width: 80%;
         text-align: left;
-        background-color: #ebb6b6a3;
         border-radius: 60px;
-        box-shadow: 8px 8px 13px #562e2ea8, -10px -10px 12px #c6737396;
     }
+
     #colorWine {
         margin-top: 2rem;
         padding: 0.5vh;
         border-radius: 10px;
+        margin-bottom: 2rem;
     }
+
     .card-title {
         font-size: 20px;
         border-bottom: 1px solid rgb(88, 22, 22);
     }
+
     .card-text {
         font-size: 12px;
         margin-top: 1rem;
         padding: 0.5rem;
         border-bottom: 1px solid rgb(88, 22, 22);
     }
+
     /* -- link in cardWine in indexArticle --
    ===============================  */
-    .container-btn-cardWine {
-        position: absolute;
-        top: 60%;
-        left: -33%;
-        transform: rotate( 335deg);
-        z-index: 1000;
-    }
-    #tag {
-        position: absolute;
-        top: 70%;
-        left: -19%;
-        transform: rotate( 335deg);
-    }
+
+   .container-links{
+       width: 100%;
+       display:flex;
+       flex-direction: column;
+   }
+   .container-links img{
+       display: none;
+   }
+   #link-show-bottle{
+       margin-bottom: 2rem;
+   }
+   .container-links-showcard {
+       display: flex;
+       flex-direction: row;
+       justify-content: space-evenly;
+       align-items: center;
+   }
     .container-btn-cardWine a {
         display: flex;
         align-items: center;
-        padding: 0.10rem 0.60rem;
+        padding: .8rem;
         border-radius: 7px;
         background-color: #485c71;
         font-size: var(--font-a-cardWine);
         transition: 0.5s;
+        box-shadow: 5px 5px 13px #562e2eb3, -5px -5px 8px #cf7878b8;
     }
+
     .container-btn-cardWine a:hover {
         transition: 0.5s;
         border-radius: 20px;
         background-color: var(--first-color-darken);
+        box-shadow: 5px 5px 13px #562e2eb3, -5px -5px 8px #cf7878b8;
     }
+
     .container-btn-cardWine a .arrow {
         width: 2vw;
         margin-left: 1rem;
         box-shadow: none;
     }
-    .container-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        height: 12rem;
-    }
+
+
+
     /* --- CARDWINE IN SHOWTAG ---
   ==================================================
   /////////////////////////////////////////////////
   /////////////////////////////////////////////////
   ================================================= */
-    .container-cardWine-showTag {
+  
+  .container-cardWine-showTag {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -659,6 +791,7 @@
         height: 100%;
         overflow: scroll;
     }
+
     .card-cardWine-showTag {
         display: flex;
         align-items: center;
@@ -666,10 +799,12 @@
         position: relative;
         margin-bottom: 2rem;
     }
+
     .card-cardWine-showTag img {
         border-radius: 20px;
         box-shadow: 20px 25px 60px #562e2ea8, -20px -20px 60px #cf7878;
     }
+
     .card-cardWine-showTag a {
         position: absolute;
         top: 50%;
@@ -679,6 +814,7 @@
         cursor: pointer;
         text-shadow: -5px 5px 0px #d57b7b, -10px 10px 0px #b64f4f, -15px 15px 0px #953737;
     }
+
     /* --- FORM LOGIN / SIGN UP ---
   ==================================================
   /////////////////////////////////////////////////
@@ -694,6 +830,7 @@
         align-items: center;
         justify-content: center;
     }
+
     .home-img-formLogin {
         position: relative;
         justify-self: center;
@@ -701,11 +838,13 @@
         height: 100%;
         overflow: hidden;
     }
+
     .home-img-formLogin img {
         position: absolute;
         top: 20%;
         left: 0;
     }
+
     .form-structor {
         border-radius: 30px;
         height: 550px;
@@ -716,6 +855,7 @@
         background-color: var(--background-login-form);
         box-shadow: 4px 3px 17px #562e2ea8, -2px -3px 12px #df8e8ecc;
     }
+
     .form-structor::after {
         content: "";
         opacity: 0.8;
@@ -728,6 +868,7 @@
         background-position: left bottom;
         background-size: 500px;
     }
+
     .form-structor .signup {
         position: absolute;
         top: 50%;
@@ -737,26 +878,31 @@
         z-index: 5;
         transition: all 0.3s ease;
     }
+
     .form-structor .signup.slide-up {
         top: 5%;
         transform: translate(-50%, 0%);
         transition: all 0.3s ease;
     }
+
     .form-structor .signup.slide-up .form-holder,
     .form-structor .signup.slide-up .submit-btn {
         opacity: 0;
         visibility: hidden;
     }
+
     .form-structor .signup.slide-up .form-title {
         font-size: 1em;
         cursor: pointer;
     }
+
     .form-structor .signup.slide-up .form-title span {
         margin-right: 5px;
         opacity: 1;
         visibility: visible;
         transition: all 0.3s ease;
     }
+
     /* -- PART SIGN UP--
     ==================================================
   ///////////////////////////////////////////////// */
@@ -769,6 +915,7 @@
         transition: all 0.3s ease;
         box-shadow: 3px 3px 7px #562e2ea8, -1px -1px 20px #d29090;
     }
+
     .form-structor .signup .form-holder .input {
         border: 0;
         outline: none;
@@ -782,6 +929,7 @@
         width: 100%;
         font-size: 12px;
     }
+
     /* --  SIGN UP TITLE--
   ======================== */
     .form-structor .signup .form-title {
@@ -790,17 +938,20 @@
         text-align: center;
         text-shadow: 5px 5px 12px #562e2ea8, -6px -5px 20px #cf7878;
     }
+
     .form-structor .signup .form-title span {
         color: rgba(0, 0, 0, 0.4);
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
     }
-     ::placeholder {
+
+    ::placeholder {
         color: var(--h1-color);
         font-family: var(--body-font);
         font-size: var(--normal-font-size);
     }
+
     /* -- SIGN UP BUTTON--
   =================== */
     .form-structor .signup .submit-btn {
@@ -816,10 +967,12 @@
         font-weight: bold;
         transition: all 0.3s ease;
     }
+
     .form-structor .signup .submit-btn:hover {
         transition: all 0.3s ease;
         background-color: rgba(0, 0, 0, 0.8);
     }
+
     /* -- PART DOWN CLICK "or login"--
   ============================= */
     .form-structor .login {
@@ -831,6 +984,7 @@
         z-index: 5;
         transition: all 0.3s ease;
     }
+
     .form-structor .login::before {
         content: "";
         position: absolute;
@@ -844,6 +998,7 @@
         z-index: 4;
         transition: all 0.3s ease;
     }
+
     /* -TEXT DOWN "or login"--
   ========================== */
     .form-structor .login .center {
@@ -857,6 +1012,7 @@
         z-index: 5;
         transition: all 0.3s ease;
     }
+
     .form-structor .login .center .form-title {
         color: #000;
         font-size: 2.7em;
@@ -864,12 +1020,14 @@
         margin-right: 1rem;
         text-shadow: 3px 3px 4px #4d4a4a8a, -4px -2px 2px #807f7f45;
     }
+
     .form-structor .login .center .form-title span {
         color: rgba(0, 0, 0, 0.4);
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
     }
+
     /* -- PART LOGIN--
   =========================== */
     .form-structor .login .center .form-holder {
@@ -879,6 +1037,7 @@
         box-shadow: 2px 2px 7px #43424280, -2px -2px 7px #cecaca3d;
         transition: all 0.3s ease;
     }
+
     .form-structor .login .center .form-holder .input {
         border: 0;
         outline: none;
@@ -892,6 +1051,7 @@
         width: 100%;
         font-size: 18px;
     }
+
     /* -- LOGIN BUTTON--
   =========================== */
     .form-structor .login .center .submit-btn {
@@ -911,25 +1071,30 @@
         visibility: visible;
         transition: all 0.3s ease;
     }
+
     .form-structor .login .center .submit-btn:hover {
         transition: all 0.3s ease;
         box-shadow: inset 4px 5px 10px #2b2020a8, inset -2px -2px 12px #b08f8f;
     }
+
     .form-structor .login.slide-up {
         top: 90%;
         transition: all 0.3s ease;
     }
+
     .form-structor .login.slide-up .center {
         top: 10%;
         transform: translate(-50%, 0%);
         transition: all 0.3s ease;
     }
+
     .form-structor .login.slide-up .form-holder,
     .form-structor .login.slide-up .submit-btn {
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
     }
+
     .form-structor .login.slide-up .form-title {
         font-size: 1em;
         margin: 0;
@@ -937,12 +1102,14 @@
         cursor: pointer;
         transition: all 0.3s ease;
     }
+
     .form-structor .login.slide-up .form-title span {
         margin-right: 5px;
         opacity: 1;
         visibility: visible;
         transition: all 0.3s ease;
     }
+
     /* -- ADMIN IN INDEX-ADMIN -- 
     ==================================================
   /////////////////////////////////////////////////
@@ -955,6 +1122,7 @@
         background-color: var(--first-color);
         width: 100%;
     }
+
     .container-card-admin {
         width: 100%;
         height: 100%;
@@ -962,6 +1130,7 @@
         align-items: center;
         justify-content: center;
     }
+
     #container {
         perspective: 800px;
         position: relative;
@@ -971,6 +1140,7 @@
         transform-style: preserve-3d;
         transition: transform 5s;
     }
+
     .card-admin {
         width: 100%;
         height: 100%;
@@ -983,6 +1153,7 @@
         border-radius: 30px;
         box-shadow: 4px 4px 15px #6e3c3c, -4px -4px 15px #ce8181;
     }
+
     /* -- SIDE -- 
   ===============*/
     .front,
@@ -995,35 +1166,42 @@
         top: 0;
         transition: all 100ms ease-out;
     }
+
     .front {
         background-image: url("../img/img-user-admin/admin_grampa.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
     }
+
     .back {
         padding-top: 1vh;
     }
+
     .back {
         display: none;
         transform: rotateY(180deg);
         animation: anime 0.6s;
         transition: all 100ms ease-out;
     }
+
     @keyframes anime {
         0% {
             opacity: 0;
         }
+
         100% {
             opacity: 1;
         }
     }
+
     /* -- ROTATION -- 
   ===========================*/
     .rotate {
         transform: rotateY(180deg);
         transition: 1000ms ease-out;
     }
+
     /* -- ANIMATION BUTTON VIEW MORE -- 
   ===========================*/
     .image_overlay {
@@ -1036,10 +1214,12 @@
         opacity: 0;
         transition: 0.5s;
     }
+
     .card-admin:hover .image_overlay {
         opacity: 0.7;
         transition: all 200ms ease-out;
     }
+
     #details-card {
         position: absolute;
         top: 112px;
@@ -1056,6 +1236,7 @@
         opacity: 1;
         transition: all 200ms ease-out;
     }
+
     .card-admin:hover #details-card {
         background: #fff;
         color: #c83f3fd5;
@@ -1064,6 +1245,7 @@
         font-size: 15px;
         transition: all 200ms ease-out;
     }
+
     /* -- TEXT -- 
   ===========================*/
     .text-container {
@@ -1077,14 +1259,17 @@
         padding: 2vh;
         transition: all 500ms ease-out;
     }
+
     .text-container .title {
         font-size: 22px;
         color: #393c45;
     }
+
     .text-container p {
         font-size: 16px;
         color: #b1b1b3;
     }
+
     /* -- "X" BACK CONTAINER  -- 
   ===========================*/
     #flip-back {
@@ -1095,6 +1280,7 @@
         height: 30px;
         cursor: pointer;
     }
+
     #cx,
     #cy {
         background: #d2d5dc;
@@ -1105,26 +1291,31 @@
         height: 3px;
         transition: all 250ms ease-in-out;
     }
+
     #cx {
         right: 0;
         width: 30px;
         transform: rotate(50deg);
     }
+
     #cy {
         right: 0;
         width: 30px;
         transform: rotate(130deg);
     }
+
     #flip-back:hover #cx,
     #flip-back:hover #cy {
         background: #979ca7;
         transition: all 250ms ease-in-out;
     }
+
     /* -- BACK INPUT  -- 
   ===========================*/
     .input-container {
         padding: 2vh;
     }
+
     .form {
         background: #ffffff;
         max-width: 360px;
@@ -1132,6 +1323,7 @@
         padding: 45px;
         text-align: center;
     }
+
     .form input {
         font-family: "Roboto", sans-serif;
         outline: 0;
@@ -1143,6 +1335,7 @@
         box-sizing: border-box;
         font-size: 14px;
     }
+
     .form button {
         font-family: "Roboto", sans-serif;
         text-transform: uppercase;
@@ -1157,9 +1350,11 @@
         transition: all 0.3 ease;
         cursor: pointer;
     }
+
     .form button:hover {
         background: #43a047;
     }
+
     /* -- TABLE INDEX_ADMIN  -- 
   ===========================*/
     .container-card-info {
@@ -1171,6 +1366,7 @@
         width: 100%;
         border-radius: 20px;
     }
+
     /* card info bottle */
     .card-info-admin {
         background-color: var(--first-color);
@@ -1182,21 +1378,25 @@
         border-radius: 12px;
         box-shadow: 2px 2px 13px #442424a8, -2px -2px 10px #984747;
     }
+
     #card-info {
         width: 100%;
         margin: 0;
     }
+
     .container-back-info-indexAdmin {
         margin-top: 2rem;
         width: 100%;
         margin-bottom: 1rem;
     }
+
     .from {
         display: flex;
         justify-content: space-evenly;
         width: 100%;
         height: 100%;
     }
+
     /* custom btn  */
     .btn-cancel,
     .btn-modify,
@@ -1210,9 +1410,11 @@
         transition: 0.5s;
         border: none;
     }
+
     #btn-create-custom {
         margin-bottom: 1rem;
     }
+
     .btn-cancel:hover,
     .btn-modify:hover,
     .btn-create:hover {
@@ -1220,6 +1422,7 @@
         border-radius: 20px;
         background-color: var(--first-color-darken);
     }
+
     /* -- FORM IN ADMIN-FORM -- 
     ==================================================
   /////////////////////////////////////////////////
@@ -1232,13 +1435,16 @@
         align-items: center;
         padding: 2rem;
     }
+
     /* title container title admin form  */
     .container-form-admin-title {
         padding: 1rem;
     }
+
     #title-up {
         margin-bottom: 1rem;
     }
+
     .title-admin-bottle-id {
         background-color: var(--loading-color);
         border-radius: 12px;
@@ -1246,15 +1452,18 @@
         text-align: center;
         padding: 1rem;
     }
+
     #title-down {
         margin-top: 0;
     }
+
     /* div-from admin bottle */
     #form {
         display: flex;
         flex-direction: column;
         padding: 2rem;
     }
+
     /*inputs*/
     .font_span {
         font-size: 12px;
@@ -1262,6 +1471,7 @@
         margin-left: 0.45rem;
         margin-bottom: 0.25rem;
     }
+
     #form input,
     #form textarea,
     #form select,
@@ -1277,18 +1487,22 @@
         color: #2c3e50;
         font-size: 13px;
     }
+
     #form .message {
         height: 10rem;
     }
+
     #form .form-select,
     #form .btn {
         font-size: 12px;
         font-family: var(--body-font);
         margin-bottom: 1rem;
     }
+
     #form .btn:hover {
         background-color: var(--card-color);
     }
+
     .banner_error {
         display: flex;
         justify-content: center;
@@ -1315,6 +1529,7 @@
     .card-info-admin {
         width: 70%;
     }
+
     /* cardShowTag */
     .container-cardWine-showTag {
         padding: 6rem;
@@ -1330,6 +1545,15 @@
         top: 26%;
         transition: 0.5s;
     }
+
+    /* carwine bottle index */
+    .juste-for-border {
+        flex-direction: row;
+        align-items: center;
+    }
+    .container-links img{
+        display: flex;
+    }
     /* in login form */
     .home-img-formLogin img {
         position: absolute;
@@ -1340,10 +1564,12 @@
         height: 50px;
         font-size: 16px;
     }
+
     .form-structor .signup .form-holder .input {
         height: 60px;
         font-size: 16px;
     }
+
     /* card info admin */
     .card-info-admin {
         width: 60%;
@@ -1355,10 +1581,11 @@
     =============================== */
 
 @media screen and (min-width: 768px) {
-     :root {
+    :root {
         --big-font-size: 6rem;
         --normal-font-size: 1rem;
     }
+
     /* card info admin */
     .container-general {
         align-items: flex-start;
@@ -1367,19 +1594,23 @@
         height: 100vh;
         overflow: hidden;
     }
+
     .container-card-admin {
         width: 50%;
     }
+
     .container-card-info {
         padding: 1rem 0;
         overflow: scroll;
         height: 100vh;
         width: 40%;
     }
+
     .card-info-admin {
         width: 80%;
         flex-wrap: wrap;
     }
+
     /* form admin input */
     #form input,
     #form textarea,
@@ -1399,9 +1630,11 @@
         margin: 0;
         transition: 0.5s;
     }
+
     .nav {
         height: calc(var(--header-height) + 1.5rem);
     }
+
     .nav-menu {
         width: 100%;
         height: 10vh;
@@ -1413,17 +1646,21 @@
         background: none;
         backdrop-filter: none;
     }
+
     .nav-toggle,
     .nav-close {
         display: none;
     }
+
     .nav-list {
         display: flex;
     }
+
     .nav-item {
         margin-left: 2rem;
         margin-bottom: 0;
     }
+
     .home-container {
         height: 100vh;
         grid-template-columns: repeat(2, max-content);
@@ -1433,37 +1670,59 @@
         justify-content: center;
         transition: 0.5s;
     }
+
     .home-img {
         order: 1;
         width: 376px;
         height: 489px;
     }
+
     .home-img img {
         width: 775px;
         top: -30%;
         left: -60%;
     }
+
     /* background login form */
     .home-img-formLogin img {
         top: 0%;
         left: 3%;
         transition: 0.5s;
     }
+
     #img-cardWine {
         max-width: 30%;
     }
+
     #body-card-custom {
-        width: 45%;
+        width: 100%;
     }
+
     /* indexArticle */
     .card-cardWine-focus {
         margin-top: 4rem;
-        flex-direction: row;
+    }
+    .card-cardWine-focus .img-description{
+        width: 100%;
+        height:100%;
+        display: flex;
+        padding:2rem;
+        flex-direction: row-reverse;
+        justify-content:space-evenly;
+        align-items: center;
+    }
+    .card-cardWine-focus .carte {
+        position: relative;
+        left: 0;
+    }
+    .info-bottle {
+        padding: 1rem;
     }
     /* showTag */
     .container-cardWine-showTag {
         padding: 12rem;
     }
+
     /* container in formAdmin */
     .container-form-admin-title {
         margin-top: 3rem;
@@ -1479,39 +1738,48 @@
         margin-left: auto;
         margin-right: auto;
     }
+
     .home-container {
         column-gap: 4.5rem;
     }
+
     .home-img {
         width: 604px;
         height: 766px;
     }
+
     .home-img img {
         width: 750px;
         left: -25%;
         top: -1%;
     }
+
     /* img background login form */
     #bottle {
         top: -57%;
         left: 4%;
     }
+
     .home-img-formLogin img {
         top: -60%;
         left: -12%;
         transition: 0.5s;
     }
+
     .form-structor {
         height: 650px;
         width: 400px;
     }
+
     /* admin page */
     #container {
         max-width: 325px;
     }
+
     .card-info-admin {
         max-width: 424px;
     }
+
     /* adminShowTag */
     .container-cardWine-showTag {
         flex-direction: row;
@@ -1519,6 +1787,7 @@
         justify-content: space-evenly;
         padding: 6vh 0;
     }
+
     .card-cardWine-showTag {
         width: 25vw;
         margin: 3rem;
@@ -1526,13 +1795,16 @@
         transition: 0.3s;
         margin-bottom: 0;
     }
+
     .card-cardWine-showTag img {
         max-height: 70vh;
     }
+
     .card-cardWine-showTag:hover {
         filter: brightness(100%);
         transition: 0.3s;
     }
+
     .card-cardWine-showTag a {
         font-size: 50px;
     }
@@ -1546,13 +1818,16 @@
     .card-cardWine-showTag img {
         min-height: 70vh;
     }
+
     .card-cardWine-showTag a {
         font-size: 70px;
     }
+
     /* showArticle */
     #img-cardWine {
         margin-left: 12rem;
     }
+
     #body-card-custom {
         width: 40%;
     }

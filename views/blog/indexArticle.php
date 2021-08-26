@@ -9,25 +9,61 @@
 
     <!--CARDS
             ============================= -->
-
+    <?php $count = 0; ?>
     <?php foreach ($params['reqs'] as $req) : ?>
-        <div class="card">
-            <?php foreach ($req->ToRecoverTheBottleImage() as $image) : ?>
-                <img class="imag-card-wine" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . $image->name ?>">
-            <?php endforeach; ?>
-            <?php foreach ($req->ToRecoverTheBottleTags() as $tag) : ?>
-                <div id="tag" class="container-btn-cardWine" id="colorWine">
-                    <a href="/projetZero/tags/<?= $tag->id ?>">Voir tout les <?= $tag->name ?><img class="arrow"src="https://image.flaticon.com/icons/png/512/892/892662.png"/></a>
+        <?php if (++$count % 2) : ?>
+            <div class="container-card">
+                <div class="juste-for-border">
+                    <div class="card">
+                        <?php foreach ($req->ToRecoverTheBottleImage() as $image) : ?>
+                            <img class="imag-card-wine" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . $image->name ?>">
+                        <?php endforeach; ?>
+                        <div class="body-card">
+                            <h1> <?= $req->name ?> </h1>
+                            <p> <?= $req->year ?></p>
+                            <p> <?= $req->grapes ?></p>
+                        </div>
+
+                    </div>
+                    <div class="container-links">
+                        <?php foreach ($req->ToRecoverTheBottleTags() as $tag) : ?>
+                            <div class="container-btn-cardWine" id="colorWine">
+                                <a href="/projetZero/tags/<?= $tag->id ?>">Voir tout les <?= $tag->name ?></a>
+                            </div>
+                        <?php endforeach; ?>
+                        <div class="container-btn-cardWine">
+                            <a id="link-show-bottle"href="/projetZero/posts/<?= $req->id ?>" class="button">Voir la bouteille <?= $req->name ?></a>
+                        </div>
+                        <img src="<?= SCRIPTS . "img" . DIRECTORY_SEPARATOR . 'right-drawn-arrow-reverse.png' ?>" />
+                    </div>
                 </div>
-            <?php endforeach; ?>
-            <div class="body-card">
-                <h1> <?= $req->name ?> </h1>
-                <p> <?= $req->year ?></p>
-                <p> <?= $req->grapes ?></p>
             </div>
-            <div class="container-btn-cardWine">
-                <a href="/projetZero/posts/<?= $req->id ?>" class="button">Voir la bouteille <?= $req->name ?><img class="arrow"src="https://image.flaticon.com/icons/png/512/892/892662.png"/></a>
+        <?php else : ?>
+            <div class="container-card">
+                <div class="juste-for-border">
+                    <div class="container-links">
+                        <?php foreach ($req->ToRecoverTheBottleTags() as $tag) : ?>
+                            <div class="container-btn-cardWine" id="colorWine">
+                                <a href="/projetZero/tags/<?= $tag->id ?>">Voir tout les <?= $tag->name ?></a>
+                            </div>
+                        <?php endforeach; ?>
+                        <div class="container-btn-cardWine">
+                            <a id="link-show-bottle" href="/projetZero/posts/<?= $req->id ?>" class="button">Voir la bouteille <?= $req->name ?></a>
+                        </div>
+                        <img src="<?= SCRIPTS . "img" . DIRECTORY_SEPARATOR . 'right-drawn-arrow.png' ?>" />
+                    </div>
+                    <div class="card">
+                        <?php foreach ($req->ToRecoverTheBottleImage() as $image) : ?>
+                            <img class="imag-card-wine" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . $image->name ?>">
+                        <?php endforeach; ?>
+                        <div class="body-card">
+                            <h1> <?= $req->name ?> </h1>
+                            <p> <?= $req->year ?></p>
+                            <p> <?= $req->grapes ?></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
     <?php endforeach; ?>
 </section>
