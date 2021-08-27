@@ -4,6 +4,7 @@ namespace App\Models;
 class Tags extends ModelSql{
 
    protected $table = "tags";
+   
 
     public function ToRecoverTheBottlesFromTheTags(){
         return $this->query("SELECT b.* FROM bottles b

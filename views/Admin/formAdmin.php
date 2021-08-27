@@ -1,9 +1,3 @@
-<?php if(isset($_GET['error'])):?>
-    <div class="banner-error">
-        <p> <?= $_GET['error']?></p>
-    </div>
-<?php endif; ?>
-
 <div class="container-form-admin">
     <div class="container-form-admin-title">
         <h1 class="home-title-up" id="title-up"><?= isset($params['req']) ? "modifier" : "Bienvenue pour" ?></h1>
@@ -15,6 +9,11 @@
         <section id="contact">
             <div class="content">
                 <div id="form">
+                    <?php if (isset($_GET['error'])) : ?>
+                        <div class="banner-error">
+                            <p> <?= $_GET['error'] ?></p>
+                        </div>
+                    <?php endif; ?>
                     <label class="font_span name">Name</label>
                     <input type="text" name="name" class="name" placeholder="<?= $params['req']->name ?? '' ?>" tabindex=1 />
                     <label class="font_span">year</label>

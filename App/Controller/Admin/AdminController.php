@@ -22,14 +22,11 @@ class AdminController extends Controller {
     }
     public function sendDataForCreate(){
         $this->isAdmin();
-        
         $pictureManager = new PictureManager($_FILES['picture']);
         list($resultCheckImage,$uploadFiles) = $pictureManager->manage();
         if($resultCheckImage){
-            $pictureNameInDatabase = $uploadFiles->newPictureName;
             $imageSend = new ImageSql($this->getDB());
-            $resultImageSend = $imageSend->CreateImageInToDatabase($pictureNameInDatabase);
-            var_dump($resultImageSend);die();
+            $resultImageSend = $imageSend->CreateImageInToDatabase($uploadFiles);
             if($resultImageSend){
                 $req = new BottleSql($this->getDB());
                 $tags = array_pop($_POST);

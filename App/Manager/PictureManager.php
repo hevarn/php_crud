@@ -14,13 +14,10 @@ class PictureManager
     }
     public function manage():array
     {
-        $uploadedPicture = new UploadedPicture($this->picture);
-        $resultValid = $uploadedPicture->isValid();
-        if ($resultValid) {
-            $uploadFiles = new UploadFiles($this->picture);
-            $resultIsUpload = $uploadFiles->uploadInFolder();
-
-            if ($resultIsUpload){
+        $uploadedPicture = (new UploadedPicture($this->picture))->isValid();
+        if ($uploadedPicture == true) {
+            $uploadFiles = (new UploadFiles($this->picture))->uploadInFolder();;
+            if ($uploadFiles == true) {
                 return [true, $uploadFiles];
             }else {
                 return [false,null];

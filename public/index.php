@@ -8,12 +8,14 @@ use App\Manager\PictureManager;
 require '../vendor/autoload.php';
 
 define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
-define('ASSETS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR);
+define('ASSETS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR);
 define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) . DIRECTORY_SEPARATOR);
 define('db_name', 'projetZero');
 define('db_host', 'localhost');
 define('db_user', 'root');
 define('db_pwd', 'root');
+define("F_SIZE", "4M");
+define("H_FILE", false);
 
 
 $router = new Router($_GET['url']);

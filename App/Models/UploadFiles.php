@@ -8,7 +8,7 @@ use App\Models\UploadedPicture;
 
 class UploadFiles extends UploadedPicture
 {
-    private $picture;
+    public $picture;
 
     public function __construct($picture)
     {
@@ -18,7 +18,7 @@ class UploadFiles extends UploadedPicture
     {
         $tmp = $this->picture['tmp_name'];
         $this->tmp = $tmp;
-        $img_folder = (ASSETS . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR);
+        $img_folder = (ASSETS . 'img' . DIRECTORY_SEPARATOR);
         $img_ex = pathinfo($this->picture['name'], PATHINFO_EXTENSION);
 		$img_ex_lc = strtolower($img_ex);
         $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
@@ -28,6 +28,6 @@ class UploadFiles extends UploadedPicture
         if (!$move_file) {
             return False;
         }
-        return true;
+        return $this->newPictureName;
     }
 }
