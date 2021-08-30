@@ -41,28 +41,28 @@
                 </div>
                 <ul class="nav-list">
                     <li class="nav-item center nav-link">
-                        <a href="/projetZero/">HOME</a>
+                        <a  class="link_burger_nav"href="/projetZero/">HOME</a>
                         <div class="d1"></div>
                         <div class="d2"></div>
                         <div class="d3"></div>
                         <div class="d4"></div>
                     </li>
                     <li class="nav-item center nav-link">
-                        <a href="/projetZero/posts" class="goCave">CAVE</a>
+                        <a  class="link_burger_nav"href="/projetZero/posts" class="goCave">CAVE</a>
                         <div class="d1"></div>
                         <div class="d2"></div>
                         <div class="d3"></div>
                         <div class="d4"></div>
                     </li>
                     <li class="nav-item center nav-link">
-                        <a href="">BLOG</a>
+                        <a  class="link_burger_nav"href="">BLOG</a>
                         <div class="d1"></div>
                         <div class="d2"></div>
                         <div class="d3"></div>
                         <div class="d4"></div>
                     </li>
                     <li class="nav-item center nav-link">
-                        <a href="/projetZero/admin/connect">LOGIN</a>
+                        <a  class="link_burger_nav"href="/projetZero/admin/connect">LOGIN</a>
                         <div class="d1"></div>
                         <div class="d2"></div>
                         <div class="d3"></div>
@@ -70,14 +70,14 @@
                     </li>
                     <?php if (isset($_SESSION['auth'])) : ?>
                         <li class="nav-item center nav-link" id="logout-custom">
-                            <a href="/projetZero/admin/logout">LOG-OUT</a>
+                            <a class="link_burger_nav log-out"href="/projetZero/admin/logout">LOG-OUT</a>
                             <div class="d1"></div>
                             <div class="d2"></div>
                             <div class="d3"></div>
                             <div class="d4"></div>
                         </li>
                         <li class="nav-item center nav-link">
-                            <a href="/projetZero/admin/panel">ADMIN</a>
+                            <a class="link_burger_nav"href="/projetZero/admin/panel">ADMIN</a>
                             <div class="d1"></div>
                             <div class="d2"></div>
                             <div class="d3"></div>

@@ -1,4 +1,7 @@
 <section class="card-container-indexArticle page-2" id="cave">
+    <h1 class="title-container-indexArticle">
+        la cave
+    </h1>
     <!-- OVERLAY
           =============================== -->
     <div class="overlay second-th">

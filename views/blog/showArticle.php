@@ -22,7 +22,6 @@
     </div>
     <div class="info-bottle">
       <div id="homme-picture">
-        <div id="ligne-jaune"></div>
         <img id="picture-man" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . 'homme.png' ?>" />
       </div>
       <div id="text">

@@ -91,35 +91,27 @@ gsap.from(".img-cardWine", { opacity: 0, duration: 1, delay: 1.2, x: -50 });
 
 
 // FORM
-console.clear();
-
-const loginBtn = document.getElementById("login");
-const signupBtn = document.getElementById("signup");
-
-loginBtn.addEventListener("click", (e) => {
-  let parent = e.target.parentNode.parentNode;
-  Array.from(e.target.parentNode.parentNode.classList).find((element) => {
-    if (element !== "slide-up") {
-      parent.classList.add("slide-up");
-    } else {
-      signupBtn.parentNode.classList.add("slide-up");
-      parent.classList.remove("slide-up");
-    }
+function initAcc(elem, option){
+  document.addEventListener('click', function (e) {
+      if (!e.target.matches(elem+' .a-btn')) return;
+      else{
+          if(!e.target.parentElement.classList.contains('active')){
+              if(option==true){
+                  var elementList = document.querySelectorAll(elem+' .a-container');
+                  Array.prototype.forEach.call(elementList, function (e) {
+                      e.classList.remove('active');
+                  });
+              }            
+              e.target.parentElement.classList.add('active');
+          }else{
+              e.target.parentElement.classList.remove('active');
+          }
+      }
   });
-});
+}
 
-signupBtn.addEventListener("click", (e) => {
-  let parent = e.target.parentNode;
-  Array.from(e.target.parentNode.classList).find((element) => {
-    if (element !== "slide-up") {
-      parent.classList.add("slide-up");
-    } else {
-      loginBtn.parentNode.parentNode.classList.add("slide-up");
-      parent.classList.remove("slide-up");
-    }
-  });
-});
-
+initAcc('.accordion.v1', true);
+initAcc('.accordion.v2', false);
 /* ====== CARD USER ADMIN ANIMATION =======*/
 /*========= =========== ============*/
 // Flip card to the back side
