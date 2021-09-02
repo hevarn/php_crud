@@ -1,18 +1,9 @@
- <style>
-     .flash {
-         position: absolute;
-         z-index: 10000;
-         background-color: green;
-         border-radius: 12px;
-         padding: 1rem;
-         font-size: 19px;
-     }
- </style>
+
 
  <?php
     $success = "upload it's ok";
     if (isset($_GET['success'])) {
-        vprintf("<p class='flash'></p>", [$success]);
+        vprintf("<p class='flash'>%s</p>", [$success]);
         unset($success);
     } ?>
  <!-- OVERLAY

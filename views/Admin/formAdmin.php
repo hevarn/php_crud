@@ -1,3 +1,13 @@
+
+<?php if (isset($_GET['error'])){
+    $error = $_GET['error'];
+    
+}else {
+    $error = '';
+}
+?>
+
+
 <div class="container-form-admin">
     <div class="container-form-admin-title">
         <h1 class="home-title-up" id="title-up"><?= isset($params['req']) ? "modifier" : "Bienvenue pour" ?></h1>
@@ -28,6 +38,8 @@
                     <textarea class="message" name="description" placeholder="<?= $params['req']->description ?? '' ?>" tabindex=10></textarea>
                     <label class="font_span">picture</label>
                     <input type="file" id="picture" name="picture" placeholder="<?= $params['req']->picture ?? '' ?>" tabindex=1 />
+                    <?=vprintf("<p class='flash'>%s</p>", [$error]);?>
+                    <?= var_dump($error)?>
                     <label class="font_span">tag </label>
                     <select class="form-select" name="tags[]">
                         <?php foreach ($params['tags'] as $tag) : ?>

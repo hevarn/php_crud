@@ -12,11 +12,12 @@ class Tags extends ModelSql{
                             WHERE bt.tag_id = ?
                             ", [$this->id]);
     }
-    public function ToRecoverTheImageFromTheTags(){
+    public function ToRecoverTheBottleImage()
+    {
         return $this->query("SELECT p.* FROM picture p
-                            INNER JOIN bottle_tag bt ON bt.picture_id = b.id 
-                            WHERE bt.tag_id = ?
-                            ", [$this->id]);
+         INNER JOIN bottle_image bi ON bi.picture_id = p.id 
+         WHERE bi.bottles_id = ?", [$this->id]);
     }
+   
 
 }

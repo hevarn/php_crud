@@ -31,7 +31,7 @@ abstract class ModelSql
         return $this->query("DELETE FROM {$this->table} WHERE id = ?", [$id]);
     }
 
-    public function sendUpdate(int $id, array $data,?array $relations = null){
+    public function sendUpdate(int $id, array $data,?string $picturename = null,?array $relations = null){
         $sqlRequestPart = "";
         $i = 1;
         foreach($data as $key => $value){
@@ -43,7 +43,7 @@ abstract class ModelSql
         return $this->query("UPDATE {$this->table} SET {$sqlRequestPart} WHERE id = :id",$data);    
     }
 
-    public function create(array $data,?array $relations = null){
+    public function create(array $data, ?string $pictureName = null , ?array $relations = null){
         $firstParenthesis = "";
         $secondParenthesis = "";
         $i = 1;

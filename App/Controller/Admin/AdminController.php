@@ -30,11 +30,12 @@ class AdminController extends Controller {
             if($resultImageSend){
                 $req = new BottleSql($this->getDB());
                 $tags = array_pop($_POST);
-                $result = $req->create($_POST,$tags);
+                $result = $req->create($_POST,$uploadFiles,$tags);
                 if($result){
+                    var_dump($result);
                     return header("Location: /projetZero/admin/panel");
                 }
-            }else {
+            }else { 
                 return header("Location: /projetZero/admin/panel/valid");
             }
         }else {
@@ -50,17 +51,15 @@ class AdminController extends Controller {
   
     public function sendDataForUpdate(int $id) {
         $this->isAdmin();
-        $pictureManager = new PictureManager($_FILES['picture']);
+        $pictureManager = new PictureManager($_FILES['picture'],$id);
         list($resultCheckImage,$uploadFiles) = $pictureManager->manage();
         if($resultCheckImage){
             $imageSend = new ImageSql($this->getDB());
-            $resultImageSend = $imageSend->CreateImageInToDatabase($_FILES['picture']);
+            $resultImageSend = $imageSend->CreateImageInToDatabase($uploadFiles);
             if($resultImageSend){
-
                 $req = new BottleSql($this->getDB());
                 $tags = array_pop($_POST);
-                $pUniq = $uploadFiles->getPictureUniqId();
-                $result = $req->sendUpdate($id, $_POST,$pUniq, $tags);
+                $result = $req->sendUpdate($id, $_POST,$uploadFiles, $tags);
                 if($result){
                     return header("Location: /projetZero/admin/panel?=success");
                 }else{

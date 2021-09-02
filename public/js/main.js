@@ -22,6 +22,7 @@ closeMenu.addEventListener("click", (e) => {
 
 // MOUSSLOVE
 document.addEventListener("mousemove", move);
+
 function move(e) {
   this.querySelectorAll(".move").forEach((layer) => {
     const speed = layer.getAttribute("data-speed");
@@ -73,40 +74,75 @@ gsap.from(".nav-item", {
 });
 
 // HOME
-gsap.from(".home-paragraphe", { opacity: 0, duration: 1, delay: 1.5, y: 30 });
-gsap.from(".home-button", { opacity: 0, duration: 1, delay: 1.6, y: 30 });
-gsap.from(".home-img", { opacity: 0, duration: 1, delay: 1.4, y: 30 });
+gsap.from(".home-paragraphe", {
+  opacity: 0,
+  duration: 1,
+  delay: 1.5,
+  y: 30
+});
+gsap.from(".home-button", {
+  opacity: 0,
+  duration: 1,
+  delay: 1.6,
+  y: 30
+});
+gsap.from(".home-img", {
+  opacity: 0,
+  duration: 1,
+  delay: 1.4,
+  y: 30
+});
 
 /*===== GSAP ANIMATION INDEXARTICLE PAGE =====*/
 
-gsap.from(".card", { opacity: 0, duration: 1, delay: 1.5, y: 30 });
-gsap.from(".body-card", { opacity: 0, duration: 1, delay: 1.6, y: 30 });
-gsap.from(".imag-card-wine", { opacity: 0, duration: 1, delay: 1.4, y: 30 });
+gsap.from(".card", {
+  opacity: 0,
+  duration: 1,
+  delay: 1.5,
+  y: 30
+});
+gsap.from(".body-card", {
+  opacity: 0,
+  duration: 1,
+  delay: 1.6,
+  y: 30
+});
+gsap.from(".imag-card-wine", {
+  opacity: 0,
+  duration: 1,
+  delay: 1.4,
+  y: 30
+});
 
 /*===== GSAP ANIMATION SHOWARTICLE PAGE =====*/
-gsap.from(".img-cardWine", { opacity: 0, duration: 1, delay: 1.2, x: -50 });
+gsap.from(".img-cardWine", {
+  opacity: 0,
+  duration: 1,
+  delay: 1.2,
+  x: -50
+});
 
 /*===== FORM LOGIN  =====*/
 /*===== ==========  =====*/
 
 
 // FORM
-function initAcc(elem, option){
+function initAcc(elem, option) {
   document.addEventListener('click', function (e) {
-      if (!e.target.matches(elem+' .a-btn')) return;
-      else{
-          if(!e.target.parentElement.classList.contains('active')){
-              if(option==true){
-                  var elementList = document.querySelectorAll(elem+' .a-container');
-                  Array.prototype.forEach.call(elementList, function (e) {
-                      e.classList.remove('active');
-                  });
-              }            
-              e.target.parentElement.classList.add('active');
-          }else{
-              e.target.parentElement.classList.remove('active');
-          }
+    if (!e.target.matches(elem + ' .a-btn')) return;
+    else {
+      if (!e.target.parentElement.classList.contains('active')) {
+        if (option == true) {
+          var elementList = document.querySelectorAll(elem + ' .a-container');
+          Array.prototype.forEach.call(elementList, function (e) {
+            e.classList.remove('active');
+          });
+        }
+        e.target.parentElement.classList.add('active');
+      } else {
+        e.target.parentElement.classList.remove('active');
       }
+    }
   });
 }
 
@@ -116,17 +152,38 @@ initAcc('.accordion.v2', false);
 /*========= =========== ============*/
 // Flip card to the back side
 
-const btnDetails = document.getElementById('#details-card'),
+const btnDetails = document.getElementById('details-card'),
   cardAdmin = document.querySelector('.card-admin'),
   backCard = document.querySelector('.back');
 
 btnDetails.addEventListener("click", () => {
   cardAdmin.classList.toggle("rotate");
-  backCard.show();
-  gsap.from(".a", { opacity: 0, duration: 1, delay: 0.7, y: 30 });
-  gsap.from(".b", { opacity: 0, duration: 1, delay: 0.8, y: 30 });
-  gsap.from(".c", { opacity: 0, duration: 1, delay: 0.9, y: 30 });
-  gsap.from(".d", { opacity: 0, duration: 1, delay: 1, y: 30 });
+  backCard.style.display = "block";
+
+  gsap.from(".a", {
+    opacity: 0,
+    duration: 1,
+    delay: 0.7,
+    y: 30
+  });
+  gsap.from(".b", {
+    opacity: 0,
+    duration: 1,
+    delay: 0.8,
+    y: 30
+  });
+  gsap.from(".c", {
+    opacity: 0,
+    duration: 1,
+    delay: 0.9,
+    y: 30
+  });
+  gsap.from(".d", {
+    opacity: 0,
+    duration: 1,
+    delay: 1,
+    y: 30
+  });
 });
 
 // Flip card back to the front side
@@ -140,12 +197,26 @@ $("#flip-back").click(function () {
     }, 400);
   }, 400);
 
-  gsap.from("#details", { opacity: 0, duration: 1, delay: 0.7, y: 30 });
-  gsap.from(".title", { opacity: 0, duration: 1, delay: 1, y: 30 });
-  gsap.from(".p", { opacity: 0, duration: 1, delay: 1.1, y: 30 });
+  gsap.from("#details", {
+    opacity: 0,
+    duration: 1,
+    delay: 0.7,
+    y: 30
+  });
+  gsap.from(".title", {
+    opacity: 0,
+    duration: 1,
+    delay: 1,
+    y: 30
+  });
+  gsap.from(".p", {
+    opacity: 0,
+    duration: 1,
+    delay: 1.1,
+    y: 30
+  });
 });
 
 
 /* ====== ANIMATION 404 PAGE =======*/
 /*========= =========== ============*/
-

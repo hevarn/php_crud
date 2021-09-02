@@ -4,9 +4,9 @@ namespace App\Models;
 
 class UploadedPicture
 {
-    const EXT = array('jpg', 'jpeg', 'gif', 'png');
     public $picture;
     public $convert;
+    public $error;
     // private $MsgError;
 
     // construct
@@ -18,72 +18,60 @@ class UploadedPicture
     //gestion des erreur
     //verification
     /* Checks if required PHP extensions are loaded. Tries to load them if not */
-    private function check_phpExt(): bool
+    private function check_phpExt(): array
     {
-        $check = getimagesize($this->picture["tmp_name"]);
-        if ($check !== false) {
-           return true;
-        } else {
-            echo "File is not an image.";
-            $uploadOk = 0;
-        }
+        $EXT = array('jpg', 'jpeg', 'gif', 'png');
+        if (exif_imagetype($this->picture['tmp_name'])){
+            var_dump('pa');
+            if(!in_array(strtolower(pathinfo($this->picture['name'], PATHINFO_EXTENSION)), $EXT)){
+                return [false, $error = "le fichier"];
+            }else{
+                return [true];
+            }
+        }else{
+            var_dump('p');
+            return [false,$error = " le fichier n'est pas un ficier jpeg "];
+        };        
     }
-    private function checkSpecialCharacters(): bool
+
+    private function checkSpecialCharacters(): array
     {
         $verif1 = preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/i', $this->picture['name']);
         $verif2 = preg_match('/[1234567890]/',$this->picture['name']);
 
         if ($verif1 == 0) {
-            return true;
+            return [true];
             if ($verif2 == 0) {
-                return true;
+                return [true];
             }else{
-               echo "le nom du fichier ne doit pas contenir de chifre";
+               return [false,$error =  "le nom du fichier ne doit pas contenir de chifre"];
             }
         }else{
-            echo"le nom fichier ne doit pas contenir de character spetiaux";
+            return [false,$error = "le nom fichier ne doit pas contenir de character spetiaux"];
         }
-    }
-
-    private function check_img_mime()
-    {
-        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        $mtype = finfo_file($finfo, $this->picture["tmp_name"]);
-        $this->mtype = $mtype;
-        if (strpos($mtype, 'image/') === 0) {
-            return true;
-        } else {
-            echo "ce fichier n'est pas une image";
-        }
-        finfo_close($finfo);
     }
 
     /* Checks if the image isn't to large */
 
     /* Re-arranges the $_FILES array */
-    public function isValid(): bool
+    public function isValid(): array
     {
 
-        if ($this->check_phpExt()) {
-            if ($this->picture['size'] > 250000 ) {
-                if ($this->check_img_mime()) {
-                    if ($this->checkSpecialCharacters()) {
-                       return true;
+        if ($this->check_phpExt()[0]) {
+            var_dump('ok');die();
+            if ($this->picture['size'] < 2000000 ) {
+                    if ($this->checkSpecialCharacters()[0]) {
+                       return [true];
                     }else{
-                        echo"le fichier ne doit pas contenir de character spetiaux ni de chifre";
-                        return false;
+                        return [false,$error = "le fichier ne doit pas contenir de character spetiaux ni de chifre"];
                     }
-                }else{
-                    echo"le fichier doit etre un image";
-                    return false;
-                }
             }else {
-                echo"le fichier est trop grande";
-                return false;
+                return [false,$error = "le fichier est trop grande"];
             }
         } else {
-            echo"le fichier doit etre 'jpg','png','jpeg'";
-            return false;
+            var_dump('pasok 2');die();
+            return [false,$error = "le fichier doit etre 'jpg','png','jpeg'"];
         }
     }
+    
 }

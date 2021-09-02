@@ -25,11 +25,9 @@ class BlogController extends Controller
 
         $req = new BottleSql($this->getDB());
         $req = $req->findById($id);
-        
         return $this->view('blog/showArticle', compact('req'));
     }
-    public function tag(int $id){
-   
+    public function tag(int $id){ 
         $tag = (new Tags($this->getDB()))->findById($id);
         return $this->view('blog/showTag', compact('tag'));
 
