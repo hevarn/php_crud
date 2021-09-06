@@ -19,17 +19,18 @@ class PictureManager
         if ($uploadedPicture[0] == false) {
             $error = $uploadedPicture[1];
             return header("Location: /projetZero/admin/panel/modify/$this->id?=$error");
-        }
-        var_dump($uploadedPicture);die();
-        if ($uploadedPicture == true) {
-            $uploadFiles = (new UploadFiles($this->picture))->uploadInFolder();;
-            if ($uploadFiles == true) {
-                return [true, $uploadFiles];
-            }else {
+        }else{
+            var_dump($uploadedPicture);die();
+            if ($uploadedPicture == true) {
+                $uploadFiles = (new UploadFiles($this->picture))->uploadInFolder();;
+                if ($uploadFiles == true) {
+                    return [true, $uploadFiles];
+                }else {
+                    return [false,null];
+                }
+            }else{
                 return [false,null];
             }
-        }else{
-            return [false,null];
         }
     }
 }

@@ -117,12 +117,27 @@
 .flash {
     position: absolute;
     z-index: 10000;
-    width: 100%;
+    width: 90%;
     background-color:#3f863fad;
     border-radius: 12px;
-    display: none;
     padding: 1rem;
     font-size: 19px;
+}
+.general-error {
+    position: absolute;
+    top:19%;
+    z-index: 10000;
+    width: 90%;
+    background-color:#ce6060ad;
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 15px;
+}
+.error {
+    margin-bottom: 1rem;
+}
+.error li{
+    list-style: none;
 }
 
 
@@ -889,7 +904,7 @@
         flex-direction: column;
         width: 100%;
         max-width: 1000px;
-        margin: 0 auto;
+        margin: 10rem auto 0;
         padding: 10px 10px 100px 10px;
     }
 
@@ -1592,7 +1607,10 @@
         margin: 0;
         transition: 0.5s;
     }
-
+    /* error in login form  */
+    .general-error {
+        top: 29%;
+    }
     .nav {
         height: calc(var(--header-height) + 3.5rem);
     }
@@ -1668,6 +1686,13 @@
     }
 
     /* login-form */
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 1000px;
+        margin: 7rem auto 0;
+    }
     .main-formLogin {
         padding: 4rem 1rem;
     }

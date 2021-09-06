@@ -14,8 +14,8 @@ class UserController extends Controller {
     public function sendDataUserConnect(){
         $validator = new Validator($_POST);
         $errors = $validator->validate([
-            'username' => 'required','min:3',
-            'password' => 'required',
+            'username' => ['required','min:3'],
+            'password' => ['required'],
         ]);
         if ($errors) {
             $_SESSION['errors'] = $errors;
@@ -32,6 +32,16 @@ class UserController extends Controller {
 
     }
     public function CreateUser(){
+        $validator = new Validator($_POST);
+        $errors = $validator->validate([
+            'username' => ['required','min:3'],
+            'password' => ['required'],
+        ]);
+        if ($errors) {
+            $_SESSION['errors'][] = $errors;
+            header('Location: /projetZero/admin/connect');
+            exit();
+        }
         $user = (new UserSql($this->getDB()))->create($_POST);
         if($user){
             return header("Location: /projetZero/");

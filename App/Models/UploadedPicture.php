@@ -12,25 +12,25 @@ class UploadedPicture
     // construct
     public function __construct(array $picture)
     {
+
         $this->picture = $picture;
         return $this->picture;
     }
-    //gestion des erreur
-    //verification
+  
     /* Checks if required PHP extensions are loaded. Tries to load them if not */
-    private function check_phpExt(): array
+    private function check_Ext(): array
     {
         $EXT = array('jpg', 'jpeg', 'gif', 'png');
         if (exif_imagetype($this->picture['tmp_name'])){
             var_dump('pa');
             if(!in_array(strtolower(pathinfo($this->picture['name'], PATHINFO_EXTENSION)), $EXT)){
-                return [false, $error = "le fichier"];
+                return [false, $this->error = "le fichier"];
             }else{
                 return [true];
             }
         }else{
             var_dump('p');
-            return [false,$error = " le fichier n'est pas un ficier jpeg "];
+            return [false,$this->error = " le fichier n'est pas un ficier jpeg "];
         };        
     }
 
@@ -44,10 +44,10 @@ class UploadedPicture
             if ($verif2 == 0) {
                 return [true];
             }else{
-               return [false,$error =  "le nom du fichier ne doit pas contenir de chifre"];
+               return [false,$this->error =  "le nom du fichier ne doit pas contenir de chifre"];
             }
         }else{
-            return [false,$error = "le nom fichier ne doit pas contenir de character spetiaux"];
+            return [false,$this->error = "le nom fichier ne doit pas contenir de character spetiaux"];
         }
     }
 
@@ -56,22 +56,21 @@ class UploadedPicture
     /* Re-arranges the $_FILES array */
     public function isValid(): array
     {
-
-        if ($this->check_phpExt()[0]) {
-            var_dump('ok');die();
+        if ($this->check_Ext()[0]) {
             if ($this->picture['size'] < 2000000 ) {
                     if ($this->checkSpecialCharacters()[0]) {
                        return [true];
                     }else{
-                        return [false,$error = "le fichier ne doit pas contenir de character spetiaux ni de chifre"];
+                        return [false,$this->error = "le fichier ne doit pas contenir de character spetiaux ni de chifre"];
                     }
             }else {
-                return [false,$error = "le fichier est trop grande"];
+                return [false,$this->error = "le fichier est trop grande"];
             }
         } else {
-            var_dump('pasok 2');die();
-            return [false,$error = "le fichier doit etre 'jpg','png','jpeg'"];
+            return [false,$this->error = "le fichier doit etre 'jpg','png','jpeg'"];
         }
     }
+
+ 
     
 }

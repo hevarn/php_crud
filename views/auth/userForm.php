@@ -1,15 +1,4 @@
-<?php if (isset($_SESSION['errors'])) : ?>
-    <?php foreach ($_SESSION['errors'] as $errorsArray) : ?>
-        <?php foreach ($errorsArray as $error) : ?>
-            <div class="error">
-                <?php foreach ($error as $error) : ?>
-                    <li><?= $error ?></li>
-                <?php endforeach; ?>
-            </div>
-        <?php endforeach; ?>
-    <?php endforeach; ?>
-<?php endif; ?>
-<?php session_destroy(); ?>
+
 <!--MAIN
     ==========================-->
 <main class="main-formLogin">
@@ -18,11 +7,25 @@
     </h1>
     <!-- OVERLAY
           =============================== -->
-    <div class="overlay second-th">
+    <!-- <div class="overlay second-th">
         <div class="container-loading-img">
             <span class="loader-59">
         </div>
-    </div>
+    </div> -->
+    <?php if (isset($_SESSION['errors'])) : ?>
+        <?php foreach ($_SESSION['errors'] as $errorsArray) : ?>
+            <div class="general-error">
+                <?php foreach ($errorsArray as $errors) : ?>
+                    <div class="error">
+                        <?php foreach ($errors as $error) : ?>
+                            <li><?= $error ?></li>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+    <?php session_destroy(); ?>
     <div class="container-loginForm">
         <div class="container">
             <div class="accordion v1">
