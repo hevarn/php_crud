@@ -34,6 +34,11 @@ class BlogController extends Controller
         $tag = (new Tags($this->getDB()))->findById($id);
         return $this->view('blog/showTag', compact('tag'));
     }
+
+    public function mycave(){
+        return $this->view('blog/mycave');
+    }
+
     public function cookie()
     {
     

@@ -24,6 +24,7 @@ $router->get('/', 'App\Controller\BlogController@homePage');
 $router->get('/posts', 'App\Controller\BlogController@indexArticle');
 $router->get('/posts/:id', 'App\Controller\BlogController@showArticle');
 $router->get('/tags/:id', 'App\Controller\BlogController@tag');
+$router->get('/mycave','App\Controller\BlogController@mycave');
 
 $router->get('/admin/panel', 'App\Controller\Admin\AdminController@index');
 $router->get('/admin/panel/create', 'App\Controller\Admin\AdminController@generateTemplateCreate');

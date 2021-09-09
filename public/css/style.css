@@ -1135,6 +1135,24 @@
         transition-duration: 0.25s;
         font-weight: 300;
     }
+    .form-log textarea {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        outline: 0;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        background-color: rgba(255, 255, 255, 0.2);
+        width: 250px;
+        border-radius: 3px;
+        padding: 10px 15px;
+        margin: 0 auto 10px auto;
+        display: block;
+        text-align: center;
+        font-size: 18px;
+        color: white;
+        transition-duration: 0.25s;
+        font-weight: 300;
+    }
 
     .form-log input:hover {
         background-color: rgba(255, 255, 255, 0.4);
@@ -1601,7 +1619,78 @@
         width: 50%;
         border-radius: 12px;
     }
+
+      /* --- MYCAVE+ ---
+  ==================================================
+  /////////////////////////////////////////////////
+  /////////////////////////////////////////////////
+  ================================================= */
+
+    .container-general-mycave{
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: var(--first-color);
+
+    }
+    .container-mycave{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top:2rem;
+        border-radius:20px;
+        background-color: var(--first-color-dark);
+        width: 90%;
+        min-height: 90vh;
+        box-shadow: 20px 25px 60px #562e2ea8, -20px -20px 60px #391e1e85;
+        padding: 1rem;
+
+    }
+    #scroll-container-mycave{
+        background-color: var(--card-color);
+        padding: 1rem;
+        overflow: scroll;
+    }
+    #scroll-container-mycave p{
+        color: rgb(194, 193, 193);
+    }
+    .text-mycave{
+        color: rgb(240 163 163);
+        margin-top:1rem;
+        margin-bottom: 2rem;
+        text-shadow: -3px 3px 0px #d57b7b, -5px 6px 0px #b64f4f, -6px 7px 0px #953737;
+    }
+    .social-container {
+        margin: 20px 0;
+    }
+    .social-container a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        height: 40px;
+        width: 40px;
+        transition: all 0.5s ease;
+    }
+    .social-container a:hover {
+        transition: all 0.5s ease;
+        transform: scale(1.2);
+    }
+    .contact-container{
+
+    }
+    #contact-form, .form-contact{ 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    
+    
 }
+
+
 
 
 /*   -- MEDIA QUERY   -- 
@@ -1669,6 +1758,11 @@
     /* card info admin */
     .card-info-admin {
         width: 60%;
+    }
+
+    /* mycave */
+    .container-mycave {
+        padding: 4rem;
     }
 }
 
@@ -1901,6 +1995,10 @@
     /* container in formAdmin */
     .container-form-admin-title {
         margin-top: 3rem;
+    }
+    /* mycave */
+    .container-mycave {
+        padding: 8rem;
     }
 
 }
