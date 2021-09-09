@@ -92,7 +92,7 @@
     --normal-font-size: 0.938rem;
     --little-font-size: 1.8rem;
     --logo-font-size: 1.5rem;
-    --font-a-cardWine: .68rem;
+    --font-a-cardWine: .58rem;
     /* -- Z_INDEX --  
     =============================== */
     --z-index: 100;
@@ -112,31 +112,134 @@
     width: 4vh;
 }
 
+/* -- COOKIE BANNER --
+=============================== 
+////////////////////////////////
+============================== */
+
+#container-cookie-banner {
+    position: absolute;
+    z-index: 1000000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #bcbaba42;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+}
+
+.cookie-window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    padding: 2rem;
+    background-color: var(--first-color);
+}
+
+.cookie-window img {
+    position: absolute;
+    top: 8%;
+    width: 222px;
+    z-index: 0;
+    transform: rotate(300deg);
+    filter: brightness(70%);
+
+}
+
+.cookie-window h3 {
+    position: relative;
+    font-family: var(--body-font);
+    font-size: var(--big-font-size);
+    color: var(--h1-color);
+    text-shadow: -5px 5px 0px #d57b7b, -10px 10px 0px #b64f4f, -15px 15px 0px #953737;
+    margin-bottom: 1rem;
+}
+
+.cookie-window p {
+    position: relative;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    color: var(--wite-color);
+}
+
+.cookie-window p:nth-child(n) {
+    margin-bottom: 1rem;
+}
+
+.cookie-window a {
+    text-decoration: none;
+    color: var(--first-color-darken);
+    transition: .5s;
+}
+
+.cookie-window a:hover {
+    color: var(--loading-color);
+    transition: .5s;
+}
+
+
 /* -- flash message-- 
 =============================== */
-.flash {
+/* flash message in admin */
+#flash {
     position: absolute;
     z-index: 10000;
+    top: 15%;
+    left: 5%;
     width: 90%;
-    background-color:#3f863fad;
+    min-height: 30vh;
+    background-color: #b64f4f;
+    box-shadow: 3px 3px 6px 1px #8e4747, -2px -2px 4px #e9a3a3;
     border-radius: 12px;
-    padding: 1rem;
+    padding: 3rem;
     font-size: 19px;
 }
-.general-error {
-    position: absolute;
-    top:19%;
-    z-index: 10000;
+
+#flash {
+    display: block;
+}
+
+#flash>h1 {
+    font-size: 25px;
+    line-height: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+#flash>img {
+    width: 147px;
+    opacity: 1;
+    position: relative;
+    border-radius: 80px;
+    box-shadow: 2px 2px 20px #02020266;
+}
+
+#flash>p {
+    font-style: italic;
+}
+
+/* error message in loginç */
+#general-error {
     width: 90%;
-    background-color:#ce6060ad;
+}
+
+#general-error {
+    display: block;
+}
+
+.error {
     border-radius: 12px;
     padding: 1rem;
     font-size: 15px;
-}
-.error {
+    background-color: #ce6060ad;
+    box-shadow: 3px 3px 6px 1px #8e4747, -2px -2px 4px #e9a3a3;
     margin-bottom: 1rem;
 }
-.error li{
+
+.error li {
     list-style: none;
 }
 
@@ -163,6 +266,7 @@
     justify-content: center;
     background: #a8a7a73b;
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .container-loading-img {
@@ -384,11 +488,12 @@
         padding: 3.5rem 1.5rem 0;
         background: rgba(255, 255, 255, 0.3);
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         transition: 0.5s;
     }
 
     .link_burger_nav {
-        font-size: 59px;
+        font-size: 42px;
         margin-left: 2rem;
         width: 100%;
         text-shadow: -5px 5px 0px #d57b7b, -10px 10px 0px #b64f4f, -15px 15px 0px #953737;
@@ -702,6 +807,7 @@
         top: 66%;
         background-color: rgba(196, 192, 192, 0.199);
         backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
         flex-direction: column;
         padding: 1rem;
         border-radius: 10px;
@@ -891,7 +997,7 @@
     ==================================================
   ///////////////////////////////////////////////// */
     .main-formLogin {
-        height: 100vh;
+        min-height: 100vh;
         background-color: var(--first-color);
         display: flex;
         align-items: center;
@@ -995,11 +1101,12 @@
         opacity: 1;
         max-height: 500px;
     }
+
     /* into login form*/
     .form-log input {
         -webkit-appearance: none;
-           -moz-appearance: none;
-                appearance: none;
+        -moz-appearance: none;
+        appearance: none;
         outline: 0;
         border: 1px solid rgba(255, 255, 255, 0.4);
         background-color: rgba(255, 255, 255, 0.2);
@@ -1013,19 +1120,22 @@
         color: white;
         transition-duration: 0.25s;
         font-weight: 300;
-      }
-      .form-log input:hover {
+    }
+
+    .form-log input:hover {
         background-color: rgba(255, 255, 255, 0.4);
-      }
-      .form-log input:focus {
+    }
+
+    .form-log input:focus {
         background-color: white;
         width: 300px;
         color: #53e3a6;
-      }
-      .form-log button {
+    }
+
+    .form-log button {
         -webkit-appearance: none;
-           -moz-appearance: none;
-                appearance: none;
+        -moz-appearance: none;
+        appearance: none;
         outline: 0;
         background-color: white;
         border: 0;
@@ -1036,10 +1146,11 @@
         cursor: pointer;
         font-size: 18px;
         transition-duration: 0.25s;
-      }
-      .form-log button:hover {
+    }
+
+    .form-log button:hover {
         background-color: #f5f7f9;
-      }
+    }
 
     /* -- ADMIN IN INDEX-ADMIN -- 
     ==================================================
@@ -1310,13 +1421,14 @@
         border-radius: 12px;
         box-shadow: 2px 2px 13px #442424a8, -2px -2px 10px #984747;
     }
-    .card-info-admin .custom-card-adminIndex{
+
+    .card-info-admin .custom-card-adminIndex {
         position: absolute;
-        padding:.5rem .5rem .5rem 1rem;
+        padding: .5rem .5rem .5rem 1rem;
         top: 0%;
         left: 0%;
         background-color: #d4d4d445;
-        backdrop-filter: blur(5px);
+        filter: blur(5px);
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -1325,15 +1437,18 @@
         align-items: flex-start;
 
     }
-    .card-info-admin .custom-card-adminIndex .row{
+
+    .card-info-admin .custom-card-adminIndex .row {
         border-bottom: .5px solid black;
     }
-    .card-info-admin .custom-card-adminIndex .row img{
+
+    .card-info-admin .custom-card-adminIndex .row img {
         width: 20px;
         margin-right: .5rem;
     }
-    .imag-card-wine{
-        height:100%;
+
+    .imag-card-wine {
+        height: 100%;
         border-radius: 12px;
     }
 
@@ -1512,12 +1627,6 @@
         padding: 3rem;
     }
 
-    .juste-for-border {
-        padding: 1rem 4rem;
-        flex-direction: row;
-        align-items: center;
-    }
-
     .container-links img {
         display: flex;
         width: 24vh;
@@ -1560,6 +1669,12 @@
 
     .card {
         width: 50%;
+    }
+
+    .juste-for-border {
+        padding: 1rem 4rem;
+        flex-direction: row;
+        align-items: center;
     }
 
     /* card info admin */
@@ -1607,10 +1722,12 @@
         margin: 0;
         transition: 0.5s;
     }
+
     /* error in login form  */
     .general-error {
         top: 29%;
     }
+
     .nav {
         height: calc(var(--header-height) + 3.5rem);
     }
@@ -1625,6 +1742,7 @@
         padding: 1rem;
         background: none;
         backdrop-filter: none;
+        -webkit-backdrop-filter: none;
     }
 
     .log-out {
@@ -1693,6 +1811,7 @@
         max-width: 1000px;
         margin: 7rem auto 0;
     }
+
     .main-formLogin {
         padding: 4rem 1rem;
     }
@@ -1720,7 +1839,7 @@
     }
 
     .container-links {
-        width: 45%;
+        width: 80%;
     }
 
     /* indexArticle */
@@ -1775,6 +1894,12 @@
     =============================== */
 
 @media screen and (min-width: 1024px) {
+    #flash {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .bd-grid {
         margin-left: auto;
         margin-right: auto;
@@ -1826,7 +1951,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        padding: 6vh 0;
+        padding: 6rem 0;
     }
 
     .card-cardWine-showTag {

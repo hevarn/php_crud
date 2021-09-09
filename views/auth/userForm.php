@@ -30,12 +30,12 @@
         <div class="container">
             <div class="accordion v1">
                 <div class="a-container">
-                    <p class="a-btn">CE CONNECTER<span></span></p>
+                    <p class="a-btn">SE CONNECTER<span></span></p>
                     <div class="a-panel">
                         <form class="form-log" action="/projetZero/admin/valid" method="POST">
-                            <input type="text" name="username" placeholder="Username">
-                            <input type="password" name="password" placeholder="Password">
-                            <button type="submit" id="login-button">Login</button>
+                            <input type="text" name="username" placeholder="Username"/>
+                            <input type="password" name="password" placeholder="mot de passe " />
+                            <button type="submit" id="login-button1">Login</button>
                         </form>
                     </div>
                 </div>

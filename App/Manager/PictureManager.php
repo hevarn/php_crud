@@ -15,10 +15,12 @@ class PictureManager
     }
     public function manage():array
     {
-        $uploadedPicture = (new UploadedPicture($this->picture))->isValid();
-        if ($uploadedPicture[0] == false) {
-            $error = $uploadedPicture[1];
-            return header("Location: /projetZero/admin/panel/modify/$this->id?=$error");
+        $uploadedPicture = new UploadedPicture($this->picture);
+        $errors = $uploadedPicture->isValid([]);
+        if ($errors) {
+            $_SESSION['errors'][] = $errors;
+            return header("Location: /projetZero/admin/panel/create");
+            exit();
         }else{
             var_dump($uploadedPicture);die();
             if ($uploadedPicture == true) {

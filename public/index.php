@@ -38,6 +38,8 @@ $router->post('/admin/connect/create','App\Controller\Users\UserController@Creat
 $router->post('/admin/valid', 'App\Controller\Users\UserController@sendDataUserConnect');
 $router->get('/admin/logout', 'App\Controller\Users\UserController@destroySession');
 
+$router->get('/cookie', 'App\Controller\BlogController@cookie');
+
 
 try {
     $router->run();

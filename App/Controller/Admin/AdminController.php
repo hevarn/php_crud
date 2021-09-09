@@ -1,89 +1,105 @@
 <?php
+
 namespace App\Controller\Admin;
 
 use App\Models\Tags;
 use App\Models\ImageSql;
 use App\Models\BottleSql;
+use App\Validation\Validator;
 use App\Controller\Controller;
 use App\Manager\PictureManager;
 
-class AdminController extends Controller {
-    
-    public function index() {
+class AdminController extends Controller
+{
+
+    public function index()
+    {
         $this->isAdmin();
+
         $req = new BottleSql($this->getDB());
         $reqs = $req->all();
+        // setcookie('user', 'admin', time() + 60 * 60 * 24);
         return $this->view('Admin/indexAdmin', compact('reqs'));
     }
-    public function generateTemplateCreate(){
+    public function generateTemplateCreate()
+    {
         $this->isAdmin();
         $tags = (new Tags($this->getDB()))->all();
         return $this->view('admin/formAdmin', compact('tags'));
     }
-    public function sendDataForCreate(){
+    public function sendDataForCreate()
+    {
         $this->isAdmin();
+        $validator = new Validator($_POST);
+        $errors = $validator->validate([
+            'year' => ['limitYear']
+        ]);
+        if($errors){
+            $_SESSION['errors'][] = $errors;
+            return header("Location: /projetZero/admin/panel/create");
+            exit();
+        }
         $pictureManager = new PictureManager($_FILES['picture']);
-        list($resultCheckImage,$uploadFiles) = $pictureManager->manage();
-        if($resultCheckImage){
+        list($resultCheckImage, $uploadFiles) = $pictureManager->manage();
+        if ($resultCheckImage) {
             $imageSend = new ImageSql($this->getDB());
             $resultImageSend = $imageSend->CreateImageInToDatabase($uploadFiles);
-            if($resultImageSend){
+            if ($resultImageSend) {
                 $req = new BottleSql($this->getDB());
                 $tags = array_pop($_POST);
-                $result = $req->create($_POST,$uploadFiles,$tags);
-                if($result){
+                $result = $req->create($_POST, $uploadFiles, $tags);
+                if ($result) {
                     var_dump($result);
                     return header("Location: /projetZero/admin/panel");
                 }
-            }else { 
+            } else {
                 return header("Location: /projetZero/admin/panel/valid");
             }
-        }else {
+        } else {
             return header("Location: /projetZero/admin/panel/valid");
         }
     }
-    public function generateTemplateForModify(int $id) {
+    public function generateTemplateForModify(int $id)
+    {
         $this->isAdmin();
         $req = (new BottleSql($this->getDB()))->findById($id);
         $tags = (new Tags($this->getDB()))->all();
-        return $this->view('Admin/formAdmin', compact('req','tags'));
+        return $this->view('Admin/formAdmin', compact('req', 'tags'));
     }
-  
-    public function sendDataForUpdate(int $id) {
+
+    public function sendDataForUpdate(int $id)
+    {
         $this->isAdmin();
-        $pictureManager = new PictureManager($_FILES['picture'],$id);
-        list($resultCheckImage,$uploadFiles) = $pictureManager->manage();
-        if($resultCheckImage){
+        $pictureManager = new PictureManager($_FILES['picture'], $id);
+        list($resultCheckImage, $uploadFiles) = $pictureManager->manage();
+        if ($resultCheckImage) {
             $imageSend = new ImageSql($this->getDB());
             $resultImageSend = $imageSend->CreateImageInToDatabase($uploadFiles);
-            if($resultImageSend){
+            if ($resultImageSend) {
                 $req = new BottleSql($this->getDB());
                 $tags = array_pop($_POST);
-                $result = $req->sendUpdate($id, $_POST,$uploadFiles, $tags);
-                if($result){
+                $result = $req->sendUpdate($id, $_POST, $uploadFiles, $tags);
+                if ($result) {
                     return header("Location: /projetZero/admin/panel?=success");
-                }else{
+                } else {
                     return header("Location: /projetZero/admin/panel/modify/$id");
                 }
-            }else{
+            } else {
                 return header("Location: /projetZero/admin/panel/modify/$id");
             }
-        }else{
+        } else {
             return header("Location: /projetZero/admin/panel/modify/$id");
         }
-        
     }
-    
-    public function destroy(int $id) {
+
+    public function destroy(int $id)
+    {
         $this->isAdmin();
         $req = new BottleSql($this->getDB());
         $result = $req->destroy($id);
-        
-        if($result){
+
+        if ($result) {
             return header("Location: /projetZero/admin/panel");
         }
     }
-
-
 }
-

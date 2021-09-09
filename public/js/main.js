@@ -5,6 +5,7 @@ const navMenu = document.getElementById("nav-menu"),
   toggleMenu = document.getElementById("nav-toggle"),
   closeMenu = document.getElementById("nav-close");
 
+
 var curPage = 1;
 var numOfPages = document.querySelector(".page") + length;
 var animTime = 1500;
@@ -57,11 +58,7 @@ TweenMax.to(".fourth", 1.5, {
   top: "-170%",
   ease: Expo.easeInOut,
 });
-TweenMax.to(".fifth", 1.5, {
-  delay: 2.2,
-  top: "-170%",
-  ease: Expo.easeInOut,
-});
+
 
 /*===== GSAP ANIMATION HOME PAGE =====*/
 // NAV
@@ -220,6 +217,27 @@ $("#flip-back").click(function () {
 
 /* ====== ERROR MESSAGE IN LOGIN PAGE  =======*/
 /*========= =========== ============*/
+function deleteFlash(){
+  console.log("deleteFlash");
+  document.getElementById("flash").style.display = "none";
+  
+}
+function deleteErrors(){
+  console.log("deleteErrors");
+  if (!document.cookie.indexOf('error')) {
+    document.getElementById("general-error").style.display = "none";
+  }
+  
+}
+function distroyCookieBanner(){
+  console.log("distroy");
+  document.getElementById("container-cookie-banner").style.display = "none";
+  
+  
+}
+
+  
+
 
 
 

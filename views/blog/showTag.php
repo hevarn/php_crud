@@ -1,10 +1,3 @@
- <!-- OVERLAY
-    =============================== -->
-    <div class="overlay fifth">
-     <div class="container-loading-img">
-         <span class="loader-59">
-     </div>
- </div>
 
 <div class="container-cardWine-showTag">
   <?php foreach ($params['tag']->ToRecoverTheBottlesFromTheTags() as $findTag) : ?>
