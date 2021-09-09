@@ -37,8 +37,12 @@ class BlogController extends Controller
     public function cookie()
     {
     
-        $name = $_GET['visitorname'];
-        setcookie('accaccept_cookie', 'user', time() + 365 * 24 * 3600, '/', null, null, true);
+        if($_GET['visitorname']){
+            $name = $_GET['visitorname'];
+        }else {
+            $name = 'VISITOR';
+        }
+        setcookie('accaccept_cookie', $name, time() + 365 * 24 * 3600, '/', null, null, true);
         if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
             header('location: ' . $_SERVER['HTTP_REFERER']);
         } else {

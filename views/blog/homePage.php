@@ -4,18 +4,8 @@ if (isset($_COOKIE['accaccept_cookie'])) {
 } else {
     $showcookie = true;
 }
-
 ?>
 <section class="general-section">
-    <!-- OVERLAY
-=============================== -->
-    <!-- <div class="overlay first">
-    <div class="container-loading-img">
-        <span class="loader-59">
-    </div>
-</div> -->
-    <!-- MAIN 
-=============================== -->
     <?php if ($showcookie) : ?>
         <div id="container-cookie-banner">
             <div class="cookie-window">
@@ -24,7 +14,7 @@ if (isset($_COOKIE['accaccept_cookie'])) {
                 <p> ce site utilise des cookies personnalisations ainsi que des cookies de session pour fonctionner corréctement rien de bien méchant </p>
                 <p> il est possblie de consulter la loie concernant les cookies via le site <a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees"></a></p>
                 <p> vous pouvez personnaliser votre avec un nom</p>
-                <form class="form-log" action="/projetZero/cookie" method="GET">
+                <form class="form-log display" action="/projetZero/cookie" method="GET">
                     <input type="text" name="visitorname" placeholder="Entrée un nom" />
                     <button type="submit">Login</button>
                 </form>
@@ -46,9 +36,15 @@ if (isset($_COOKIE['accaccept_cookie'])) {
                     <img class="move" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . 'img_homepage' . DIRECTORY_SEPARATOR . 'italia.png' ?>" alt="img-background-home" data-speed="1" />
                 </div>
                 <div class="home-data">
-                    <h2 class="home-title-up">Welcome</h2>
-                    <h3 class="home-title-mid">to</h3>
+                    <?php if($_COOKIE['accaccept_cookie']):?> 
+                        <h2 class="home-title-up"><?= $_COOKIE['accaccept_cookie']?></h2>
+                    <?php else :?>
+                        <h2 class="home-title-up">WELCOLME</h2>
+                    <?php endif; ?>
+                        <h3 class="home-title-mid">welcome</h3>
                     <h1 class="home-title">My Cave</h1>
+                    <div class="user">
+                    </div>
                     <p class="home-paragraphe">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br />
                         Reprehenderit possimus at temporibus officia culpa.
