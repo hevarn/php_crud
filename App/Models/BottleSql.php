@@ -32,9 +32,9 @@ class BottleSql extends ModelSql
 
         }
         $stmt2 = $this->db->getPDO()->query("SELECT * FROM picture");
-    
+        
         while ($row = $stmt2->fetch()) {
-    
+            
             if($row->{'name'} === $pictureName){
             $pictureId = $row->{'id'};
             }

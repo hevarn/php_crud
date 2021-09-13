@@ -1,26 +1,23 @@
 <?php
 $success = "bienvenue dans l'espace administrateur,";
-if (isset($_GET['success'])) {
-    vprintf("<div id='flash' onclick='deleteFlash()'>
-                        <img src='../../projetZero/public/img/coucouIcon.png'/>
-                        <h1>%s</h1>
-                        <p>ici vous-pourez :</p>
-                        <p>modifier vos bouteilles,</p>
-                        <p>crée de nouvelles bouteilles,</p>
-                        <p>et les supprime.</p>
-                        <h6> Pour effacer cette fenêtre cliqué dessus.</h6>
-                        
-                    </div>
-                     ", [$success]);
+if (!isset($_COOKIE['panel_info'])) {
+    if (isset($_GET['success'])) {
+        setcookie('panel_info', 'admin', time() + 60 * 60 * 24, null, null, null, true);
+        vprintf("<div id='flash' onclick='deleteFlash()'>
+                            <img src='../../projetZero/public/img/coucouIcon.png'/>
+                            <h1>%s</h1>
+                            <p>ici vous-pourez :</p>
+                            <p>modifier vos bouteilles,</p>
+                            <p>crée de nouvelles bouteilles,</p>
+                            <p>et les supprime.</p>
+                            <h6> Pour effacer cette fenêtre cliqué dessus.</h6>
+                            
+                        </div>
+                         ", [$success]);
+    }
 }
 ?>
-<!-- OVERLAY
-    =============================== -->
-<div class="overlay fourth">
-    <div class="container-loading-img">
-        <span class="loader-59">
-    </div>
-</div>
+
 <!-- CARD USER
 =============================== -->
 <div class="container-general">
@@ -34,7 +31,7 @@ if (isset($_GET['success'])) {
                     </div>
                     <div class="text-container">
                         <p class="title">bonjour</p>
-                        <p class="p"><?=$_COOKIE['user']?></p>
+                        <p class="p"><?= ($_COOKIE['accaccept_cookie'])?'VISITOR':'VISITOR'?></p>
                     </div>
                 </div>
                 <div class="back">

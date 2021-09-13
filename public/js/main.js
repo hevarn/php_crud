@@ -39,22 +39,22 @@ function move(e) {
 /*===== LOADING ANIMATION HOME PAGE =====*/
 //OVERLAY
 TweenMax.to(".first", 1.5, {
-  delay: 2.2,
+  delay: 1.4,
   top: "-170%",
   ease: Expo.easeInOut,
 });
 TweenMax.to(".second-th", 1.5, {
-  delay: 2.2,
+  delay: 1.4,
   top: "-170%",
   ease: Expo.easeInOut,
 });
 TweenMax.to(".third", 1.5, {
-  delay: 2.2,
+  delay: 1.4,
   top: "-170%",
   ease: Expo.easeInOut,
 });
 TweenMax.to(".fourth", 1.5, {
-  delay: 2.2,
+  delay: 1.4,
   top: "-170%",
   ease: Expo.easeInOut,
 });
@@ -65,7 +65,7 @@ TweenMax.to(".fourth", 1.5, {
 gsap.from(".nav-item", {
   opacity: 0,
   duration: 1,
-  delay: 1.5,
+  delay: 1,
   y: 30,
   stagger: 0.2,
 });
@@ -74,19 +74,19 @@ gsap.from(".nav-item", {
 gsap.from(".home-paragraphe", {
   opacity: 0,
   duration: 1,
-  delay: 1.5,
+  delay: 0.4,
   y: 30
 });
 gsap.from(".home-button", {
   opacity: 0,
   duration: 1,
-  delay: 1.6,
+  delay: 0.6,
   y: 30
 });
 gsap.from(".home-img", {
   opacity: 0,
   duration: 1,
-  delay: 1.4,
+  delay: 1,
   y: 30
 });
 
@@ -95,19 +95,19 @@ gsap.from(".home-img", {
 gsap.from(".card", {
   opacity: 0,
   duration: 1,
-  delay: 1.5,
+  delay: 0.5,
   y: 30
 });
 gsap.from(".body-card", {
   opacity: 0,
   duration: 1,
-  delay: 1.6,
+  delay: 0.7,
   y: 30
 });
 gsap.from(".imag-card-wine", {
   opacity: 0,
   duration: 1,
-  delay: 1.4,
+  delay: 1.2,
   y: 30
 });
 
@@ -115,7 +115,7 @@ gsap.from(".imag-card-wine", {
 gsap.from(".img-cardWine", {
   opacity: 0,
   duration: 1,
-  delay: 1.2,
+  delay: 1,
   x: -50
 });
 

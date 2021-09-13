@@ -5,9 +5,11 @@ namespace App\Controller\Admin;
 use App\Models\Tags;
 use App\Models\ImageSql;
 use App\Models\BottleSql;
+use App\Models\UploadFiles;
 use App\Validation\Validator;
 use App\Controller\Controller;
 use App\Manager\PictureManager;
+use App\Validation\ValidatorPicture;
 
 class AdminController extends Controller
 {
@@ -30,33 +32,44 @@ class AdminController extends Controller
     public function sendDataForCreate()
     {
         $this->isAdmin();
-        $validator = new Validator($_POST);
-        $errors = $validator->validate([
-            'year' => ['limitYear']
+        $pictureFiles = new ValidatorPicture($_FILES);
+        $errors = $pictureFiles->validatePicture([
+            'picture' => ['required','checkInsideFile',
+                          'checkEXT','checkValidePictureName',
+                          'size']
         ]);
         if($errors){
             $_SESSION['errors'][] = $errors;
             return header("Location: /projetZero/admin/panel/create");
             exit();
         }
-        $pictureManager = new PictureManager($_FILES['picture']);
-        list($resultCheckImage, $uploadFiles) = $pictureManager->manage();
-        if ($resultCheckImage) {
-            $imageSend = new ImageSql($this->getDB());
-            $resultImageSend = $imageSend->CreateImageInToDatabase($uploadFiles);
-            if ($resultImageSend) {
-                $req = new BottleSql($this->getDB());
-                $tags = array_pop($_POST);
-                $result = $req->create($_POST, $uploadFiles, $tags);
-                if ($result) {
-                    var_dump($result);
-                    return header("Location: /projetZero/admin/panel");
-                }
+        $checkDataForm = new Validator($_POST);
+        $errors = $checkDataForm->validate([
+            'name' => ['required', 'min:3', 'notSpecialCaractere'],
+            'year' => ['limiYear'],
+            'grapes' => ['required','notSpecialCaractere'],
+            'contry' => ['required','notSpecialCaractere'],
+            'region' => ['required','notSpecialCaractere'],
+            'description' => ['required','notSpecialCaractere']
+        ]);
+        if($errors){
+            $_SESSION['errors'][] = $errors;
+            return header("Location: /projetZero/admin/panel/create");
+            exit();
+        }
+        $uploadFiles = (new UploadFiles($_FILES['picture']))->uploadInFolder();
+        $imageSend = new ImageSql($this->getDB());
+        $resultImageSend = $imageSend->CreateImageInToDatabase($uploadFiles);
+        if($resultImageSend){
+            $req = new BottleSql($this->getDB());
+            $tags = array_pop($_POST);
+            $result = $req->create($_POST, $uploadFiles, $tags);
+            if ($result) {
+                var_dump($result);
+                return header("Location: /projetZero/admin/panel");
             } else {
                 return header("Location: /projetZero/admin/panel/valid");
             }
-        } else {
-            return header("Location: /projetZero/admin/panel/valid");
         }
     }
     public function generateTemplateForModify(int $id)
@@ -70,25 +83,41 @@ class AdminController extends Controller
     public function sendDataForUpdate(int $id)
     {
         $this->isAdmin();
-        $pictureManager = new PictureManager($_FILES['picture'], $id);
-        list($resultCheckImage, $uploadFiles) = $pictureManager->manage();
-        if ($resultCheckImage) {
-            $imageSend = new ImageSql($this->getDB());
-            $resultImageSend = $imageSend->CreateImageInToDatabase($uploadFiles);
-            if ($resultImageSend) {
-                $req = new BottleSql($this->getDB());
-                $tags = array_pop($_POST);
-                $result = $req->sendUpdate($id, $_POST, $uploadFiles, $tags);
-                if ($result) {
-                    return header("Location: /projetZero/admin/panel?=success");
-                } else {
-                    return header("Location: /projetZero/admin/panel/modify/$id");
-                }
+        $pictureFiles = new ValidatorPicture($_FILES);
+        $errors = $pictureFiles->validatePicture([
+            'picture' => ['required','checkInsideFile','checkEXT','checkValidePictureName','size']
+        ]);
+        if($errors){
+            $_SESSION['errors'][] = $errors;
+            return header("Location: /projetZero/admin/panel/create");
+            exit();
+        }
+        $checkDataForm = new Validator($_POST);
+        $errors = $checkDataForm->validate([
+            'name' => ['required', 'min:3', 'notSpecialCaractere'],
+            'year' => ['limiYear'],
+            'grapes' => ['required','notSpecialCaractere'],
+            'contry' => ['required','notSpecialCaractere'],
+            'region' => ['required','notSpecialCaractere'],
+            'description' => ['required','notSpecialCaractere']
+        ]);
+        if($errors){
+            $_SESSION['errors'][] = $errors;
+            return header("Location: /projetZero/admin/panel/create");
+            exit();
+        }
+        $uploadFiles = (new UploadFiles($_FILES['picture']))->uploadInFolder();
+        $imageSend = new ImageSql($this->getDB());
+        $resultImageSend = $imageSend->CreateImageInToDatabase($uploadFiles);
+        if($resultImageSend){
+            $req = new BottleSql($this->getDB());
+            $tags = array_pop($_POST);
+            $result = $req->sendUpdate($id, $_POST, $uploadFiles, $tags);
+            if ($result) {
+                return header("Location: /projetZero/admin/panel?=success");
             } else {
                 return header("Location: /projetZero/admin/panel/modify/$id");
             }
-        } else {
-            return header("Location: /projetZero/admin/panel/modify/$id");
         }
     }
 

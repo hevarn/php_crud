@@ -29,7 +29,8 @@ class Validator{
                             $this->checkValideMail($name, $this->data[$name]);
                             break;
                         case 'same':
-                            $this->samePassword($this->data['password'],$this->data['confirmPassword']);
+                            $this->samePassword($this->data['password'],
+                            $this->data['confirmPassword']);
                             break;
                         case 'check':
                             $this->validePWD($name,$this->data[$name]);
@@ -57,7 +58,7 @@ class Validator{
     }
     private function checkValideUserName(string $name, string $value){
         $value = trim($value);
-        if(preg_match('/(?=.*[@#\-_$%^&+=§!\?])/',$value) == 0) {
+        if(preg_match('/(?=.*[@#\-_$%^&+=§!\?])/',$value)) {
             $this->errors[$name][] = "{$name} le nom d'utilisateur de doit pas contenir de caractères spéciaux";
         }
     }
@@ -66,7 +67,7 @@ class Validator{
         preg_match_all('/(\d+)/',$rules, $matches);
         $limit = (int)$matches[0][0];
         if (strlen($value) < $limit){
-            $this->errors[$name][] = "{$name} doit comprend un minimum de {$limit} caractères.";
+            $this->errors[$name][] = "{$name} doit comprendre un minimum de {$limit} caractères.";
         }
     }
 
@@ -83,31 +84,40 @@ class Validator{
 
         if($value != $value1) {
 
-            $this->errors['confirmPassword'][] = "la confirmation de mot de passe ne marche pas.";
+            $this->errors['confirmPassword'][] = 
+            "la confirmation de mot de passe ne marche pas.";
         }
     }
     protected function validePWD(string $name,string $value){
         $value = trim($value);
-        if(preg_match('/^(?=.*\d)/',$value) == 0){
-            $this->errors[$name][] = "{$name} le mot de passe doit contenir un ou plusieur chiffres";
+        if(!preg_match('/^(?=.*\d)/',$value)){
+            $this->errors[$name][] = "{$name} 
+            le mot de passe doit contenir un ou plusieurs chiffres";
         }
-        if(preg_match('/(?=.*[A-Z])/',$value) == 0){
-            $this->errors[$name][] = "{$name} le mot de passe doit contenir au moins un majuscule";
+        if(!preg_match('/(?=.*[A-Z])/',$value)){
+            $this->errors[$name][] = "{$name} 
+            le mot de passe doit contenir au moins une majuscule";
         }
-        if(preg_match('/(?=.*[@#\-_$%^&+=§!\?])/',$value) == 0){
-            $this->errors[$name][] = "{$name} le mot de passe doit contenir un ou plusieur caractères spéciaux ";
+        if(!preg_match('/(?=.*[@#\-_$%^&+=§!\?])/',$value)){
+            $this->errors[$name][] = "{$name} 
+            le mot de passe doit contenir un ou plusieurs caractères spéciaux ";
         }
-        $ext = array('123456a@','@Picture1','password@123','12345678Azerty@','111111Azerty@','Qwerty123@','Abcde123@','Million2@','iloveyou123@','Aaron431@','Qqww1122@');
+        $ext = array('123456a@','@Picture1','password@123','12345678Azerty@',
+        '111111Azerty@','Qwerty123@','Abcde123@','Million2@',
+        'iloveyou123@','Aaron431@','Qqww1122@');
+       
         if (in_array($value,$ext)){
-            $this->errors[$name][] = "{$name} le mot de passe est trop commun ";
+            $this->errors[$name][] = 
+            "{$name} le mot de passe est trop commun ";
         }
 
     }
 
     protected function limitYear(string $name, string $value){
         $value = trim($value);
-        if($value > 2021){
-            $this->errors[$name][] = "{$name} la date est superieur à l'année en cours";
+        if($value >= 2021){
+            $this->errors[$name][] = 
+            "{$name} la date est superieur à l'année en cours";
         }
     }
 

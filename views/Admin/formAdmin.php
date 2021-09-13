@@ -5,23 +5,20 @@
             <h2 class="home-title" id="title-down"><?= $params['req']->name ?? 'Créer une nouvelle bouteille' ?></h2>
         </div>
     </div>
-    <?php if(!isset($_COOKIE['error'])):?>
-        <?php if (isset($_SESSION['errors'])) : ?>
-            <?php setcookie('error', 'admin', time() + 60 * 60 * 24,null,null,null,true);?>
-            <?php foreach ($_SESSION['errors'] as $errorsArray) : ?>
-                <div id="general-error" onclick="deleteErrors()">
-                    <?php foreach ($errorsArray as $errors) : ?>
-                        <div class="error">
-                            <?php foreach ($errors as $error) : ?>
-                                <li><?= $error ?></li>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            <?php endforeach; ?>
+    <?php if (isset($_SESSION['errors'])) : ?>
+        <?php foreach ($_SESSION['errors'] as $errorsArray) : ?>
+            <div id="general-error" onclick="deleteErrors()">
+                <?php foreach ($errorsArray as $errors) : ?>
+                    <div class="error">
+                        <?php foreach ($errors as $error) : ?>
+                            <li><?= $error ?></li>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
         <?php endif; ?>
-    <?php endif; ?>
-    
+        <?php unset($_SESSION['errors'])?>
     <form action="<?= isset($params['req']) ? "/projetZero/admin/panel/modify/{$params['req']->id}" : "/projetZero/admin/panel/valid" ?>" method="POST" enctype="multipart/form-data">
         <section id="contact">
             <div class="content">

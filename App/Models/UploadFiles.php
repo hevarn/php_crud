@@ -3,10 +3,7 @@
 namespace App\Models;
 
 
-use App\Models\UploadedPicture;
-
-
-class UploadFiles extends UploadedPicture
+class UploadFiles 
 {
     public $picture;
 

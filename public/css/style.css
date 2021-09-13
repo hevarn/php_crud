@@ -1459,7 +1459,7 @@
         top: 0%;
         left: 0%;
         background-color: #d4d4d445;
-        filter: blur(5px);
+        backdrop-filter: blur(5px);
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -2061,7 +2061,7 @@
     }
 
     .card-info-admin {
-        max-width: 424px;
+        max-width: 295px;
     }
 
     /* adminShowTag */

@@ -1,9 +1,6 @@
 <?php
 
 use Router\Router;
-use App\Errors\CustomError;
-use App\Manager\PictureManager;
-
 
 require '../vendor/autoload.php';
 
