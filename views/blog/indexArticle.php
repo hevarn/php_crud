@@ -31,7 +31,7 @@
                     <div class="container-links">
                         <?php foreach ($req->ToRecoverTheBottleTags() as $tag) : ?>
                             <div class="container-btn-cardWine" id="colorWine">
-                                <a href="/projetZero/tags/<?= $tag->id ?>">Voir tout les <?= $tag->name ?></a>
+                                <a href="/projetZero/tags/<?= $tag->id ?>">Plus de <?= $tag->name ?></a>
                             </div>
                         <?php endforeach; ?>
                         <div class="container-btn-cardWine">
@@ -47,7 +47,7 @@
                     <div class="container-links">
                         <?php foreach ($req->ToRecoverTheBottleTags() as $tag) : ?>
                             <div class="container-btn-cardWine" id="colorWine">
-                                <a href="/projetZero/tags/<?= $tag->id ?>">Voir tout les <?= $tag->name ?></a>
+                                <a href="/projetZero/tags/<?= $tag->id ?>">Plus de <?= $tag->name ?></a>
                             </div>
                         <?php endforeach; ?>
                         <div class="container-btn-cardWine">

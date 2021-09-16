@@ -55,16 +55,17 @@ abstract class ModelSql
         }
         return $this->query("INSERT INTO {$this->table} ($firstParenthesis) VALUE ($secondParenthesis)",$data);
     }
-
+    
     public function query(string $sql, array $param = null, bool $single = null)
     {
         $method = is_null($param) ? 'query' : 'prepare';
-
+        
         if(strpos($sql, 'DELETE') === 0 
         || strpos($sql, 'UPDATE') === 0 
         || strpos($sql, 'INSERT') === 0) {
             $stmt = $this->db->getPDO()->$method($sql);
             $stmt->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
+            var_dump($param);die();
             return $stmt->execute($param);
         }
         $fetch = is_null($single) ? 'fetchAll' : 'fetch';

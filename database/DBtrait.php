@@ -29,5 +29,13 @@ trait DBtrait {
         }else{
             return header('Location: /projetZero/admin/connect');
           }
-    }    
+    }  
+    
+    protected function isUserRegistered(){
+        if(isset($_SESSION['auth']) && $_SESSION['auth'] === 0){
+            return true;
+        }else{
+            return header('Location: /projetZero/admin/connect');
+          }
+    }
 }

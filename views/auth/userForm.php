@@ -25,7 +25,7 @@
             </div>
         <?php endforeach; ?>
     <?php endif; ?>
-    <?php session_destroy(); ?>
+
     <div class="container-loginForm">
         <div class="container">
             <div class="accordion v1">

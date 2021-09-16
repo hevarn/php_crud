@@ -11,39 +11,6 @@ class UserSql extends ModelSql
     // private $password;
     // private $confirmPassword;
     
-    // public function setName($name){
-    //     $name = $_POST['username'];
-    //     $this->name= $name;
-    //     return $this;
-    // }
-    // public function getName(){
-    //     return $this->name;
-    // }
-    // public function setEmail($email){
-    //     $email = $_POST['email'];
-    //     $this->email= $email;
-    //     return $this;
-    // }
-    // public function getEmail(){
-    //     return $this->email;
-    // }
-    // public function setPassword($password){
-    //     $password = $_POST['password'];
-    //     $this->password= $password; 
-    //     return $this;
-    // }
-    // public function getPassword(){
-    //     return $this->password;
-    // }
-    // public function setConfirmPassword($confirmPassword){
-    //     $confirmPassword = $_POST['confirmPassword'];
-    //     $this->confirmPassword= $confirmPassword;
-    //     return $this;
-    // }
-    // public function getConfirmPassword(){
-    //     return $this->confirmPassword;
-    // }
-
 
 
     public function getByUsername(string $username)
@@ -51,15 +18,19 @@ class UserSql extends ModelSql
         return $this->query("SELECT * FROM {$this->table} WHERE username = ?", [$username], true);
     }
 
-    // public function UserDataValidation(){
-    //     if(empty($name)) || empty($email)
-    //     }
-    //}
-    public function CreateUser(array $data)
+    public function arrayexplode($data){
+        $encrypted = password_hash($data['password'],PASSWORD_DEFAULT);
+        $value = [$data['username'],$data['email'],$encrypted];
+        $this->value = $value;
+        return $this->value;
+    }
+    public function create(array $data, ?string $pictureName = null , ?array $relations = null)
     { 
-        parent::Create($data);
+        // parent::Create($data);
+        $this->arrayexplode($data);
         $stmt = $this->db->getPDO()->lastInsertId();
         $stmt = $this->db->getPDO()->prepare("INSERT INTO {$this->table} (username, email, password) VALUE (?, ?, ?)");
-        $stmt->execute();
+        $stmt->execute($this->value);
+        return true;
     }
 }
