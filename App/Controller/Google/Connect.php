@@ -7,6 +7,8 @@ class Connect
 {
     public function gConnect()
     {
+        var_dump('rpout');die();
+
         if (isset($_GET['code'])) {
             $client = new Client([
                 'timeout' =>2.0,
@@ -22,7 +24,7 @@ class Connect
                         'code' => $_GET['code'],
                         'client_id' => CLIENT_ID,
                         'client_secret' => CLIENT_SECRET,
-                        'redirect_uri' => URI,
+                        'redirect_uri' => 'http://localhost:8888/projetZero/connect/googlelogin',
                         'grant_type' => 'authorization_code'
                     ]
                 ]);

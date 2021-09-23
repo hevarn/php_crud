@@ -14,9 +14,7 @@ define('db_user', 'root');
 define('db_pwd', 'root');
 define("F_SIZE", "4M");
 define("H_FILE", false);
-define('CLIENT_ID','519713859940-i1e559p9sd3nhfmilqm8vdktq0mcaumu.apps.googleusercontent.com');
-define('CLIENT_SECRET','idfHpcLkQNF1fslKKBI7r3s4');
-define('URI','http://localhost:8888/projetZero/connect/googlelogin');
+
 
 
 $router = new Router($_GET['url']);

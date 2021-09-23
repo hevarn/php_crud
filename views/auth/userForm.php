@@ -1,3 +1,4 @@
+<?php require_once 'client_identify.php'?>
 <!--MAIN
     ==========================-->
 <main class="main-formLogin">
@@ -46,7 +47,7 @@
                             <input type="email" name="email" placeholder="Email" />
                             <input type="password" name="password" placeholder="mot de passe " />
                             <input type="password" name="confirmPassword" placeholder="confirmez votre mot de passe" />
-                            <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=email&access_type=online&response_type=code&redirect_uri=<?= urlencode(URI)?>&client_id=<?= CLIENT_ID?>">connection avec google</a>
+                            <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=email&access_type=online&response_type=code&redirect_uri=http://localhost:8888/projetZero/connect/googlelogin&client_id=<?= CLIENT_ID?>">connection avec google</a>
                             <button type="submit" id="login-button">Login</button>
                         </form>
                     </div>
