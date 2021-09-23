@@ -7,12 +7,16 @@ require '../vendor/autoload.php';
 define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
 define('ASSETS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR);
 define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) . DIRECTORY_SEPARATOR);
+define('CERTIFICATE', dirname(__DIR__). DIRECTORY_SEPARATOR.'certificate'. DIRECTORY_SEPARATOR);
 define('db_name', 'projetZero');
 define('db_host', 'localhost');
 define('db_user', 'root');
 define('db_pwd', 'root');
 define("F_SIZE", "4M");
 define("H_FILE", false);
+define('CLIENT_ID','519713859940-i1e559p9sd3nhfmilqm8vdktq0mcaumu.apps.googleusercontent.com');
+define('CLIENT_SECRET','idfHpcLkQNF1fslKKBI7r3s4');
+define('URI','http://localhost:8888/projetZero/connect/googlelogin');
 
 
 $router = new Router($_GET['url']);
@@ -35,6 +39,8 @@ $router->post('/admin/connect/create','App\Controller\Users\UserController@Creat
 
 $router->post('/admin/valid', 'App\Controller\Users\UserController@sendDataUserConnect');
 $router->get('/admin/logout', 'App\Controller\Users\UserController@destroySession');
+
+$router->get('/connect/googlelogin','App\Controller\Google\Connect@gConnect');
 
 $router->get('/cookie', 'App\Controller\BlogController@cookie');
 

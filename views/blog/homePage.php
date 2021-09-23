@@ -4,6 +4,7 @@ if (isset($_COOKIE['accaccept_cookie'])) {
 } else {
     $showcookie = true;
 }
+// dd((string)$response->getBody());
 ?>
 <section class="general-section">
     <?php if ($showcookie) : ?>
@@ -11,8 +12,8 @@ if (isset($_COOKIE['accaccept_cookie'])) {
             <div class="cookie-window">
                 <img src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . 'cookie.png' ?> " />
                 <h3>Bienvenue dans votre cave à vin </h3>
-                <p> ce site utilise des cookies personnalisations ainsi que des cookies de session pour fonctionner corréctement rien de bien méchant </p>
-                <p> il est possblie de consulter la loie concernant les cookies via le site <a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees"></a></p>
+                <p> ce site utilise des cookies personnalisations ainsi que des cookies de session pour fonctionner correctement rien de bien méchant </p>
+                <p> il est possible de consulter la loi concernant les cookies via le site <a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees"></a></p>
                 <p> vous pouvez personnaliser votre avec un nom</p>
                 <form class="form-log display" action="/projetZero/cookie" method="GET">
                     <input type="text" name="visitorname" placeholder="Entrée un nom" />
@@ -36,12 +37,12 @@ if (isset($_COOKIE['accaccept_cookie'])) {
                     <img class="move" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . 'img_homepage' . DIRECTORY_SEPARATOR . 'italia.png' ?>" alt="img-background-home" data-speed="1" />
                 </div>
                 <div class="home-data">
-                    <?php if($_COOKIE['accaccept_cookie']):?> 
-                        <h2 class="home-title-up"><?= $_COOKIE['accaccept_cookie']?></h2>
-                    <?php else :?>
+                    <?php if (isset($_SESSION['email'])):?>
+                        <h2 class="home-title-up"><?=$_SESSION['email']?></h2>
+                    <?php else : ?>
                         <h2 class="home-title-up">WELCOLME</h2>
                     <?php endif; ?>
-                        <h3 class="home-title-mid">welcome</h3>
+                    <h3 class="home-title-mid">welcome</h3>
                     <h1 class="home-title">My Cave</h1>
                     <div class="user">
                     </div>

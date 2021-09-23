@@ -6,6 +6,7 @@ use App\Models\UserSql;
 use App\Validation\Validator;
 use App\Controller\Controller;
 
+
 class UserController extends Controller
 {
     public function connectUser()
@@ -15,25 +16,30 @@ class UserController extends Controller
     }
     public function sendDataUserConnect()
     {
+        // $_SESSION = array();
+        // if (ini_get("session.use_cookies")) {
+        //     $params = session_get_cookie_params();
+        //     setcookie(session_name(), '', time() - 42000,
+        //         $params["path"], $params["domain"],
+        //         $params["secure"], $params["httponly"]
+        //     );
+        // }
+        // session_destroy();
+
         $user = (new UserSql($this->getDB()))->getByUsername($_POST['username']);
         if (password_verify($_POST["password"], $user->password)) {
-            if(!session_start()) {
-                $_SESSION['auth'] = (int)$user->admin;
-                if ($_SESSION['auth'] == 0) {
-                    ini_set('session.name', 'connexion');
-                    session_name('user');
-                    session_set_cookie_params('connexion', 'user', time() + 60 * 60 * 24, null, null, null, true);
-                    session_start();
-                    return header('Location: /projetZero/posts');
-                }
-                ini_set('session.name', 'connexion');
-                    $_SESSION['auth'] = (int)$user->admin;
-                session_name('admin');
-                session_set_cookie_params('connexion', 'user', time() + 60 * 60 * 24, null, null, null, true);
-                session_start();
+            $_SESSION['auth'] = (int)$user->admin;
+            if($_SESSION['auth'] === 1){
+                setcookie('connexion', $_POST['username'], time() + 60 * 60 * 24, '/', null, null, true);
                 return header("Location: /projetZero/admin/panel?success");
             }
+            session_name('user');
+            setcookie('connexion', $_POST['username'], time() + 60 * 60 * 24, '/', null, null, true);
+            return header("Location: /projetZero/?success");
         } else {
+            unset($_SESSION['errors']);
+            $errors[][] = 'le mot de passe ou le nom d\'utilisateur est invalide';
+            $_SESSION['errors'][] = $errors;
             return header('Location: /projetZero/admin/connect');
         }
     }
@@ -54,10 +60,9 @@ class UserController extends Controller
         }
         $user = (new UserSql($this->getDB()))->create($_POST);
         if ($user) {
-            session_name('user');
+            session_id('user');
             setcookie('connexion', 'user', time() + 60 * 60 * 24, '/', null, null, true);
-            var_dump(session_name('user'));
-            var_dump(setcookie('connexion', 'user', time() + 60 * 60 * 24, null, null, null, true)); die();
+            var_dump(session_id('user')); die();
             return header('Location: /projetZero/posts');
         }
         return header('Location: /projetZero/admin/connect');
@@ -67,7 +72,9 @@ class UserController extends Controller
 
     public function destroySession()
     {
+
         session_destroy();
         return header('Location: /projetZero/');
     }
+    
 }

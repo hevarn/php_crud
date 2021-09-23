@@ -13,5 +13,9 @@
             "Database\\": "database/"
         }
     },
-    "require": {}
+    "require": {
+        "google/apiclient": "^2.11",
+        "guzzlehttp/guzzle": "^7.3",
+        "symfony/var-dumper": "^5.3"
+    }
 }
