@@ -1,7 +1,5 @@
-___ erreur1 = Fatal error: Uncaught Error: Class 'Router\Router' not found in /Applications/MAMP/htdocs/projetZero/public/index.php:7 Stack trace: #0 {main} thrown in /Applications/MAMP/htdocs/projetZero/public/index.php on line 7;
-___ solution = erreur dans "composer dump-autoload" besoin dans refaire un.
-
-__erreur 2 affichage fichier index.php;
-__solution = parce que j'ai pas mi "<?=" pour echo;  
-
+ajouter un jolie var_dump;
+---> composer require symfony/var-dumper
+ajouter GuzzleHttp pour faire les request http à google Auth;
+---> composer require guzzlehttp/guzzle:^7.0
 
