@@ -93,7 +93,7 @@
                             <div class="d4"></div>
                         </li>
                     <?php endif;?>
-                    
+                    <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 2) : ?>
                         <li class="nav-item center nav-link" id="logout-custom">
                             <a class="link_burger_nav log-out"href="/projetZero/admin/logout">LOG-OUT</a>
                             <div class="d1"></div>
@@ -101,7 +101,7 @@
                             <div class="d3"></div>
                             <div class="d4"></div>
                         </li>
-                
+                    <?php endif;?>
                 </ul>
             </div>
         </nav>

@@ -24,13 +24,31 @@ class UserSql extends ModelSql
         $this->value = $value;
         return $this->value;
     }
+    public function arrayexplodeToGoogleUser($data){
+        $value = [$data['sub'],$data['picture'],$data['email']];
+        $this->value = $value;
+        return $this->value;
+    }
     public function create(array $data, ?string $pictureName = null , ?array $relations = null)
     { 
         // parent::Create($data);
         $this->arrayexplode($data);
+        var_dump($this->value);die();
         $stmt = $this->db->getPDO()->lastInsertId();
         $stmt = $this->db->getPDO()->prepare("INSERT INTO {$this->table} (username, email, password) VALUE (?, ?, ?)");
         $stmt->execute($this->value);
         return true;
+    }
+    public function createUserIdentifyByGoogle(array $data, ?string $pictureName = null , ?array $relations = null)
+    { 
+        $this->arrayexplodeToGoogleUser($data);
+        $stmt = $this->db->getPDO()->lastInsertId();
+        $stmt = $this->db->getPDO()->prepare("INSERT INTO userbygoogle (sub, picture, email) VALUE (?, ?, ?)");
+        $stmt->execute($this->value);
+        return true;
+    }
+    public function getUserByGoogle(string $useEmail)
+    {
+        return $this->query("SELECT * FROM userbygoogle WHERE email = ?", [$useEmail], true);
     }
 }

@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '9dbf0ab3845a51517806c1a6ae221565b1e47a4f',
+        'reference' => 'cec2727d043a7fdc54760ab17400b2ba5611e7f0',
         'name' => 'he-varne/projet-zero',
         'dev' => true,
     ),
@@ -43,7 +43,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '9dbf0ab3845a51517806c1a6ae221565b1e47a4f',
+            'reference' => 'cec2727d043a7fdc54760ab17400b2ba5611e7f0',
             'dev_requirement' => false,
         ),
         'psr/http-client' => array(

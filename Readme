@@ -3,3 +3,8 @@ ajouter un jolie var_dump;
 ajouter GuzzleHttp pour faire les request http à google Auth;
 ---> composer require guzzlehttp/guzzle:^7.0
 
+créé un compte google api 
+ajouter un fichier : client_identify.php avec deux define();
+---> define('CLIENT_ID','id client de google');
+     define('CLIENT_SECRET','id secret googleapis');
+

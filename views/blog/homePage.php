@@ -37,7 +37,8 @@ if (isset($_COOKIE['accaccept_cookie'])) {
                     <img class="move" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . 'img_homepage' . DIRECTORY_SEPARATOR . 'italia.png' ?>" alt="img-background-home" data-speed="1" />
                 </div>
                 <div class="home-data">
-                    <?php if (isset($_SESSION['email'])):?>
+                    <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 2):?>
+                        <img src="<?= $_SESSION['picture']?>"/>
                         <h2 class="home-title-up"><?=$_SESSION['email']?></h2>
                     <?php else : ?>
                         <h2 class="home-title-up">WELCOLME</h2>

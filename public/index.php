@@ -8,6 +8,7 @@ define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEP
 define('ASSETS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR);
 define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) . DIRECTORY_SEPARATOR);
 define('CERTIFICATE', dirname(__DIR__). DIRECTORY_SEPARATOR.'certificate'. DIRECTORY_SEPARATOR);
+define('VENDOR', dirname(__DIR__). DIRECTORY_SEPARATOR.'vendor'. DIRECTORY_SEPARATOR);
 define('db_name', 'projetZero');
 define('db_host', 'localhost');
 define('db_user', 'root');

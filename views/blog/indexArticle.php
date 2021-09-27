@@ -22,7 +22,7 @@
                             <img class="imag-card-wine" src="<?= SCRIPTS . 'img' . DIRECTORY_SEPARATOR . $image->name ?>">
                         <?php endforeach; ?>
                         <div class="body-card">
-                            <h1> <?= $req->name ?> </h1>
+                            <h1> <?= $req->name ?></h1>
                             <p> <?= $req->year ?></p>
                             <p> <?= $req->grapes ?></p>
                         </div>

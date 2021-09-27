@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Controller\Users;
+require_once 'client_identify.php';
 
+use GuzzleHttp\Client;
 use App\Models\UserSql;
 use App\Validation\Validator;
 use App\Controller\Controller;
@@ -72,7 +74,20 @@ class UserController extends Controller
 
     public function destroySession()
     {
+        if(isset($_SESSION['auth']) && $_SESSION['auth'] === 2){
+            $client = new Client([
+                'timeout' =>2.0,
+                'verify' => CERTIFICATE.'cacert.pem',
+            ]);
+            try{
+                $response = $client->request('GET', 'https://oauth2.googleapis.com/revoke?token='.$_SESSION['token']);
+                session_destroy();
+                return header('Location: /projetZero/');
+            }catch(\GuzzleHttp\Exception\ClientException $exception){
+                dd($exception->getMessage());
 
+            }
+        }
         session_destroy();
         return header('Location: /projetZero/');
     }
