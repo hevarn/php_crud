@@ -17,8 +17,8 @@
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <!-- CSS
     =============================== -->
-
     <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'style.css' ?>" />
+    <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'test.css' ?>" />
     
 </head>
 
@@ -92,6 +92,13 @@
                             <div class="d3"></div>
                             <div class="d4"></div>
                         </li>
+                        <li class="nav-item center nav-link">
+                            <a class="link_burger_nav"href="/projetZero/user/profile">PROFILE</a>
+                            <div class="d1"></div>
+                            <div class="d2"></div>
+                            <div class="d3"></div>
+                            <div class="d4"></div>
+                        </li>
                     <?php endif;?>
                     <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 2) : ?>
                         <li class="nav-item center nav-link" id="logout-custom">
@@ -129,6 +136,7 @@
         <?= var_dump('proput'); ?>
     <?php else : ?>
         <script src="<?= SCRIPTS . 'js' . DIRECTORY_SEPARATOR . 'main.js' ?>"></script>
+        <script src="<?= SCRIPTS . 'js' . DIRECTORY_SEPARATOR . 'test.js' ?>"></script>
     <?php endif; ?>
 </body>
 

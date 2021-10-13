@@ -35,10 +35,10 @@ $router->post('/admin/panel/modify/:id', 'App\Controller\Admin\AdminController@s
 
 $router->get('/admin/connect', 'App\Controller\Users\UserController@connectUser');
 $router->post('/admin/connect/create','App\Controller\Users\UserController@CreateUser');
-
 $router->post('/admin/valid', 'App\Controller\Users\UserController@sendDataUserConnect');
 $router->get('/admin/logout', 'App\Controller\Users\UserController@destroySession');
 
+$router->get('/user/profile','App\Controller\Users\UserController@UserProfile');
 $router->get('/connect/googlelogin','App\Controller\Google\Connect@gConnect');
 
 $router->get('/cookie', 'App\Controller\BlogController@cookie');

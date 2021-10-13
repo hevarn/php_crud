@@ -21,10 +21,8 @@ class AdminController extends Controller
     public function index()
     {
         $this->isAdmin();
-
         $req = new BottleSql($this->getDB());
         $reqs = $req->all();
-        // setcookie('user', 'admin', time() + 60 * 60 * 24);
         return $this->view('Admin/indexAdmin', compact('reqs'));
     }
 

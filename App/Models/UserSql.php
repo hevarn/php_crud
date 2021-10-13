@@ -6,17 +6,14 @@ class UserSql extends ModelSql
 {
 
     protected $table = "user";
-    // private $name;
-    // private $email;
-    // private $password;
-    // private $confirmPassword;
-    
-
-
+   
     public function getByUsername(string $username)
     {
         return $this->query("SELECT * FROM {$this->table} WHERE username = ?", [$username], true);
     }
+    // public function getByPassword(){
+    //     return $this->query("SELECT * FROM {$this->table} WHERE password = ?", [$password]);  
+    // }
 
     public function arrayexplode($data){
         $encrypted = password_hash($data['password'],PASSWORD_DEFAULT);

@@ -86,6 +86,8 @@
     --loading-color: #d57b7b;
     --background-login-form: #fffefe2c;
     --background-sign-up-form: #fffdfd99;
+    --background-color: #fff;
+    --font-color: #444;
     /* -- FONTS -- 
     =============================== */
     --body-font: "Poppins", sans-serif;
@@ -1676,17 +1678,370 @@
         transition: all 0.5s ease;
         transform: scale(1.2);
     }
-    .contact-container{
-
-    }
     #contact-form, .form-contact{ 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
+      /* --- USERPROFILE ---
+  ==================================================
+  /////////////////////////////////////////////////
+  /////////////////////////////////////////////////
+  ================================================= */
+    	/* general container */
+	.userprofile{
+		margin-top: 2rem;
+		width: 100%;
+        height: 100vh;
+		display: flex;
+		flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        padding: 2.5vw;
+        
+	}
+	/* contaner general panel user info */
+	.container-userinfo-panel{
+		background: var(--background-color);
+		border-radius: 7px;
+		box-shadow: 20px 25px 60px #562e2ea8, -20px -20px 60px #391e1e85;
+		display: flex;
+		flex-direction: column;
+		font-family: Nunito, sans-serif;
+		height: 85%;
+		width: 100%;
+		overflow: scroll;
+		position: relative;
+	}
+
+    .userinfo-panel__content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        transition: .5s
+    }
+    .menu {
+        border-right: 1px solid hsla(0, 0%, 50.2%, 0.2);
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }    
+    .menu-user-lateral {
+        border-bottom: 1px solid hsla(0, 0%, 50.2%, 0.2);
+        padding: 10px 10px 15px;
+    }
+   
+    /* profile picture lateral bar and top post */
+    .profile-head {
+        align-items: start;
+        display: flex;
+        justify-content: space-between;
+    }
+    .profile-head__id {
+        align-items: center;
+        display: flex;
+    }
+    .profile-head__name {
+        font-weight: 700;
+    }
+    .profile-head__mail {
+        color: hsla(0, 0%, 50.2%, 0.8);
+        font-size: 0.8rem;
+    }
+    .user-profile-picture {
+        border-radius: 30px;
+        display: inline-block;
+        margin-right: 10px;
+        width: 60px;
+    }
+
+    /* menu user-profile top and lateral */
+    .menu-main{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .menu-main .menu-item{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        transition: .5s
+
+    }
+    .menu-main a{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .menu-main .menu-item:hover{
+        transition: .5s;
+        background-color: var(--first-color);
+    }
+    /* logo menu user-profile */
+    .menu-main img{
+        width: 60%;
+    }
+/* button down menu user-profile */
+    .new {
+		text-align: center;
+	}
+    .new__button {
+        height: 100%;
+        width: 100%;
+        background: #ff6a88;
+        border: 0;
+        border-radius: 50px;
+        color: var(--background-color);
+        cursor: pointer;
+        font-size: 1.6rem;
+        outline: 0;
+        transition: transform 0.2s ease;
+    }
+    .new__button:hover {
+        transform: scale(1.1);
+    }
+    /* mail box  */
+    .new-mail,
+    .new__button.active {
+        transform: scale(0);
+    }
+    /* mail popup windows */
+    .new-mail {
+        background: var(--background-color);
+        border: 1px solid hsla(0, 0%, 50.2%, 0.2);
+        border-radius: 7px;
+        bottom: 20px;
+        box-shadow: 0 11px 20px 0 transparent;
+        left:2px;
+        opacity: 0;
+        position: absolute;
+        transform-origin: bottom left;
+        transition-duration: 0.3s;
+        transition-property: transform, visibility, opacity;
+        transition-timing-function: ease-in-out;
+        visibility: hidden;
+        width: 97%;
+        z-index: 99;
+    }
+    /* BTn close  */
+    .new-mail__close {
+        cursor: pointer;
+        width: 50px;
+        padding: 5px;
+    }
+    .new-mail.active {
+        box-shadow: 0 11px 20px 0 rgba(0, 0, 0, 0.2);
+        opacity: 1;
+        transform: scale(1);
+        visibility: visible;
+    }
+    .new-mail__top {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+    .new-mail-exp,
+    .new-mail__top {
+        border-bottom: 1px solid hsla(0, 0%, 50.2%, 0.2);
+        font-weight: 700;
+    }
+    .new-mail-exp {
+        background: hsla(0, 0%, 50.2%, 0.1);
+        color: #636363;
+        padding: 10px 40px;
+    }
+    .new-mail-exp__item {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 70px 1fr;
+        margin-bottom: 10px;
+    }
+    .new-mail-exp__input {
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid hsla(0, 0%, 50.2%, 0.2);
+        font-weight: 700;
+        outline: 0;
+        padding: 5px;
+        width: 100%;
+    }
+    .new-mail-exp__input::placeholder {
+        color: #9c9c9c;
+        font-style: italic;
+        font-weight: 400;
+    }
+    .new-mail-exp__label {
+        font-size: 0.8rem;
+    }
+    /* container BTN mail popup */
+    .new-mail-foot {
+        align-items: center;
+        display: flex;
+        justify-content: space-evenly;
+        padding: 12px;
+    }
+    .new-mail__message {
+        background: var(--background-color);
+        border: 1px solid transparent;
+        border-radius: 5px;
+        color: var(--font-color);
+        max-height: 50vh;
+        min-height: 30vh;
+        outline: 0;
+        padding: 20px 40px;
+        resize: vertical;
+        width: 100%;
+    }
+    /* button inside mail popup */
+    .button {
+        background: #ebebeb;
+        border: 0;
+        border-radius: 100px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: 700;
+        line-height: 1;
+        outline: 0;
+        padding: 10px 25px;
+        text-transform: uppercase;
+    }   
+    .button-send {
+        background: #ff6a88;
+        color: var(--background-color);
+    } 
+
+    /* mails preview */
+    .mails {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+	}
+
+    /* message part */
+    .message-list > .scrollable__target {
+        padding: 15px;
+    }
+    .message-list:hover ::-webkit-scrollbar-thumb {
+        background-color: hsla(0, 0%, 47.1%, 0.2);
+    }
+    .message {
+        background: hsla(0, 0%, 50.2%, 0.08);
+        border: 1px solid hsla(0, 0%, 50.2%, 0.2);
+        border-bottom: 0;
+        color: rgba(26, 25, 25, 0.9);
+        cursor: pointer;
+        display: flex;
+        border-radius: 5px;
+    }
+    .message:last-of-type {
+        border-bottom: 1px solid hsla(0, 0%, 50.2%, 0.2);
+        border-radius: 0 0 5px 5px;
+    }
+    .message--active:before {
+        background: #ff6a88;
+        border-radius: 5px;
+        bottom: 3px;
+        content: "";
+        left: 3px;
+        top: 3px;
+        width: 4px;
+        z-index: 1;
+    }
+    .message__content {
+        padding: 15px 15px 15px 0;
+        overflow: hidden;
+    }
+
+    /* icon hover left message preview */
+    .message__title {
+        display:flex;
+        font-weight: 700;
+    }
+    .message__actions {
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        width: 20%;
+        padding: 15px;
+        transform: translateX(-10px);
+        transition: transform 0.2s ease;
+        visibility: hidden;
+    }
+    .message__icon {
+        color: hsla(0, 0%, 50.2%, 0.5);
+        font-size: 0.9rem;
+    }
+    .message__icon:hover {
+        color: var(--font-color);
+    }
+    .message:hover .message__actions {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    /* title article preview */
+    .preview {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+		border-top: 1px solid hsla(0, 0%, 50.2%, 0.2);
+	}
+    .preview__title {
+        margin-top:.4rem;
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+
+    .preview-content {
+        padding: 8px;
+    }
+    .preview-respond {
+        background: var(--background-color);
+        border: 1px solid hsla(0, 0%, 50.2%, 0.2);
+        border-radius: 5px;
+        box-shadow: 0 11px 20px 0 rgba(0, 0, 0, 0.1);
+        margin: 0 auto 20px;
+        max-width: 600px;
+    }
+    .preview-respond__content {
+        padding: 10px;
+    }
+    .paragraph {
+        margin: 10px;
+    }
+
+    /* PART GALERY */
+    .picture-galery{
+       display:flex;
+       padding: 15px;
+       transition:.5s;
+    }
+    .picture-galery img:hover{
+        transition:.5s;
+        transform: scale(1.5);
+    }
     
-    
+    .container-galery{
+        display: grid;
+        grid-gap: 10px;
+		grid-auto-flow: dense;
+    }
+    .horizontal {
+        grid-column: span 3;
+    }
+    .vertical {
+        grid-row: span 2;
+    }
+    .big {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
     
 }
 
