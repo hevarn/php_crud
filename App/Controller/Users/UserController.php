@@ -25,6 +25,15 @@ class UserController extends Controller
         return $this->view('user/userProfile');
     }
 
+    public function connectUserProfile(){
+        $user = new UserSql($this->getDB());
+        $users= $user->getByUsername($_POST['username']);
+        return $this->view('user/userProfile' ,compact('users'));
+    }
+
+    /**
+     * dispache l'admin et les user
+     */
     public function sendDataUserConnect()
     {
         $user = (new UserSql($this->getDB()))->getByUsername($_POST['username']);
@@ -33,7 +42,7 @@ class UserController extends Controller
             if($_SESSION['auth'] === 1){
                 return header("Location: /projetZero/admin/panel?success");
             }
-            return $this->view('user/userProfile' ,compact('user'));
+            $this->connectUserProfile();
         } else {
             unset($_SESSION['errors']);
             $errors[][] = 'le mot de passe ou le nom d\'utilisateur est invalide';
